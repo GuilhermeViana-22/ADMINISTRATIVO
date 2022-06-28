@@ -21,9 +21,17 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $model = new \App\models\User();
+
+        $model->name = $request->name;
+        $model->email = $request->email;
+        $model->password = $request->password;
+        $model->cpf = $request->cpf;
+        $model->save();
+
+        return response()->json($model);
     }
 
     /**
