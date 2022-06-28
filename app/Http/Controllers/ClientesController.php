@@ -23,12 +23,24 @@ class ClientesController extends Controller
      */
     public function create(Request $request)
     {
-        $model = new \App\models\User();
+        $model = new \App\models\Users();
 
         $model->name = $request->name;
         $model->email = $request->email;
         $model->password = $request->password;
+        $model->rg = $request->rg;
         $model->cpf = $request->cpf;
+        $model->cnpj = $request->cnpj;
+        $model->telefone = $request->telefone;
+        $model->cidade = $request->cidade;
+        $model->estado = $request->estado;
+        $model->municipio = $request->municipio;
+        $model->logo_empresa = 'teste.png';
+        $model->situacao_id = 1;
+        $model->tipo_situacao_iteracao_id = 1;
+        $model->cod_sistema_id = 1;
+
+        
         $model->save();
 
         return response()->json($model);

@@ -56,6 +56,9 @@ class Users extends Authenticatable
 
 // public function events() {
 //     return $this->hasMany('App\Models\Event');
+
+  
+
 // }
 
 // public function eventsAsParticipant() {
