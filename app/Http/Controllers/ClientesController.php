@@ -23,7 +23,7 @@ class ClientesController extends Controller
      */
     public function create(Request $request)
     {
-        $model = new \App\models\Users();
+        $model = new \App\models\User();
 
         $model->name = $request->name;
         $model->email = $request->email;

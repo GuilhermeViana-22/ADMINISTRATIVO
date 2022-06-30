@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Users extends Authenticatable
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -24,13 +24,6 @@ class Users extends Authenticatable
         'name',
         'email',
         'password',
-        'cpf',
-        'cnpj',
-        'telefone',
-        'cidade',
-        'estado',
-        'municipio',
-
     ];
 
     /**
@@ -52,15 +45,3 @@ class Users extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
-
-
-// public function events() {
-//     return $this->hasMany('App\Models\Event');
-
-  
-
-// }
-
-// public function eventsAsParticipant() {
-//     return $this->belongsToMany('App\Models\Event');
-// }
