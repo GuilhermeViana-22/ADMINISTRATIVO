@@ -3,11 +3,11 @@
 @section('content_header')
 <div class="painel-heading">
     <div class="row">
-        <div class="col-md-10">
-       <h6>Pesquisa de cliente</h6>
+        <div class="col-10 m-12 d-flex align-items-center">
+            <h5>Pesquisa de cliente</h5>
         </div>
-        <div class="col-md-2">
-        <button type="button" class="btn btn-success">Novo cliente</button>
+        <div class="col-2 m-12   d-flex align-items-center">
+            <button type="button" class="btn btn-success float-right"  @click.prevent="showModal()">Novo Cliente</button>
         </div>
     </div>
 </div>
@@ -15,53 +15,7 @@
 
 @section('content')
 <!---layout padrão--->
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">Nome do cliente</label>
-                        <input class="form-control" type="text" placeholder="Nome do cliente">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">Email</label>
-                        <input class="form-control" type="text" placeholder="Email do cliente">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">RG</label>
-                        <input class="form-control" type="text" placeholder="RG">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">CPF</label>
-                        <input class="form-control" type="text" placeholder="CPF">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">RG</label>
-                        <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="formFile" class="form-label">CPF</label>
-                        <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</div>
 <!-- /.card -->
 @stop
 
@@ -72,5 +26,11 @@
 @section('js')
 <script>
     $("[data-widget='collapse']").click()
+
+    function showModal() {
+       
+            $('#exampleModal').modal('show');
+        
+    }
 </script>
 @stop
