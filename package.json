@@ -21,6 +21,8 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "font-awesome": "^4.7.0"
+        "boostrap": "^2.0.0",
+        "font-awesome": "^4.7.0",
+        "jquery": "^3.6.0"
     }
 }

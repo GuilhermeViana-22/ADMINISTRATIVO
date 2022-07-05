@@ -72,11 +72,11 @@
 @stop
 
 @section('css')
-<link rel="stylesheet" href="/css/.css">
+<link rel="stylesheet" href="{{ asset('administrativo/bootstrap.css') }}">
 @stop
 
 @section('js')
-<script>
-    $("[data-widget='collapse']").click()
-</script>
+<script src="{{ asset('administrativo/jquery.js') }}" defer></script>
+<script src="{{ asset('administrativo/teste.js') }}" defer></script>
+<script src="{{ asset('administrativo/bootstrap.js') }}" defer></script>
 @stop
