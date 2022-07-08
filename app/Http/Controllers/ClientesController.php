@@ -13,6 +13,10 @@ class ClientesController extends Controller
      */
     public function index()
     {
+        $cliente =  array('nome' => 'Guilherme');
+
+        compact('cliente');
+
         return view('cliente.index');
     }
 
@@ -21,9 +25,35 @@ class ClientesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
+
         return view('cliente.create');
+    }
+
+    /**
+     * Adicionar um novo cliente no sistema
+     *
+     * @return \Illuminate\Http\Request
+     */
+    public function add(Request $request)
+    {
+        #  return $request->input();   
+
+        //valida os campos do formulario
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique',
+            'cpf' => 'required|cpf|unique',
+            'rg' => 'required',
+            'nome_sistema' => 'required',
+            'cnpj' => 'required',
+            'cidade' => 'required',
+            'bairro' => 'required',
+            'logradouro' => 'required',
+            'telefone' => 'required'
+        ]);
+
     }
 
     /**
@@ -81,5 +111,4 @@ class ClientesController extends Controller
     {
         //
     }
- 
 }

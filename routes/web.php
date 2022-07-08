@@ -20,7 +20,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //inicialmente chama a index para renderizar a pagina
 Route::get('/cadastro', [ClientesController::class, 'index']);
-Route::get('/novocliente',[ClientesController::class,'create'])->name('cliente.create');
+
+// rota para inclusão do formulario modal
+Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
+Route::post('/add',[ ClientesController::class,'add']);
 
 //retorna o caminho do relatorio
 Route::get('/clientes', [RelatoriosController::class, 'clientes']);

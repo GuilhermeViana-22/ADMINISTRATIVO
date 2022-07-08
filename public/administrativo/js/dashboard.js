@@ -22,8 +22,8 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
   }
 
   modalWrap = document.createElement('div')
-  modalWrap.innerHTML = `<div class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
+  modalWrap.innerHTML = `<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">${title}</h5>
@@ -33,10 +33,6 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
       </div>
       <div class="modal-body" id="modal_corpo">
         <p>${description}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">${ConfirmModal}</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">${toDenyModal}</button>
       </div>
     </div>
   </div>

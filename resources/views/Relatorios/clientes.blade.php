@@ -12,7 +12,6 @@
         <div class="card-body">
             <div class="container">
                 <div class="row">
-
                     <div class="col-sm-12">
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">
@@ -22,10 +21,6 @@
                                 aria-describedby="inputGroup-sizing-sm" placeholder="Nome do cliente">
                         </div>
                     </div>
-
-
-
-
                     <div class="col-sm">
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">
@@ -35,7 +30,6 @@
                                 aria-describedby="inputGroup-sizing-sm" placeholder="Código">
                         </div>
                     </div>
-
                     <div class="col-sm">
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">
@@ -45,7 +39,6 @@
                                 aria-describedby="inputGroup-sizing-sm" placeholder="CPF">
                         </div>
                     </div>
-
                     <div class="col-sm">
                         <div class="input-group input-group-sm mb-3">
                             <div class="input-group-prepend">
