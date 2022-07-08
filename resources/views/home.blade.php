@@ -76,7 +76,5 @@
 @stop
 
 @section('js')
-<script>
-    $("[data-widget='collapse']").click()
-</script>
+
 @stop

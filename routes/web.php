@@ -20,6 +20,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //inicialmente chama a index para renderizar a pagina
 Route::get('/cadastro', [ClientesController::class, 'index']);
+Route::get('/novocliente',[ClientesController::class,'create'])->name('cliente.create');
 
 //retorna o caminho do relatorio
 Route::get('/clientes', [RelatoriosController::class, 'clientes']);
