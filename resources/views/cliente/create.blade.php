@@ -1,105 +1,63 @@
 <ul class="nav nav-tabs" role="tablist">
-    <li class="active" style="margin-left: 10px">
-        <a href="#form_cliente" role="tab" data-toggle="tab">Cadastro</a>
+    <li class="nav-item active" style="margin-left: 10px">
+        <a href="#form_cliente" role="tab" data-toggle="tab" class="nav-link active">Cadastro</a>
     </li>
-    <li  style="margin-left: 10px">
-        <a href="#preferencias" role="tab" data-toggle="tab">Preeferências</a>
+    <li style=" margin-left: 10px">
+        <a href="#preferencias" role="tab" data-toggle="tab" class="nav-link">Preeferências do Sistema</a>
     </li>
 </ul>
-
 <div class="tab-content">
     <div id="form_cliente" class="tab-pane active">
-        <br>
+
         <form forName="Cliente" method="post" id="insert_form" action="add">
             @csrf
             <!--TAG DE SEGURANÇA DO LARAVEL -- NÃO APAGAR--->
-    
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nome</label>
-                <div class="col-sm-10">
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Nome completo">
-                    <span style="color: red">
-                        @error('name')
-                            {{ $message }}
-                        @enderror
-                    </span>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="disabledTextInput" class="form-label">Nome cliente</label>
+                    <input type="text" id="nnome" name="nome" class="form-control" placeholder="Nome cliente"
+                        aria-label="First name">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="disabledTextInput" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" placeholder="E-mail" aria-label="Last name">
                 </div>
             </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input name="email" type="email" class="form-control" id="email" placeholder="E-mail">
-                    <span style="color: red">
-                        @error('email')
-                            {{ $message }}
-                        @enderror
-                    </span>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="disabledTextInput" class="form-label">CPF</label>
+                    <input name="cpf" type="cpf" class="form-control" id="cpf" placeholder="CPF">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="disabledTextInput" class="form-label">RG</label>
+                    <input name="rg" type="text" class="form-control" id="rg" placeholder="RG">
                 </div>
             </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">CPF</label>
-                <div class="col-sm-10">
-                    <input name="cpf" type="email" class="form-control" id="cpf" placeholder="CPF">
+
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
+                    <label for="disabledTextInput" class="form-label">CEP</label>
+                    <input type="email" class="form-control" placeholder="E-mail" aria-label="CEP">
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="disabledTextInput" class="form-label">Cidade</label>
+                    <input name="cep" type="text" class="form-control" id="cep" placeholder="Cidade">
                 </div>
             </div>
-    
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">RG</label>
-                <div class="col-sm-10">
-                    <input name="rg" type="rg" class="form-control" id="rg" placeholder="RG">
+            <div class="row">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-6">
+                    <label for="disabledTextInput" class="form-label">Bairro/logradouro</label>
+                    <input name="cep" type="text" class="form-control" id="cep"
+                        placeholder="Bairro/logradouro">
                 </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nome do sistema</label>
-                <div class="col-sm-10">
-                    <input name="nome_sistema" type="text" class="form-control" id="nome_sistema"
-                        placeholder="Nome do sistema">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">CNPJ</label>
-                <div class="col-sm-10">
-                    <input name="cnpj" type="cnpj" class="form-control" id="cnpj" placeholder="CNPJ">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Cidade</label>
-                <div class="col-sm-10">
-                    <input name="cidade" type="text" class="form-control" id="cidade" placeholder="Cidade">
-                </div>
-            </div>
-    
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">CEP</label>
-                <div class="col-sm-10">
-                    <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP">
-                </div>
-            </div>
-    
-    
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Bairro/Distrito</label>
-                <div class="col-sm-10">
-                    <input name="bairro" type="text" class="form-control" id="bairro" placeholder="Bairro/Distrito">
-                </div>
-            </div>
-    
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Logradouro/UF</label>
-                <div class="col-sm-10">
-                    <input name="logradouro" type="text" class="form-control" id="logradouro"
-                        placeholder="Logradouro/UF">
-                </div>
-            </div>
-    
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Telefone</label>
-                <div class="col-sm-10">
-                    <input name="telefone" type="text" class="form-control" id="telefone" placeholder="Telefone">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
+                    <label for="disabledTextInput" class="form-label">Complemento</label>
+                    <input name="bairro" type="text" class="form-control" id="complemento" name="complemento"
+                        placeholder="Complemento">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-success">Salvar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
         </form>
@@ -107,7 +65,19 @@
 
     <div id="preferencias" class="tab-pane">
         <div class="panel panel-default">
-            Em fase de implementação
+            <div class="row">
+                <div class="col col-sm-12">
+                    <label for="disabledTextInput" class="form-label">Nome do sistema</label>
+                    <input type="text" id="nnome" name="nome" class="form-control"
+                        placeholder="Nome cliente" aria-label="First name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col col-sm-12">
+                    <label for="textarea">Observações</label>
+                    <textarea class="form-control" id="observações" rows="3"></textarea>
+                </div>
+            </div>
         </div>
     </div>
 </div>

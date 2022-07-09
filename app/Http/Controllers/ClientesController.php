@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use function Psy\debug;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClientesController extends Controller
 {
@@ -38,21 +42,6 @@ class ClientesController extends Controller
      */
     public function add(Request $request)
     {
-        #  return $request->input();   
-
-        //valida os campos do formulario
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique',
-            'cpf' => 'required|cpf|unique',
-            'rg' => 'required',
-            'nome_sistema' => 'required',
-            'cnpj' => 'required',
-            'cidade' => 'required',
-            'bairro' => 'required',
-            'logradouro' => 'required',
-            'telefone' => 'required'
-        ]);
 
     }
 
@@ -64,7 +53,8 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+       
     }
 
     /**

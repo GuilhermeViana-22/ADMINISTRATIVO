@@ -23,7 +23,7 @@ Route::get('/cadastro', [ClientesController::class, 'index']);
 
 // rota para inclusão do formulario modal
 Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
-Route::post('/add',[ ClientesController::class,'add']);
+Route::post('/store',[ ClientesController::class,'store']);
 
 //retorna o caminho do relatorio
 Route::get('/clientes', [RelatoriosController::class, 'clientes']);
