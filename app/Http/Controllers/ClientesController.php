@@ -77,7 +77,7 @@ class ClientesController extends Controller
         $cliente->ativo = 1;
         $cliente->save();
         // retorna com a mensagem de save
-        $retorno = Alert::success('Sucesso', 'O cliente foi salvfo com sucesso');
+        $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso');
         return redirect()
         ->route('cliente.index',  compact('retorno'));
     }
@@ -127,7 +127,7 @@ class ClientesController extends Controller
         //recuperando o cliente que vai ser deletado
         $cliente_id = Cliente::find($id);
         $cliente_id->delete();
-        $retorno = Alert::success('Sucesso', 'O cliente foi removido com sucesso');
+        $retorno = Alert::success('Sucesso', 'O cliente foi excluido com sucesso');
         return redirect()
             ->route('cliente.index',  compact('retorno'));   
     }

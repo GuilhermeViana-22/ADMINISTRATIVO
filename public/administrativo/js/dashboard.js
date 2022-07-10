@@ -47,11 +47,8 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
 }
 
 /*
-* mensagens de sucesso
+* REFRESH
 */
-document.getElementById('basicAlert').addEventListener('click', function () {
-  Swal.fire(
-      'Basic alert',
-      'You clicked the button!'
-  )
-});
+function refresh(){
+  window.location.reload("Refresh")
+}

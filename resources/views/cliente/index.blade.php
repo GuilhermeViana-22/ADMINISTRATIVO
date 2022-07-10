@@ -17,14 +17,13 @@
 @stop
 
 @section('content')
-  
+
     <!---layout padrão--->
     @include('sweetalert::alert')
     {{-- nsg --}}
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <button type="button" class="btn-xs btn-dark float-right" onclick="legenda();">Legenda</button>
                 <form>
                     @csrf
                     <div class="row">
@@ -78,8 +77,8 @@
                     onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
                         class="fas fa-fw fa-plus"></i>Novo
                     Cliente</button>
-                <button type="button" class="btn btn-light float-right"
-                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Limpar</button>
+
+                <button type="button" class="btn btn-light float-right" onClick="refresh(this)">Limpar</button>
                 <button type="button" class="btn btn-primary float-right"
                     onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Pesquisar</button>
             </div>
@@ -103,9 +102,13 @@
                                             <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
                                                 aria-controls="example1" type="button"><span>Imprimir</span>
                                             </button>
-                                            <button id="exportedBTN" class="btn btn-secondary buttons-print"
-                                                tabindex="0" aria-controls="example1" type="button"><span>Gerar
+                                            <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
+                                                aria-controls="example1" type="button"><span>Gerar
                                                     Excel</span>
+                                            </button>
+
+                                            <button id="exportedBTN" class="btn btn-dark buttons-print" tabindex="0"
+                                                aria-controls="example1" type="button"><span>Legendas</span>
                                             </button>
                                         </div>
                                     </div>
