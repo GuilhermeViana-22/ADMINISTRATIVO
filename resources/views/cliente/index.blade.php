@@ -70,7 +70,7 @@
             </div>
             <div class="card-footer">
                 <button type="button" class="btn btn-success float-left"
-                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Novo
+                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i class="fas fa-fw fa-plus"></i>Novo
                     Cliente</button>
                 <button type="button" class="btn btn-light float-right"
                     onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Limpar</button>
@@ -120,28 +120,28 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="tag tag-success">Approved</span></td>
-                                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                            <td>183</td>
-                                            <td>
-                            
-                                            </td>
+                                            @foreach ($clientes as $cliente)
+                                                <th scope="row">{{ $cliente->id }}</th>
+                                                <td>{{ $cliente->nome }}</td>
+                                                <td>{{ $cliente->data_cadastro }}</td>
+                                                <td>{{ $cliente->cpf }}</td>
+                                                <td>{{ $cliente->nome_sistema }}</td>
+                                                <td>{{ $cliente->situacao_id }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary"><i class="fas fa-fw fa-eye"></i>Detalhes</button>
+                                       
+                                                    <button type="button" class="btn btn-warning"><i class="fas fa-fw fa-pen"></i>Editar</button>
+                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i>Excluir</button>
+                                                </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
-            </div>
-
+            </div>      
         </div>
         </div>
     </section>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\User;
 use function Psy\debug;
 
@@ -17,11 +18,13 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $cliente =  array('nome' => 'Guilherme');
+        $clientes = Cliente::all();
 
-        compact('cliente');
-
-        return view('cliente.index');
+        foreach($clientes as $cliente){
+            $cliente->nome = strtoupper($cliente->nome);
+        }
+   
+        return view('cliente.index',  compact('clientes'));
     }
 
     /**
@@ -42,7 +45,6 @@ class ClientesController extends Controller
      */
     public function add(Request $request)
     {
-
     }
 
     /**
@@ -53,8 +55,6 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-
-       
     }
 
     /**
@@ -101,4 +101,5 @@ class ClientesController extends Controller
     {
         //
     }
+
 }
