@@ -114,7 +114,7 @@
                                             <th>#</th>
                                             <th>Nome Cliente</th>
                                             <th>Data Cadastro</th>
-                                            <th>CPF / CPNJ</th>
+                                            <th>CPF / CNPJ</th>
                                             <th>Sistema</th>
                                             <th>Situação</th>
                                             <th>Ações</th>
