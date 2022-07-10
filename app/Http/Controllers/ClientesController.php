@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use DateTime;
 use App\Models\User;
-use function Psy\debug;
+use App\Models\Cliente;
 
+use function Psy\debug;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,10 +21,10 @@ class ClientesController extends Controller
     {
         $clientes = Cliente::all();
 
-        foreach($clientes as $cliente){
+        foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
         }
-   
+
         return view('cliente.index',  compact('clientes'));
     }
 
@@ -55,6 +56,26 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+
+        $cliente = new Cliente();
+
+        $cliente->nome = $request->input('nome');
+        $cliente->email = $request->input('email');
+        $cliente->cpf = $request->input('cpf');
+        $cliente->rg = $request->input('rg');
+        $cliente->cep = $request->input('cep');
+        $cliente->cidade = $request->input('cidade');
+        $cliente->bairro_logradouro = $request->input('bairro_logradouro');
+        $cliente->complemento = $request->input('complemento');
+        $cliente->nome_sistema = $request->input('nome_sistema');
+        $cliente->observacoes = $request->input('observacoes');
+        $cliente->data_cadastro = new DateTime();
+        //$cliente->observacoes = $request->input('section');
+        $cliente->cliente_iteracao_id = 1;
+        $cliente->situacao_id = 1;
+        $cliente->save();
+
+        return redirect()->route('cliente.index');
     }
 
     /**
@@ -99,7 +120,10 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //recuperando o cliente que vai ser deletado
+        $cliente_id = Cliente::find($id);
+        $cliente_id->delete();
+        
+        return redirect()->route('cliente.index');
     }
-
 }

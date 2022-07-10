@@ -19,11 +19,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //inicialmente chama a index para renderizar a pagina
-Route::get('/cadastro', [ClientesController::class, 'index']);
+Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');
 
 // rota para inclusão do formulario modal
 Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
-Route::post('/store',[ ClientesController::class,'store']);
+Route::post('/cliente',[ ClientesController::class,'store'])->name('cliente.store');
+Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cliente.destroy');
 
 //retorna o caminho do relatorio
 Route::get('/clientes', [RelatoriosController::class, 'clientes']);

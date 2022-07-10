@@ -1,3 +1,5 @@
 {
-    "/administrativo/bootstrap.css": "/administrativo/bootstrap.css"
+    "/administrativo/bootstrap.css": "/administrativo/bootstrap.css",
+    "/administrativo/bootstrap.js": "/administrativo/bootstrap.js",
+    "/administrativo/jquery.js": "/administrativo/jquery.js"
 }

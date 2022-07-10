@@ -2,7 +2,19 @@
 @section('title', 'Administrativo')
 
 @section('content_header')
-<h3>Dashboard</h3>
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h2 class="card-title">Dashboard</h2>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="/cadastro">Cadastro de clientes</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('content')

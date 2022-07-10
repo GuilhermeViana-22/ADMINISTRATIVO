@@ -4,12 +4,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="card-title">Pesquisa de clientes</h1>
+                <h2 class="card-title">Pesquisa de clientes</h2>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active">home</li>
+                    <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="/cadastro">home</a></li>
                 </ol>
             </div>
         </div>
@@ -21,8 +21,9 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <button type="button" class="btn-xs btn-dark float-right"  onclick="legenda();">Legenda</button>
+                <button type="button" class="btn-xs btn-dark float-right" onclick="legenda();">Legenda</button>
                 <form>
+                    @csrf
                     <div class="row">
                         <div class="col col-sm-8">
                             <label for="disabledTextInput" class="form-label">Nome cliente</label>
@@ -31,7 +32,8 @@
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" name="email" placeholder="E-mail" aria-label="Last name">
+                            <input type="email" class="form-control" name="email" placeholder="E-mail"
+                                aria-label="Last name">
                         </div>
                     </div>
                     <br>
@@ -39,7 +41,7 @@
                         <div class="col col-sm-2">
                             <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
                             <input type="text" id="nnome" name="cpf" class="form-control"
-                                placeholder="CPF / CNPJ"  aria-label="First name">
+                                placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Nome do sistema</label>
@@ -84,7 +86,7 @@
 
     <!--data table sectin-->
     <section class="content">
-     
+
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -108,7 +110,7 @@
                             </div>
 
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
+                                <table class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -130,13 +132,25 @@
                                                 <td>{{ $cliente->nome_sistema }}</td>
                                                 <td>{{ $cliente->situacao_id }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary"><i
+                                                    <button type="button" class="btn-xs btn-primary"><i
                                                             class="fas fa-fw fa-eye"></i>Detalhes</button>
-
-                                                    <button type="button" class="btn btn-warning"><i
+                                                    <button type="button" class="btn-xs  btn-warning"><i
                                                             class="fas fa-fw fa-pen"></i>Editar</button>
-                                                    <button type="button" class="btn btn-danger"><i
-                                                            class="fas fa-trash"></i>Excluir</button>
+                                                    <form action="{{ route('cliente.destroy', $cliente->id) }}"
+                                                        method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="button" class="btn-xs  btn-danger"><i
+                                                                class="fas fa-trash"></i>Excluir</button>
+                                                    </form>
+
+                                                    <form method="POST"
+                                                        action="{{ route('cliente.destroy', [$cliente->id]) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn-xs  btn-danger"><i
+                                                                class="fas fa-trash"></i>Excluir</button>
+                                                    </form>
                                                 </td>
                                         </tr>
                                         @endforeach
