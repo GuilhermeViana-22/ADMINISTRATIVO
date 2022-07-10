@@ -70,6 +70,7 @@ class ClientesController extends Controller
         $cliente->nome_sistema = $request->input('nome_sistema');
         $cliente->observacoes = $request->input('observacoes');
         $cliente->data_cadastro = new DateTime();
+        $cliente->atvio = 1;
         //$cliente->observacoes = $request->input('section');
         $cliente->cliente_iteracao_id = 1;
         $cliente->situacao_id = 1;
@@ -123,7 +124,7 @@ class ClientesController extends Controller
         //recuperando o cliente que vai ser deletado
         $cliente_id = Cliente::find($id);
         $cliente_id->delete();
-        
+
         return redirect()->route('cliente.index');
     }
 }

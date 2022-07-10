@@ -91,7 +91,6 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Resultado da pesquisa de clientes</h3>
@@ -108,7 +107,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover">
                                     <thead>
@@ -125,7 +123,7 @@
                                     <tbody>
                                         <tr>
                                             @foreach ($clientes as $cliente)
-                                                <th scope="row">{{ $cliente->id }}</th>
+                                                <th scope="row dark">{{ $cliente->id }}</th>
                                                 <td>{{ $cliente->nome }}</td>
                                                 <td>{{ $cliente->data_cadastro }}</td>
                                                 <td>{{ $cliente->cpf }}</td>
@@ -136,14 +134,6 @@
                                                             class="fas fa-fw fa-eye"></i>Detalhes</button>
                                                     <button type="button" class="btn-xs  btn-warning"><i
                                                             class="fas fa-fw fa-pen"></i>Editar</button>
-                                                    <form action="{{ route('cliente.destroy', $cliente->id) }}"
-                                                        method="post">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <button type="button" class="btn-xs  btn-danger"><i
-                                                                class="fas fa-trash"></i>Excluir</button>
-                                                    </form>
-
                                                     <form method="POST"
                                                         action="{{ route('cliente.destroy', [$cliente->id]) }}">
                                                         @csrf
