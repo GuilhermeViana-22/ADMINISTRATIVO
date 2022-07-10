@@ -70,10 +70,11 @@ class ClientesController extends Controller
         $cliente->nome_sistema = $request->input('nome_sistema');
         $cliente->observacoes = $request->input('observacoes');
         $cliente->data_cadastro = new DateTime();
-        $cliente->atvio = 1;
+
         //$cliente->observacoes = $request->input('section');
         $cliente->cliente_iteracao_id = 1;
         $cliente->situacao_id = 1;
+        $cliente->ativo = 1;
         $cliente->save();
 
         return redirect()->route('cliente.index');

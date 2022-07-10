@@ -49,6 +49,3 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
 /*
 *Legenda
 */
-function legenda(){
-   alert("criar as legendas para situações")
-}

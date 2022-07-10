@@ -80,4 +80,7 @@
         </main>
     </div>
 </body>
+<script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
+<script src="{{ asset('administrativo/js/query.mask.min.js') }}"></script>
+<script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
 </html>

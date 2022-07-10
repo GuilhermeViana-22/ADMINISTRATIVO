@@ -25,19 +25,22 @@
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <label for="disabledTextInput" class="form-label">CPF</label>
-                    <input name="cpf" type="number" class="form-control" id="cpf" placeholder="CPF">
+                    <label class="form-label">CPF</label>
+                    <input name="cpf" id="cpf2" type="text" class="form-control" maxlength="14"
+                        placeholder="CPF">
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <label for="disabledTextInput" class="form-label">RG</label>
-                    <input name="rg" type="number" class="form-control" id="rg" placeholder="RG">
+                    <label class="form-label">RG</label>
+                    <input name="rg" id="rg" type="text" class="form-control" maxlength="12"
+                        placeholder="RG">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
                     <label for="disabledTextInput" class="form-label">CEP</label>
-                    <input name="cep" type="number" class="form-control" placeholder="E-mail" aria-label="CEP">
+                    <input name="cep" type="number" class="form-control" placeholder="CEP" maxlength="10"
+                        aria-label="CEP">
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <label for="disabledTextInput" class="form-label">Cidade</label>
@@ -87,7 +90,13 @@
 
 
 @section('js')
-    <script>
-        alert("testando a plaica")
+    <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#cpf').mask('000.000.000-00');
+            $('#cpf2').mask('000.000.000-00');
+            $('#cep').mask('00000-000');
+            $('#rg').mask('00.000.0009');
+        })
     </script>
 @stop

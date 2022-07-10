@@ -40,12 +40,12 @@
                     <div class="row">
                         <div class="col col-sm-2">
                             <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
-                            <input type="text" id="nnome" name="cpf" class="form-control"
+                            <input id="cpf" name="cpf" type="text" class="form-control" maxlength="14"
                                 placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Nome do sistema</label>
-                            <input type="text" id="nnome" name="nome_sistema" class="form-control"
+                            <input type="text" id="nome" name="nome_sistema" class="form-control"
                                 placeholder="Nome do sistema" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
@@ -162,4 +162,14 @@
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
+    <script src="{{ asset('administrativo/js/query.mask.min.js') }}"></script>
+    <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#cpf').mask('000.000.000-00');
+            $('#cpf2').mask('000.000.000-00');
+            $('#cep').mask('00000-000');
+            $('#rg').mask('00.000.0009');
+        })
+    </script>
 @stop
