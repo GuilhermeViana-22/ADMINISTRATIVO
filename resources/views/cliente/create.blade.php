@@ -57,8 +57,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success">Salvar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success"><i class="fas fa-fw fa-plus"></i>Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-cancel"></i>Cancelar</button>
             </div>
         </form>
     </div>

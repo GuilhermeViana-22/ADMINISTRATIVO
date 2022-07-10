@@ -40,9 +40,15 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
   document.body.append(modalWrap);
 
   $('#modal_corpo').load(url, function (body, message, xht) {
-      var modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
-      modal.show();
+    var modal = new bootstrap.Modal(modalWrap.querySelector('.modal'));
+    modal.show();
   });
- 
+
 }
 
+/*
+*Legenda
+*/
+function legenda(){
+   alert("criar as legendas para situações")
+}

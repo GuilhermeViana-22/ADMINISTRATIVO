@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -35,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
                     'text' => 'Cadastro de clientes',
                     'url'  => '/cadastro',
                     'icon' => 'fas fa-fw fa-user',
-                    'label'       => $user = User::count(),
+                    'label'       => $user = Cliente::count(),
                     'label_color' => 'success',
                 ],
                 [

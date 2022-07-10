@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Dashboard')
+@section('title', 'Administrativo')
 
 @section('content_header')
 <h6>Pesquisa de sistemas com saldo em atraso</h6>

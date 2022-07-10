@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Dashboard')
+@section('title', 'Administrativo')
 @section('content_header')
     <div class="container-fluid">
         <div class="row mb-2">
@@ -19,9 +19,9 @@
 @section('content')
     <!---layout padrão--->
     <section class="content">
-
         <div class="card">
             <div class="card-body">
+                <button type="button" class="btn-xs btn-dark float-right"  onclick="legenda();">Legenda</button>
                 <form>
                     <div class="row">
                         <div class="col col-sm-8">
@@ -70,7 +70,8 @@
             </div>
             <div class="card-footer">
                 <button type="button" class="btn btn-success float-left"
-                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i class="fas fa-fw fa-plus"></i>Novo
+                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
+                        class="fas fa-fw fa-plus"></i>Novo
                     Cliente</button>
                 <button type="button" class="btn btn-light float-right"
                     onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Limpar</button>
@@ -83,11 +84,12 @@
 
     <!--data table sectin-->
     <section class="content">
+     
         <div class="card">
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-12">
+
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Resultado da pesquisa de clientes</h3>
@@ -128,10 +130,13 @@
                                                 <td>{{ $cliente->nome_sistema }}</td>
                                                 <td>{{ $cliente->situacao_id }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary"><i class="fas fa-fw fa-eye"></i>Detalhes</button>
-                                       
-                                                    <button type="button" class="btn btn-warning"><i class="fas fa-fw fa-pen"></i>Editar</button>
-                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i>Excluir</button>
+                                                    <button type="button" class="btn btn-primary"><i
+                                                            class="fas fa-fw fa-eye"></i>Detalhes</button>
+
+                                                    <button type="button" class="btn btn-warning"><i
+                                                            class="fas fa-fw fa-pen"></i>Editar</button>
+                                                    <button type="button" class="btn btn-danger"><i
+                                                            class="fas fa-trash"></i>Excluir</button>
                                                 </td>
                                         </tr>
                                         @endforeach
@@ -141,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-            </div>      
+            </div>
         </div>
         </div>
     </section>
