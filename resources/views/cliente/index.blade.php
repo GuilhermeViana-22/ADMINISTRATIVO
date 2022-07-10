@@ -17,10 +17,9 @@
 @stop
 
 @section('content')
+  
     <!---layout padrão--->
-
-
-
+    @include('sweetalert::alert')
     {{-- nsg --}}
     <section class="content">
         <div class="card">
@@ -104,8 +103,9 @@
                                             <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
                                                 aria-controls="example1" type="button"><span>Imprimir</span>
                                             </button>
-                                            <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
-                                                aria-controls="example1" type="button"><span>Gerar Excel</span>
+                                            <button id="exportedBTN" class="btn btn-secondary buttons-print"
+                                                tabindex="0" aria-controls="example1" type="button"><span>Gerar
+                                                    Excel</span>
                                             </button>
                                         </div>
                                     </div>
@@ -174,6 +174,13 @@
             $('#cpf2').mask('000.000.000-00');
             $('#cep').mask('00000-000');
             $('#rg').mask('00.000.0009');
-        })
+
+
+
+            $('#msg').click(function() {
+                $('#msg').fadeOut('slow');
+
+            })
+        });
     </script>
 @stop

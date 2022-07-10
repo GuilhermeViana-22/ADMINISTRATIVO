@@ -47,5 +47,11 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
 }
 
 /*
-*Legenda
+* mensagens de sucesso
 */
+document.getElementById('basicAlert').addEventListener('click', function () {
+  Swal.fire(
+      'Basic alert',
+      'You clicked the button!'
+  )
+});

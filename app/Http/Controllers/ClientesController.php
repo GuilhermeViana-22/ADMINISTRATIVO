@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use DateTime;
-use App\Models\User;
 use App\Models\Cliente;
+use RealRashid\SweetAlert\Facades\Alert;
 
-use function Psy\debug;
 use Illuminate\Http\Request;
+use function Psy\debug;
 use Illuminate\Support\Facades\DB;
 
 class ClientesController extends Controller
@@ -76,10 +76,10 @@ class ClientesController extends Controller
         $cliente->situacao_id = 1;
         $cliente->ativo = 1;
         $cliente->save();
-
+        // retorna com a mensagem de save
+        $retorno = Alert::success('Sucesso', 'O cliente foi salvfo com sucesso');
         return redirect()
-        ->route('cliente.index')
-        ->with('mensagem', 'O cliente foi cadastrado com sucesso');
+        ->route('cliente.index',  compact('retorno'));
     }
 
     /**
@@ -127,7 +127,8 @@ class ClientesController extends Controller
         //recuperando o cliente que vai ser deletado
         $cliente_id = Cliente::find($id);
         $cliente_id->delete();
-
-        return redirect()->route('cliente.index');
+        $retorno = Alert::success('Sucesso', 'O cliente foi removido com sucesso');
+        return redirect()
+            ->route('cliente.index',  compact('retorno'));   
     }
 }
