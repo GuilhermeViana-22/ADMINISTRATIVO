@@ -18,6 +18,10 @@
 
 @section('content')
     <!---layout padrão--->
+
+
+
+    {{-- nsg --}}
     <section class="content">
         <div class="card">
             <div class="card-body">
@@ -137,8 +141,8 @@
                                                     <form method="POST"
                                                         action="{{ route('cliente.destroy', [$cliente->id]) }}">
                                                         @csrf
-                                                        @method('DELETE')
-                                                        <button type="button" class="btn-xs  btn-danger"><i
+                                                        @method('delete')
+                                                        <button type="submit" class="btn-xs  btn-danger"><i
                                                                 class="fas fa-trash"></i>Excluir</button>
                                                     </form>
                                                 </td>

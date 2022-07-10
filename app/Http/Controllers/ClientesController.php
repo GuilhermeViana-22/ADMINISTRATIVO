@@ -77,7 +77,9 @@ class ClientesController extends Controller
         $cliente->ativo = 1;
         $cliente->save();
 
-        return redirect()->route('cliente.index');
+        return redirect()
+        ->route('cliente.index')
+        ->with('mensagem', 'O cliente foi cadastrado com sucesso');
     }
 
     /**
