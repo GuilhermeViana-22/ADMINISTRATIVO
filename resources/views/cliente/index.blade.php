@@ -31,19 +31,19 @@
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" placeholder="E-mail" aria-label="Last name">
+                            <input type="email" class="form-control" name="email" placeholder="E-mail" aria-label="Last name">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col col-sm-2">
                             <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
-                            <input type="text" id="nnome" name="nome" class="form-control"
-                                placeholder="CPF / CNPJ" aria-label="First name">
+                            <input type="text" id="nnome" name="cpf" class="form-control"
+                                placeholder="CPF / CNPJ"  aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Nome do sistema</label>
-                            <input type="text" id="nnome" name="nome" class="form-control"
+                            <input type="text" id="nnome" name="nome_sistema" class="form-control"
                                 placeholder="Nome do sistema" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
