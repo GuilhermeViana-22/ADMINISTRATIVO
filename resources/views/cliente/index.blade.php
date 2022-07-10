@@ -37,9 +37,9 @@
                     <br>
                     <div class="row">
                         <div class="col col-sm-2">
-                            <label for="disabledTextInput" class="form-label">CPF / CPNJ</label>
+                            <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
                             <input type="text" id="nnome" name="nome" class="form-control"
-                                placeholder="CPF / CPNJ" aria-label="First name">
+                                placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Nome do sistema</label>
