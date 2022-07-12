@@ -52,3 +52,13 @@ const showModal = (url, title, description, ConfirmModal = 'Yes', toDenyModal = 
 function refresh(){
   window.location.reload("Refresh")
 }
+
+$(document).ready(function() {
+  $('.cpf').mask('000.000.000-00');
+  $('#cep').mask('00000-000');
+  $('#rg').mask('00.000.0009');
+  $('#msg').click(function() {
+      $('#msg').fadeOut('slow');
+
+  })
+});

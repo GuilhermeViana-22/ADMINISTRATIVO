@@ -56,30 +56,27 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
+        // verifica o tipo de request
+        if ($request->isMethod('post')) {
 
-        $cliente = new Cliente();
+            $data = $request->all();
+            $data['data_cadastro'] = new DateTime();
+            $data['cliente_iteracao_id'] = 1;
+            $data['situacao_id'] = 1;
+            $data['ativo'] = 1;
 
-        $cliente->nome = $request->input('nome');
-        $cliente->email = $request->input('email');
-        $cliente->cpf = $request->input('cpf');
-        $cliente->rg = $request->input('rg');
-        $cliente->cep = $request->input('cep');
-        $cliente->cidade = $request->input('cidade');
-        $cliente->bairro_logradouro = $request->input('bairro_logradouro');
-        $cliente->complemento = $request->input('complemento');
-        $cliente->nome_sistema = $request->input('nome_sistema');
-        $cliente->observacoes = $request->input('observacoes');
-        $cliente->data_cadastro = new DateTime();
-
-        //$cliente->observacoes = $request->input('section');
-        $cliente->cliente_iteracao_id = 1;
-        $cliente->situacao_id = 1;
-        $cliente->ativo = 1;
-        $cliente->save();
-        // retorna com a mensagem de save
-        $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso');
-        return redirect()
-        ->route('cliente.index',  compact('retorno'));
+            // verifica se o cliente já foi cadastrado
+            if (empty($data)) {
+                $retorno = Alert::error('Oops', 'Não foi possivel salvar cliente');
+                return redirect()
+                    ->route('cliente.index',  compact('retorno'));
+            }
+            Cliente::create($data);
+            // retorna com a mensagem de save
+            $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso');
+            return redirect()
+                ->route('cliente.index',  compact('retorno'));
+        }
     }
 
     /**
@@ -129,6 +126,6 @@ class ClientesController extends Controller
         $cliente_id->delete();
         $retorno = Alert::success('Sucesso', 'O cliente foi excluido com sucesso');
         return redirect()
-            ->route('cliente.index',  compact('retorno'));   
+            ->route('cliente.index',  compact('retorno'));
     }
 }

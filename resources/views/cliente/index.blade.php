@@ -169,21 +169,10 @@
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
-    <script src="{{ asset('administrativo/js/query.mask.min.js') }}"></script>
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#cpf').mask('000.000.000-00');
-            $('#cpf2').mask('000.000.000-00');
-            $('#cep').mask('00000-000');
-            $('#rg').mask('00.000.0009');
-
-
-
-            $('#msg').click(function() {
-                $('#msg').fadeOut('slow');
-
-            })
         });
     </script>
 @stop
