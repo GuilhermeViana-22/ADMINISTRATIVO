@@ -1,11 +1,3 @@
-<ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item active" style="margin-left: 10px">
-        <a href="#form_cliente" role="tab" data-toggle="tab" class="nav-link active">Cadastro</a>
-    </li>
-    <li style=" margin-left: 10px">
-        <a href="#preferencias" role="tab" data-toggle="tab" class="nav-link">Preeferências do Sistema</a>
-    </li>
-</ul>
 <div class="tab-content">
     <div id="form_cliente" class="tab-pane active">
         <form forName="Cliente" method="post" id="insert_form" action="cliente">

@@ -143,12 +143,9 @@
                                                             class="fas fa-fw fa-eye"></i>Detalhes</button>
                                                     <button type="button" class="btn-xs  btn-warning"><i
                                                             class="fas fa-fw fa-pen"></i>Editar</button>
-                                                    <form method="POST"
-                                                        action="{{ route('cliente.destroy', [$cliente->id]) }}">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit" class="btn-xs  btn-danger"><i
-                                                                class="fas fa-trash"></i>Excluir</button>
+                                                    <button type="button" class="btn-xs btn-danger"><i
+                                                            class="fas fa-fw fa-pen"></i><a
+                                                            href="{{ route('cliente.destroy', [$cliente->id]) }}"></a>Excluir</button>
                                                     </form>
                                                 </td>
                                         </tr>
