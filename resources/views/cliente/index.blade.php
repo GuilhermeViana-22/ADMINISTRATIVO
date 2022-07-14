@@ -137,7 +137,9 @@
                                                 <td>{{ $cliente->nome_sistema }}</td>
                                                 <td>{{ $cliente->situacao_id }}</td>
                                                 <td>
-                                                    <button type="button" class="btn-xs btn-primary"><i
+                                                    <button
+                                                        onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente', ' Cliente', 'Salvar', 'Cancelar');"
+                                                        type="button" class="btn-xs btn-primary"><i
                                                             class="fas fa-fw fa-eye"></i>Detalhes</button>
                                                     <button type="button" class="btn-xs  btn-warning"><i
                                                             class="fas fa-fw fa-pen"></i>Editar</button>

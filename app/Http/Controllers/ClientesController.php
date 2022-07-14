@@ -88,7 +88,13 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        //
+        //recupera o cleinte pelo id
+       ;
+
+        if(!$cliente = Cliente::find($id))
+            return redirect()->back();
+        
+       return view('cliente.show', compact('cliente'));
     }
 
     /**
