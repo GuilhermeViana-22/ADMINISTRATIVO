@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
+            <div class="card-footer">
                 <button type="submit" class="btn btn-success"><i class="fas fa-fw fa-plus"></i>Salvar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
                         class="fas fa-cancel"></i>Cancelar</button>

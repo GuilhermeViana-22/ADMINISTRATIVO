@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use DateTime;
 use App\Models\Cliente;
 use RealRashid\SweetAlert\Facades\Alert;
-
 use Illuminate\Http\Request;
-use function Psy\debug;
-use Illuminate\Support\Facades\DB;
+
 
 class ClientesController extends Controller
 {
@@ -24,6 +22,7 @@ class ClientesController extends Controller
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
         }
+ 
 
         return view('cliente.index',  compact('clientes'));
     }
