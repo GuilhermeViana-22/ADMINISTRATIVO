@@ -11,13 +11,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Situacao extends Model
 {
+    public $table = 'situacao';
+
+    public function Situacao() 
+    {
+       return $this->belongsTo('id', 'id');
+    }
+
     use HasFactory;
 }
-
-// public function user() {
-//     return $this->belongsTo('App\Models\User');
-// }
-
-// public function users() {
-//     return $this->belongsToMany('App\Models\User');
-// }

@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use DateTime;
 use App\Models\Cliente;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Situacao;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class ClientesController extends Controller
@@ -21,8 +22,9 @@ class ClientesController extends Controller
 
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
+            $cliente->situacao_id = Situacao::find($cliente->situacao_id);
+            $cliente['situacao_id'] = $cliente->situacao_id->situacao;
         }
- 
 
         return view('cliente.index',  compact('clientes'));
     }
