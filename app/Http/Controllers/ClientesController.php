@@ -92,6 +92,7 @@ class ClientesController extends Controller
         if (!$cliente = Cliente::find($id))
             return redirect()->back();
 
+
         return view('cliente.show', compact('cliente'));
     }
 
@@ -117,7 +118,6 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         //editar usuarios
             if (!$cliente = Cliente::find($id))
                 return redirect()->back();

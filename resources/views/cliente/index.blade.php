@@ -132,7 +132,7 @@
                                             @foreach ($clientes as $cliente)
                                                 <th scope="row dark">{{ $cliente->id }}</th>
                                                 <td>{{ $cliente->nome }}</td>
-                                                <td>{{ $cliente->data_cadastro }}</td>
+                                                <td style="text-align: center">{{ date('Y/m/d' , strtotime( $cliente->data_cadastro))}}</td>
                                                 <td>{{ $cliente->cpf }}</td>
                                                 <td>{{ $cliente->nome_sistema }}</td>
                                                 <td>{{ $cliente->situacao_id }}</td>
