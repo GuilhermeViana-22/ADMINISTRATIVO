@@ -141,12 +141,11 @@
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente', ' Cliente', 'Salvar', 'Cancelar');"
                                                         type="button" class="btn-xs btn-primary"><i
                                                             class="fas fa-fw fa-eye"></i>Detalhes</button>
-                                                    <button type="button" class="btn-xs  btn-warning"><i
-                                                            class="fas fa-fw fa-pen"></i>Editar</button>
+                                                    <button type="button" class="btn-xs btn-warning"
+                                                        onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{$cliente->nome}}', ' Cliente', 'Salvar', 'Cancelar');">Editar</button>
                                                     <button type="button" class="btn-xs btn-danger"><i
-                                                            class="fas fa-fw fa-pen"></i><a
+                                                            class="fas fa-fw fa-trash"></i><a
                                                             href="{{ route('cliente.destroy', [$cliente->id]) }}"></a>Excluir</button>
-                                                    </form>
                                                 </td>
                                         </tr>
                                         @endforeach

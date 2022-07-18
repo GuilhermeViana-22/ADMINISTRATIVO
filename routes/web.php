@@ -25,6 +25,8 @@ Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.ind
 Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
 Route::post('/cliente',[ ClientesController::class,'store'])->name('cliente.store');
 Route::get('/cliente/{id}',[ ClientesController::class,'show'])->name('cliente.show');
+Route::get('/cliente/{id}/edit',[ ClientesController::class,'edit'])->name('cliente.edit');
+Route::put('/cliente/{id}',[ ClientesController::class,'update'])->name('cliente.update');
 Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cliente.destroy');
 
 //retorna o caminho do relatorio

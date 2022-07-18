@@ -74,7 +74,7 @@ class ClientesController extends Controller
             }
             Cliente::create($data);
             // retorna com a mensagem de save
-            $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso');
+            $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso.');
             return redirect()
                 ->route('cliente.index',  compact('retorno'));
         }
@@ -89,12 +89,10 @@ class ClientesController extends Controller
     public function show($id)
     {
         //recupera o cleinte pelo id
-       ;
-
-        if(!$cliente = Cliente::find($id))
+        if (!$cliente = Cliente::find($id))
             return redirect()->back();
-        
-       return view('cliente.show', compact('cliente'));
+
+        return view('cliente.show', compact('cliente'));
     }
 
     /**
@@ -105,20 +103,33 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        //editar usuarios
+        if (!$cliente = Cliente::find($id))
+            return redirect()->back();
 
+        return view('cliente.edit', compact('cliente'));
+    }
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+
+        //editar usuarios
+            if (!$cliente = Cliente::find($id))
+                return redirect()->back();
+
+            $cliente->update($request->all());
+            
+            $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
+            return redirect()
+                ->route('cliente.index',  compact('retorno'));
+        
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -131,7 +142,7 @@ class ClientesController extends Controller
         //recuperando o cliente que vai ser deletado
         $cliente_id = Cliente::find($id);
         $cliente_id->delete();
-        $retorno = Alert::success('Sucesso', 'O cliente foi excluido com sucesso');
+        $retorno = Alert::success('Sucesso', 'O cliente foi excluido com sucesso.');
         return redirect()
             ->route('cliente.index',  compact('retorno'));
     }
