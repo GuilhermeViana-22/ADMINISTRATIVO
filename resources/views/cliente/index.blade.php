@@ -73,13 +73,13 @@
                 </form>
             </div>
             <div class="card-footer">
-                <button type="button" class="btn btn-success float-left"
+                <button id="save" type="button" class="btn btn-success float-left"
                     onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
                         class="fas fa-fw fa-plus"></i>Novo
                     Cliente</button>
 
                 <button type="button" class="btn btn-light float-right" onClick="refresh(this)">Limpar</button>
-                <button type="button" class="btn btn-primary float-right"
+                <button id="search" type="button" class="btn btn-primary float-right"
                     onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Pesquisar</button>
             </div>
         </div>
@@ -136,16 +136,21 @@
                                                 <td>{{ $cliente->cpf }}</td>
                                                 <td>{{ $cliente->nome_sistema }}</td>
                                                 <td>{{ $cliente->situacao_id }}</td>
-                                                <td>
-                                                    <button
-                                                        onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente', ' Cliente', 'Salvar', 'Cancelar');"
-                                                        type="button" class="btn-xs btn-primary"><i
-                                                            class="fas fa-fw fa-eye"></i>Detalhes</button>
-                                                    <button type="button" class="btn-xs btn-warning"
-                                                        onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{$cliente->nome}}', ' Cliente', 'Salvar', 'Cancelar');">Editar</button>
-                                                    <button type="button" class="btn-xs btn-danger"><i
-                                                            class="fas fa-fw fa-trash"></i><a
-                                                            href="{{ route('cliente.destroy', [$cliente->id]) }}"></a>Excluir</button>
+                                                <td id="opcoes">
+                                                    <button id="search"
+                                                        onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{$cliente->nome}}', ' Cliente', 'Salvar', 'Cancelar');"
+                                                        type="button" class="btn btn-primary"><i
+                                                            class="fas fa-fw fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-warning"
+                                                        onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{$cliente->nome}}', ' Cliente', 'Salvar', 'Cancelar');">
+                                                        <i class="fas fa-fw fa-pen"></i> </button>
+                                                    <form action="{{ route('cliente.destroy', $cliente->id) }}" method="post">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button id="trash"type="submit" class="btn btn-danger"><i
+                                                            class="fas fa-fw fa-trash"></i></button>
+                                                    </form>
+                                                    
                                                 </td>
                                         </tr>
                                         @endforeach
