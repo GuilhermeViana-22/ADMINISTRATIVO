@@ -19,12 +19,16 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
+        // metodo paginate tras o modelo de view composto
+        // simplapagnate trás apenas a navegação
+        $clientes = Cliente::simplepaginate(4);
 
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
             $cliente->situacao_id = Situacao::find($cliente->situacao_id);
             $cliente['situacao_id'] = $cliente->situacao_id->situacao;
         }
+
 
         return view('cliente.index',  compact('clientes'));
     }
@@ -119,15 +123,14 @@ class ClientesController extends Controller
     public function update(Request $request, $id)
     {
         //editar usuarios
-            if (!$cliente = Cliente::find($id))
-                return redirect()->back();
+        if (!$cliente = Cliente::find($id))
+            return redirect()->back();
 
-            $cliente->update($request->all());
-            
-            $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
-            return redirect()
-                ->route('cliente.index',  compact('retorno'));
-        
+        $cliente->update($request->all());
+
+        $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
+        return redirect()
+            ->route('cliente.index',  compact('retorno'));
     }
 
 

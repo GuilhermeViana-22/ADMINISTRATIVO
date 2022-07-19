@@ -132,32 +132,38 @@
                                             @foreach ($clientes as $cliente)
                                                 <th scope="row dark">{{ $cliente->id }}</th>
                                                 <td>{{ $cliente->nome }}</td>
-                                                <td style="text-align: center">{{ date('Y/m/d' , strtotime( $cliente->data_cadastro))}}</td>
+                                                <td style="text-align: center">
+                                                    {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
                                                 <td>{{ $cliente->cpf }}</td>
                                                 <td>{{ $cliente->nome_sistema }}</td>
                                                 <td>{{ $cliente->situacao_id }}</td>
                                                 <td id="opcoes">
                                                     <button id="search"
-                                                        onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{$cliente->nome}}', ' Cliente', 'Salvar', 'Cancelar');"
+                                                        onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"
                                                         type="button" class="btn btn-primary"><i
                                                             class="fas fa-fw fa-eye"></i></button>
                                                     <button type="button" class="btn btn-warning"
-                                                        onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{$cliente->nome}}', ' Cliente', 'Salvar', 'Cancelar');">
+                                                        onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');">
                                                         <i class="fas fa-fw fa-pen"></i> </button>
-                                                    <form action="{{ route('cliente.destroy', $cliente->id) }}" method="post">
+                                                    <form action="{{ route('cliente.destroy', $cliente->id) }}"
+                                                        method="post">
                                                         @method('delete')
                                                         @csrf
                                                         <button id="trash"type="submit" class="btn btn-danger"><i
-                                                            class="fas fa-fw fa-trash"></i></button>
+                                                                class="fas fa-fw fa-trash"></i></button>
                                                     </form>
-                                                    
                                                 </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+              
                             </div>
                         </div>
+                                       {{-- Pagination --}}
+                 <div id="paginate" class="d-flex float-right">
+                   <b> {{$clientes->links()}}</b>
+                </div>
                     </div>
                 </div>
             </div>
@@ -167,6 +173,7 @@
 @stop
 
 @section('css')
+    {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">
 @stop
 
