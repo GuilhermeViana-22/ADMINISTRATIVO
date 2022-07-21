@@ -1,12 +1,287 @@
-           <!-- a Tag for previous page -->
-                                                      <a href="{{ $clientes->previousPageUrl() }}">
-                                                        <!-- You can insert logo or text here -->
-                                                    </a>
-                                                    @for ($i = 0; $i <= $clientes->lastPage(); $i++)
-                                                        <!-- a Tag for another page -->
-                                                        <a href="{{ $clientes->url($i) }}">{{ $i }}</a>
-                                                    @endfor
-                                                    <!-- a Tag for next page -->
-                                                    <a href="{{ $clientes ->nextPageUrl() }}">
-                                                        <!-- You can insert logo or text here -->
-                                                    </a> 
+@extends('layouts.teste')
+{{-- inicio da tag form --}}
+
+@section('content')
+<div id="container" class="container">
+  <div class="card">
+    <div class="card-header">
+      Cadastro de perícias
+    </div>
+    <div class="card-body">
+      <form id="formulario_agendamentos" class="form-control-sm" action="#" method="POST">
+        <!--   1 linha -->
+        <div class="row">
+          <div class="col-12 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Nome completo</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Nome completo" id="nome_do_cidadao" name="nome_cidadao">
+              <div class="invalid-feedback" validation-target-name="nome_cidadao"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">CPF</label>
+              <input class="form-control form-control-sm" type="text" placeholder="CPF" id="cpf_cidadao" name="cpf_cidadao" maxlength="15">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">RG</label>
+              <input class="form-control form-control-sm" type="text" placeholder="RG" id="rg_cidadao" name="rg_cidadao">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+        </div>
+        <!--   2 linha -->
+        <div class="row">
+          <div class="col-12 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
+              <input class="form-control form-control-sm" type="email" placeholder="E-mail" id="email_cidadao" name="email_cidadao" required>
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Telefone" id="telefone_cidadao" name="telefone_cidadao">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Anexo documento com foto</label>
+              <input class="form-control form-control-sm" type="file" id="formFile" name="formFile">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+        </div>
+        <!--   3 linha -->
+        <br>
+        <hr>
+        <!--   3 linha -->
+        <div class="row">
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">CEP</label>
+              <input class="form-control form-control-sm" type="text" placeholder="CEP" id="cep_endereco" name="cep_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Rua</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Rua" id="rua_endereco" name="rua_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Número</label>
+              <input class="form-control form-control-sm" type="number" placeholder="Número" id="numero_endereco" name="numero_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Bairro</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Bairro" id="bairro_endereco" name="bairro_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Complemento</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Complemento" id="complemento_endereco" name="complemento_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Cidade</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Cidade" id="cidade_endereco" name="cidade_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Estado</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Estado" id="estado_endereco" name="estado_endereco">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+        </div>
+        <!-- 4 linha -->
+        <br>
+        <hr>
+        <!--   4 linha -->
+        <div class="row">
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Tipo de Veículo</label>
+              <select class="form-control form-control-sm">
+                <option>Selecione o tipo de veículo</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Marca</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Marca" id="marca_pericia_chassi" name="marca_pericia_chassi">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Modelo</label>
+              <input class="form-control form-control-sm" type="text" placeholder="Modelo" id="modelo_pericia_chassi" name="modelo_pericia_chassi">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Ano do veículo</label>
+              <input class="form-control form-control-sm" type="date" id="ano_pericia_chassi" name="ano_pericia_chassi">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Anexo carta laudo</label>
+              <input class="form-control form-control-sm" type="file" id="formFile" name="formFile">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Anexo carta requisição</label>
+              <input class="form-control form-control-sm" type="file" id="formFile" name="formFile">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+        </div>
+        <!--   5 linha -->
+        <br>
+        <hr>
+        <!--   5 linha -->
+        <div class="row">
+          <div class="col-12 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Unidade da perícia</label>
+              <select class="form-control form-control-sm">
+                <option>Selecione a unidade</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Data para a perícia</label>
+              <input class="form-control form-control-sm" type="date" id="data_pericia_chassi" name="data_pericia_chassi">
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Data perícia</label>
+              <input class="form-control form-control-sm" type="time" id="ano_pericia_chassi" name="ano_pericia_chassi" readonly>
+              <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+            </div>
+          </div>
+          <!--    switches -->
+          <div class="col-3 col-lg-1 col-md-1 col-sm-3 col-xs-3">
+            <div class="form-group">
+              <label class="col-form-label col-form-label-sm-4" for="inputSmall">Empresa?</label>
+              <input type="checkbox" name="checkbox1" id="checkbox3" class="ios-toggle float-end" checked />
+              <label for="checkbox3" class="checkbox-label"></label>
+            </div>
+          </div>
+          <!--Se for uma empresa-->
+          <div id="isEmpresa">
+            <!--   6 linha -->
+            <br>
+            <hr>
+            <!--   6 linha -->
+            <div class="row">
+              <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">Razão social</label>
+                  <input class="form-control form-control-sm" type="text" placeholder="Razão social" id="razao_social" name="razao_social">
+                  <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">Nome fantasia</label>
+                  <input class="form-control form-control-sm" type="text" placeholder="Nome fantasia" id="nome_fantasia" name="nome_fantasia">
+                  <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
+                  <input class="form-control form-control-sm" type="text" placeholder="nome@dominio.com" id="email_empresa" name="email_empresa">
+                  <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">CNPJ</label>
+                  <input class="form-control form-control-sm" type="text" placeholder="CNPJ" id="cnpj_empresa" name="cnpj_empresa">
+                  <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone Empresa</label>
+                  <input class="form-control form-control-sm" type="text" placeholder="Telefone Empresa" id="telefone_empresa" name="telefone_empresa">
+                  <div class="invalid-feedback" validation-target-name="especificar_outro"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </form>
+    <br>
+    <!--  final do card e inicio da lgica dos botoes de submit -->
+    <div class="card-footer">
+      <div class="d-flex">
+        <button type="button" class="btn btn-dark float-end"><i class="fas fa-paper-plane"></i> Enviar</button>
+        <button type="button" class="btn btn-primary float-end"><i class="fas fa-eraser"></i> limpar campos</button>
+      </div>
+    </div>
+  </div>
+  <!-- final do formulario -->
+
+</div>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+  $(document).ready(function() {
+    //cria o evento de clique no botão Empresa
+    const isEmpresa = document.getElementById("isEmpresa");
+    const btn = document.getElementById("checkbox3");
+    btn.onclick = function() {
+      if (isEmpresa.style.display !== "none") {
+        isEmpresa.style.display = "none";
+      } else {
+        isEmpresa.style.display = "block";
+      }
+    };
+
+    // aplica mascara nos campos necessários
+    $('#cpf_cidadao').mask('000.000.000-00');
+    $('#cnpj_empresa').mask('00.000.000/0000-00', {
+      reverse: true
+    });
+    $('#rg_cidadao').mask('00.000.000-0');
+    $('#cep_endereco').mask('00000-000');
+    $('#telefone_cidadao').mask('(00) 0000-00000');
+    $('#telefone_empresa').mask('(00) 0000-00000');
+
+  });
+</script>
+@stop

@@ -73,8 +73,8 @@
                     <button id="save" type="button" class="btn btn-success float-left"
                         onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
                             class="fas fa-fw fa-plus"></i> Novo Cliente</button>
-                    <button type="button" class="btn btn-light float-right" onClick="refresh(this)">Limpar</button>
-                    <button id="search" type="submit" class="btn btn-primary float-right">Pesquisar</button>
+                    <button  type="button" class="btn btn-primary float-right" onClick="refresh(this)"><i class="fas fa-eraser"></i>Limpar</button>
+                    <button id="search" type="submit" class="btn btn-dark float-right"><i class="fas fa-search"></i>Pesquisar</button>
                 </form>
             </div>
         </div>
@@ -93,17 +93,8 @@
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
-                                            <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
-                                                aria-controls="example1" type="button"><span>Imprimir</span>
-                                            </button>
-                                            <button id="exportedBTN" class="btn btn-secondary buttons-print"
-                                                tabindex="0" aria-controls="example1" type="button"><span>Gerar
-                                                    Excel</span>
-                                            </button>
-
-                                            <button id="exportedBTN" class="btn btn-dark buttons-print" tabindex="0"
-                                                aria-controls="example1" type="button"><span>Legendas</span>
-                                            </button>
+                                            <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-print"></i>Pesquisar</button>
+                                            <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-download"></i>Gerar Excel</button>
                                         </div>
                                     </div>
                                 </div>

@@ -1,10 +1,4 @@
 <li class="nav-item">
-
-    {{-- Search toggle button --}}
-    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-        <i class="fas fa-search"></i>
-    </a>
-
     {{-- Search bar --}}
     <div class="navbar-search-block">
         <form class="form-inline" action="{{ $item['href'] }}" method="{{ $item['method'] }}">
