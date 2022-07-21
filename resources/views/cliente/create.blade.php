@@ -2,78 +2,154 @@
     <li class="nav-item active" style="margin-left: 10px">
         <a href="#form_cliente" role="tab" data-toggle="tab" class="nav-link active">Cadastro</a>
     </li>
-    <li style=" margin-left: 10px">
-        <a href="#preferencias" role="tab" data-toggle="tab" class="nav-link">Preeferências do Sistema</a>
-    </li>
 </ul>
 <div class="tab-content">
     <div id="form_cliente" class="tab-pane active">
         <form forName="Cliente" method="post" id="insert_form" action="cliente">
             <div class="card-body">
                 @csrf
-                <!--TAG DE SEGURANÇA DO LARAVEL -- NÃO APAGAR--->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="disabledTextInput" class="form-label">Nome cliente</label>
-                        <input name="nome" type="text" id="nnome" class="form-control"
-                            placeholder="Nome cliente" aria-label="First name">
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="disabledTextInput" class="form-label">E-mail</label>
-                        <input name="email" type="email" class="form-control" placeholder="E-mail"
-                            aria-label="Last name">
-                    </div>
+         <!--   1 linha -->
+         <div class="row">
+            <div class="col-12 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">Nome completo</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Nome completo" id="nome_do_cidadao" name="nome_cidadao">
+                <div class="invalid-feedback" validation-target-name="nome_cidadao"></div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">CPF</label>
+                <input class="form-control form-control-sm" type="text" placeholder="CPF" id="cpf_cidadao" name="cpf_cidadao" maxlength="15">
+               
+              </div>
+            </div>
+            <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">RG</label>
+                <input class="form-control form-control-sm" type="text" placeholder="RG" id="rg_cidadao" name="rg_cidadao">
+              </div>
+            </div>
+          </div>
+          <!--   2 linha -->
+          <div class="row">
+            <div class="col-12 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
+                <input class="form-control form-control-sm" type="email" placeholder="E-mail" id="email_cidadao" name="email_cidadao" required>
+               
+              </div>
+            </div>
+            <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Telefone" id="telefone_cidadao" name="telefone_cidadao">
+               
+              </div>
+            </div>
+          </div>
+          <!--   3 linha -->
+          <br>
+          <hr>
+          <!--   3 linha -->
+          <div class="row">
+            <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">CEP</label>
+                <input class="form-control form-control-sm" type="text" placeholder="CEP" id="cep_endereco" name="cep_endereco">
+               
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">Rua</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Rua" id="rua_endereco" name="rua_endereco">
+               
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">Bairro</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Bairro" id="bairro_endereco" name="bairro_endereco">
+              </div>
+            </div>
+            <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">Número</label>
+                  <input class="form-control form-control-sm" type="number" placeholder="Número" id="numero_endereco" name="numero_endereco">
+                 
                 </div>
-                <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label class="form-label">CPF</label>
-                        <input name="cpf" id="cpf2" type="text" class="form-control" maxlength="14"
-                            placeholder="CPF">
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label class="form-label">RG</label>
-                        <input name="rg" id="rg" type="text" class="form-control" maxlength="12"
-                            placeholder="RG">
-                    </div>
+              </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">Cidade</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Cidade" id="cidade_endereco" name="cidade_endereco">
+               
+              </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="col-form-label col-form-label-sm-4" for="inputSmall">Estado</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Estado" id="estado_endereco" name="estado_endereco">
+               
+              </div>
+            </div>
+            <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class="col-form-label col-form-label-sm-4" for="inputSmall">Complemento</label>
+                  <input class="form-control form-control-sm" type="text" placeholder="Complemento" id="complemento_endereco" name="complemento_endereco">
                 </div>
-
-                <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">CEP</label>
-                        <input name="cep" type="number" class="form-control" placeholder="CEP" maxlength="10"
-                            aria-label="CEP">
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">Cidade</label>
-                        <input name="cidade" type="text" class="form-control" id="cep" placeholder="Cidade">
-                    </div>
+              </div>
+              
+          </div>
+          <!-- 4 linha -->
+          
+            <!--Se for uma empresa-->
+            <div id="isEmpresa">
+              <!--   6 linha -->
+              <br>
+              <hr>
+              <!--   6 linha -->
+              <div class="row">
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Razão social</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Razão social" id="razao_social" name="razao_social">
+                   
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">Bairro/logradouro</label>
-                        <input name="bairro_logradouro" type="text" class="form-control" id="cep"
-                            placeholder="Bairro/logradouro">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">Complemento</label>
-                        <input name="complemento" type="text" class="form-control" id="complemento"
-                            name="complemento" placeholder="Complemento">
-                    </div>
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Nome fantasia</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Nome fantasia" id="nome_fantasia" name="nome_fantasia">
+                   
+                  </div>
                 </div>
-
-                <div class="row">
-                    <div class="col col-sm-12">
-                        <label for="disabledTextInput" class="form-label">Nome do sistema</label>
-                        <input name="nome_sistema" type="text" id="nnome_sistema" class="form-control"
-                            placeholder="Nome do sistema">
-                    </div>
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="nome@dominio.com" id="email_empresa" name="email_empresa">
+                   
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col col-sm-12">
-                        <label for="textarea">Observações</label>
-                        <textarea name="observacoes" class="form-control" id="observações" rows="3"></textarea>
-                    </div>
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">CNPJ</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="CNPJ" id="cnpj_empresa" name="cnpj_empresa">
+                   
+                  </div>
                 </div>
+                <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone Empresa</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Telefone Empresa" id="telefone_empresa" name="telefone_empresa">
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-success"><i class="fas fa-fw fa-plus"></i>Salvar</button>
@@ -81,9 +157,6 @@
                         class="fas fa-cancel"></i>Cancelar</button>
             </div>
         </form>
-    </div>
-    <div id="preferencias" class="tab-pane">
-        <h6> em fase de implementação</h6>
     </div>
 </div>
 

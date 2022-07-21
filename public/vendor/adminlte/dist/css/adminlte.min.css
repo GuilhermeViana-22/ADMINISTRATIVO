@@ -66,6 +66,20 @@
     margin-top: 20px;
 }
 
+#arquivo {
+    display: none;
+}
+#label {
+    width: 200px;
+    height: 30px;
+    background-color: #333;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+    cursor: pointer;
+}
 
 /*-------------------------------------------------------------------------------------------
     CARACTERISTICAS ESPECIFICAS DO DASHBOARD
@@ -2895,7 +2909,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn {
-    margin-left: 10px;
+  
     margin-right: 5px;
     display: inline-block;
     font-weight: 400;

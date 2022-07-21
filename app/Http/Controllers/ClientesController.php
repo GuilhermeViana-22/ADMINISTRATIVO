@@ -98,9 +98,10 @@ class ClientesController extends Controller
         if (!empty($$email)) {
             $filter_all[] = ['email', 'like', '%' . $email . '%'];
         }
+       # dd($cpf);
 
         if (!empty($cpf)) {
-            $filter_all[] = $cpf;
+            $filter_all[] = ['cpf', 'like', '%' . $cpf . '%'];;
         }
 
         if (!empty($nome_sistema)) {

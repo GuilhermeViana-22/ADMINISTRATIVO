@@ -93,7 +93,7 @@
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
-                                            <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-print"></i>Pesquisar</button>
+                                            <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-print"></i>Imprimir</button>
                                             <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-download"></i>Gerar Excel</button>
                                         </div>
                                     </div>
@@ -119,8 +119,8 @@
                                                @else
                                                @endif
                                             @foreach ($clientes as $cliente)
-                                                <th scope="row dark">{{ $cliente->id }}</th>
-                                                <td>{{ $cliente->nome }}</td>
+                                                <th  scope="row dark">{{ $cliente->id }}</th>
+                                                <td >{{ $cliente->nome }}</td>
                                                 <td style="text-align: center">
                                                     {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
                                                 <td>{{ $cliente->cpf }}</td>
