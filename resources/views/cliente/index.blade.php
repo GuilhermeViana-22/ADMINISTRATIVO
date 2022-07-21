@@ -29,31 +29,31 @@
                     <div class="row">
                         <div class="col col-sm-8">
                             <label for="disabledTextInput" class="form-label">Nome cliente</label>
-                            <input type="text" id="nnome" name="nome" class="form-control"
+                            <input type="text" id="nome_cliente" name="nome_cliente" class="form-control form-control-sm"
                                 placeholder="Nome cliente" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" name="email" placeholder="E-mail"
-                                aria-label="Last name">
+                            <input type="email" class="form-control form-control-sm" id="email_cliente"
+                                name="email_cliente" placeholder="E-mail" aria-label="Last name">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col col-sm-2">
                             <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
-                            <input id="cpf" name="cpf" type="text" class="form-control" maxlength="14"
-                                placeholder="CPF / CNPJ" aria-label="First name">
+                            <input id="cpf_cliente" name="cpf_cliente" type="text" class="form-control form-control-sm"
+                                maxlength="14" placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Nome do sistema</label>
-                            <input type="text" id="nome" name="nome_sistema" class="form-control"
+                            <input type="text" id="nome_sistema" name="nome_sistema" class="form-control form-control-sm"
                                 placeholder="Nome do sistema" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <div class="form-group">
                                 <label>Situação</label>
-                                <select class="form-control">
+                                <select class="form-control form-control-sm" name="situacao">
                                     <option value="1">Sistema ativo</option>
                                     <option value="2">Sistema em manutenção</option>
                                     <option value="3">Sistema com pagamento em atraso</option>
@@ -115,7 +115,7 @@
                                             <th>Nome Cliente</th>
                                             <th>Data Cadastro</th>
                                             <th>CPF / CNPJ</th>
-                                            <th>Sistema</th>
+                                            <th>Email</th>
                                             <th>Situação</th>
                                             <th>Ações</th>
                                         </tr>
@@ -128,12 +128,12 @@
                                             @endif
                                             @foreach ($clientes as $cliente)
                                                 <th scope="row dark">{{ $cliente->id }}</th>
-                                                <td>{{ $cliente->nome }}</td>
+                                                <td>{{ $cliente->nome_cliente }}</td>
                                                 <td style="text-align: center">
                                                     {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
-                                                <td>{{ $cliente->cpf }}</td>
-                                                <td>{{ $cliente->nome_sistema }}</td>
-                                                <td>{{ $cliente->situacao_id }}</td>
+                                                <td>{{ $cliente->cpf_cliente }}</td>
+                                                <td>{{ $cliente->email_cliente }}</td>
+                                                <td>{{ $cliente->Situacao->situacao }}</td>
                                                 <td id="opcoes">
                                                     <button id="search"
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"
@@ -199,7 +199,7 @@
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#cpf').mask('000.000.000-00');
+            $('#cpf_cliente').mask('000.000.000-00');
         });
     </script>
 @stop

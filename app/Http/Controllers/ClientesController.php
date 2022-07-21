@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DateTime;
+use Exception;
 use App\Models\Cliente;
 use App\Models\Situacao;
 use Illuminate\Http\Request;
@@ -18,16 +19,22 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
+        $clientes = Cliente::with(
+            'situacao'
+        )->paginate(4);
+        # dd($clientes);
         // metodo paginate tras o modelo de view composto
         // simplapagnate trás apenas a navegação
-        $clientes = Cliente::paginate(4);
+
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
-            $cliente->situacao_id = Situacao::find($cliente->situacao_id);
-            $cliente['situacao_id'] = $cliente->situacao_id->situacao;
+            # $cliente->Situacao->situacao =  utf8_decode( $cliente->Situacao->situacao);
+            #  $cliente['situacao_id'] = $cliente->situacao_id->situacao;
         }
-
+        // foreach ($clientes as &$cliente) {
+        //     $cliente->nome = strtoupper($cliente->nome);
+        //     $cliente->situacao  = Situacao::where('id',  $cliente->situacao_id)->get('situacao')->first();
+        // }
 
         return view('cliente.index',  compact('clientes'));
     }
@@ -66,11 +73,18 @@ class ClientesController extends Controller
                 return redirect()
                     ->route('cliente.index',  compact('retorno'));
             }
-            Cliente::create($data);
-            // retorna com a mensagem de save
-            $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso.');
-            return redirect()
-                ->route('cliente.index',  compact('retorno'));
+
+            try {
+                Cliente::create($data);
+                // retorna com a mensagem de save
+                $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso.');
+                return redirect()
+                    ->route('cliente.index',  compact('retorno'));
+            } catch (Exception $e) {
+                $retorno = Alert::error('Falha', 'Não foi possivel salvar cliente.' . 'Exception message:' . $e->getMessage() . ' with code: ' . $e->getCode());
+                return redirect()
+                    ->route('cliente.index',  compact('retorno'));
+            }
         }
     }
 
@@ -81,39 +95,47 @@ class ClientesController extends Controller
      * @return \Illuminate\Http\Request
      */
     public function search(Request $request)
-    {   
+    {
+    
         //guarda as variaveis vindas da request
         $nome = $request->nome;
         $email = $request->email;
         $cpf = $request->cpf;
+        $situacao = $request->situacao;
         $nome_sistema = $request->nome_sistema;
-        $ativo =$request->ativo;
+        $ativo = $request->ativo;
 
-        $filter_all = [];
+        $filter_all = Cliente::where('id','!=', null );
 
         // verifica se veio name
         if (!empty($nome)) {
-            $filter_all[] = ['nome', 'like', '%' . $nome . '%'];
+            $filter_all->where('nome_cliente', 'LIKE', '%' . $nome . '%');
         }
-        if (!empty($$email)) {
-            $filter_all[] = ['email', 'like', '%' . $email . '%'];
+
+        if (!empty($email)) {
+            $filter_all->where('email_cliente', 'LIKE', '%' . $email . '%');
         }
-       # dd($cpf);
 
         if (!empty($cpf)) {
-            $filter_all[] = ['cpf', 'like', '%' . $cpf . '%'];;
+            $filter_all->where('cpf_cliente', 'LIKE', '%' . $cpf . '%');
         }
 
         if (!empty($nome_sistema)) {
-            $filter_all[] = ['nome_sistema', 'like', '%' . $nome_sistema . '%'];
+            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%');
         }
-     
+
+        if (!empty($nome_sistema)) {
+            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%');
+        }
+
+        if (!empty($situacao)) {
+            $filter_all->whereHas('situacao', function($query) use($situacao){
+                $query->where('id','=',$situacao);
+            });
+        }
+
         // verifica se há valores para utilizarmos no 'where'
-        if (isset($filter_all)) {
-            $clientes = Cliente::where($filter_all)->get();
-        } else {
-            $clientes = Cliente::all(); 
-        }
+        $clientes = $filter_all->with('situacao')->get();
 
         return view('cliente.index', compact('clientes'));
     }

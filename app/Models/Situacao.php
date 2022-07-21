@@ -13,10 +13,5 @@ class Situacao extends Model
 {
     public $table = 'situacao';
 
-    public function Situacao() 
-    {
-       return $this->belongsTo('id', 'id');
-    }
-
     use HasFactory;
 }
