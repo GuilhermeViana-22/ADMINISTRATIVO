@@ -21,8 +21,7 @@ class ClientesController extends Controller
         $clientes = Cliente::all();
         // metodo paginate tras o modelo de view composto
         // simplapagnate trás apenas a navegação
-        $clientes = Cliente::simplepaginate(4);
-
+        $clientes = Cliente::paginate(4);
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
             $cliente->situacao_id = Situacao::find($cliente->situacao_id);
@@ -42,15 +41,6 @@ class ClientesController extends Controller
     {
 
         return view('cliente.create');
-    }
-
-    /**
-     * Adicionar um novo cliente no sistema
-     *
-     * @return \Illuminate\Http\Request
-     */
-    public function add(Request $request)
-    {
     }
 
     /**
@@ -82,6 +72,49 @@ class ClientesController extends Controller
             return redirect()
                 ->route('cliente.index',  compact('retorno'));
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Request
+     */
+    public function search(Request $request)
+    {   
+        //guarda as variaveis vindas da request
+        $nome = $request->nome;
+        $email = $request->email;
+        $cpf = $request->cpf;
+        $nome_sistema = $request->nome_sistema;
+        $ativo =$request->ativo;
+
+        $filter_all = [];
+
+        // verifica se veio name
+        if (!empty($nome)) {
+            $filter_all[] = ['nome', 'like', '%' . $nome . '%'];
+        }
+        if (!empty($$email)) {
+            $filter_all[] = ['email', 'like', '%' . $email . '%'];
+        }
+
+        if (!empty($cpf)) {
+            $filter_all[] = $cpf;
+        }
+
+        if (!empty($nome_sistema)) {
+            $filter_all[] = ['nome_sistema', 'like', '%' . $nome_sistema . '%'];
+        }
+     
+        // verifica se há valores para utilizarmos no 'where'
+        if (isset($filter_all)) {
+            $clientes = Cliente::where($filter_all)->get();
+        } else {
+            $clientes = Cliente::all(); 
+        }
+
+        return view('cliente.index', compact('clientes'));
     }
 
     /**

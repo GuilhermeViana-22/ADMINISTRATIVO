@@ -62,6 +62,9 @@
     background-color: #191b21;
 }
 
+#paginate{
+    margin-top: 20px;
+}
 
 *,
 ::after,

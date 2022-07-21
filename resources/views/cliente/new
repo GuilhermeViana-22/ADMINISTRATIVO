@@ -1,0 +1,12 @@
+           <!-- a Tag for previous page -->
+                                                      <a href="{{ $clientes->previousPageUrl() }}">
+                                                        <!-- You can insert logo or text here -->
+                                                    </a>
+                                                    @for ($i = 0; $i <= $clientes->lastPage(); $i++)
+                                                        <!-- a Tag for another page -->
+                                                        <a href="{{ $clientes->url($i) }}">{{ $i }}</a>
+                                                    @endfor
+                                                    <!-- a Tag for next page -->
+                                                    <a href="{{ $clientes ->nextPageUrl() }}">
+                                                        <!-- You can insert logo or text here -->
+                                                    </a> 

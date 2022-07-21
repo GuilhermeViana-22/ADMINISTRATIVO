@@ -20,12 +20,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //inicialmente chama a index para renderizar a pagina
 Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');
+Route::get('/cadastro/search',[ ClientesController::class,'search'])->name('cadastro.search');
+
 
 // rota para inclusão do formulario modal
 Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
-Route::post('/cliente',[ ClientesController::class,'store'])->name('cliente.store');
 Route::get('/cliente/{id}',[ ClientesController::class,'show'])->name('cliente.show');
 Route::get('/cliente/{id}/edit',[ ClientesController::class,'edit'])->name('cliente.edit');
+
+Route::post('/cliente',[ ClientesController::class,'store'])->name('cliente.store');
 Route::put('/cliente/{id}',[ ClientesController::class,'update'])->name('cliente.update');
 Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cliente.destroy');
 

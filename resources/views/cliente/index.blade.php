@@ -24,7 +24,7 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <form>
+                <form action="{{ route('cadastro.search') }}" method="GET">
                     @csrf
                     <div class="row">
                         <div class="col col-sm-8">
@@ -54,33 +54,28 @@
                             <div class="form-group">
                                 <label>Situação</label>
                                 <select class="form-control">
-                                    <option>Sistema ativo</option>
-                                    <option>Sistema em manutenção</option>
-                                    <option>Sistema com pagamento em atraso</option>
-                                    <option>Sistema cancelado pelo cliente</option>
-                                    <option>Sistema com problema</option>
-                                    <option>Sistema indisponivel</option>
+                                    <option value="1">Sistema ativo</option>
+                                    <option value="2">Sistema em manutenção</option>
+                                    <option value="3">Sistema com pagamento em atraso</option>
+                                    <option value="4">Sistema cancelado pelo cliente</option>
+                                    <option value="5">Sistema com problema</option>
+                                    <option value="6">Sistema indisponivel</option>
                                 </select>
                             </div>
                         </div>
                         <div id="switches" class="col col-sm-2">
                             <div id="toggles">
-                                <input type="checkbox" name="checkbox1" id="checkbox3" class="ios-toggle" checked />
+                                <input type="checkbox" name="ativo" id="checkbox3" class="ios-toggle" checked />
                                 <label for="checkbox3" class="checkbox-label" data-off="INVATIVO" data-on="ATIVO"></label>
                             </div>
                         </div>
                     </div>
+                    <button id="save" type="button" class="btn btn-success float-left"
+                        onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
+                            class="fas fa-fw fa-plus"></i> Novo Cliente</button>
+                    <button type="button" class="btn btn-light float-right" onClick="refresh(this)">Limpar</button>
+                    <button id="search" type="submit" class="btn btn-primary float-right">Pesquisar</button>
                 </form>
-            </div>
-            <div class="card-footer">
-                <button id="save" type="button" class="btn btn-success float-left"
-                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
-                        class="fas fa-fw fa-plus"></i>Novo
-                    Cliente</button>
-
-                <button type="button" class="btn btn-light float-right" onClick="refresh(this)">Limpar</button>
-                <button id="search" type="button" class="btn btn-primary float-right"
-                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">Pesquisar</button>
             </div>
         </div>
     </section>
@@ -88,7 +83,6 @@
 
     <!--data table sectin-->
     <section class="content">
-
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -102,8 +96,8 @@
                                             <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
                                                 aria-controls="example1" type="button"><span>Imprimir</span>
                                             </button>
-                                            <button id="exportedBTN" class="btn btn-secondary buttons-print" tabindex="0"
-                                                aria-controls="example1" type="button"><span>Gerar
+                                            <button id="exportedBTN" class="btn btn-secondary buttons-print"
+                                                tabindex="0" aria-controls="example1" type="button"><span>Gerar
                                                     Excel</span>
                                             </button>
 
@@ -155,15 +149,34 @@
                                                 </td>
                                         </tr>
                                         @endforeach
+                                        <tr>
+                                            
+                                        <td colspan=7>     
+                                            <div>
+                                                <ul class="pagination float-right">
+                                                  <li class="page-item disabled">
+                                                    <a class="page-link" href="{{ $clientes->previousPageUrl() }}">&laquo;</a>
+                                                  </li>
+                                                  @for ($i = 0; $i <= $clientes->lastPage(); $i++)
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="{{ $clientes->url($i) }}">{{ $i }}</a>
+                                                  </li>
+                                                  <li class="page-item">
+                                                    <a href="{{ $clientes ->nextPageUrl() }}">
+                                                  </li>
+                                                  @endfor
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="{{ $clientes ->nextPageUrl() }}">&raquo;</a>
+                                                  </li>
+                                                </ul>
+                                              </div>
+                                        </td>
+                                        </tr>
                                     </tbody>
                                 </table>
-              
+
                             </div>
                         </div>
-                                       {{-- Pagination --}}
-                 <div id="paginate" class="d-flex float-right">
-                   <b> {{$clientes->links()}}</b>
-                </div>
                     </div>
                 </div>
             </div>
