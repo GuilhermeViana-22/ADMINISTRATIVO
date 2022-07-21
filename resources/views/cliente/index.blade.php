@@ -123,6 +123,10 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                               @if($clientes->isEmpty())  
+                                                <td colspan="7"> Nenhum Resultado encontrado </td>
+                                               @else
+                                               @endif
                                             @foreach ($clientes as $cliente)
                                                 <th scope="row dark">{{ $cliente->id }}</th>
                                                 <td>{{ $cliente->nome }}</td>
@@ -151,13 +155,13 @@
                                         @endforeach
                                         <tr>
                                             
-                                        <td colspan=7>     
+                                        {{-- <td colspan=7>     
                                             <div>
                                                 <ul class="pagination float-right">
                                                   <li class="page-item disabled">
                                                     <a class="page-link" href="{{ $clientes->previousPageUrl() }}">&laquo;</a>
                                                   </li>
-                                                  @for ($i = 0; $i <= $clientes->lastPage(); $i++)
+                                                  @for ($i = 1; $i <= $clientes->lastPage(); $i++)
                                                   <li class="page-item">
                                                     <a class="page-link" href="{{ $clientes->url($i) }}">{{ $i }}</a>
                                                   </li>
@@ -170,7 +174,7 @@
                                                   </li>
                                                 </ul>
                                               </div>
-                                        </td>
+                                        </td> --}}
                                         </tr>
                                     </tbody>
                                 </table>
