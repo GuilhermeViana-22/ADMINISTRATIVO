@@ -70,11 +70,15 @@
                             </div>
                         </div>
                     </div>
-                    <button id="save" type="button" class="btn btn-success float-left"
-                        onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
-                            class="fas fa-fw fa-plus"></i> Novo Cliente</button>
-                    <button  type="button" class="btn btn-primary float-right" onClick="refresh(this)"><i class="fas fa-eraser"></i>Limpar</button>
-                    <button id="search" type="submit" class="btn btn-dark float-right"><i class="fas fa-search"></i>Pesquisar</button>
+            </div>
+            <div class="card-footer">
+                <button id="save" type="button" class="btn btn-success btn-sm float-left"
+                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
+                        class="fas fa-fw fa-plus"></i> Novo Cliente</button>
+                <button type="button" class="btn btn-primary btn-sm float-right" onClick="refresh(this)"><i
+                        class="fas fa-eraser"></i>Limpar</button>
+                <button id="search" type="submit" class="btn btn-dark btn-sm float-right"><i
+                        class="fas fa-search"></i>Pesquisar</button>
                 </form>
             </div>
         </div>
@@ -93,8 +97,12 @@
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
-                                            <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-print"></i>Imprimir</button>
-                                            <button id="search" type="submit" class="btn btn-secondary float-right"><i class="fas fa-download"></i>Gerar Excel</button>
+                                            <button id="search" type="submit"
+                                                class="btn btn-secondary btn-sm float-right"><i
+                                                    class="fas fa-print"></i>Imprimir</button>
+                                            <button id="search" type="submit"
+                                                class="btn btn-secondary btn-sm float-right"><i
+                                                    class="fas fa-download"></i>Gerar Excel</button>
                                         </div>
                                     </div>
                                 </div>
@@ -114,13 +122,13 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                               @if($clientes->isEmpty())  
+                                            @if ($clientes->isEmpty())
                                                 <td colspan="7"> Nenhum Resultado encontrado </td>
-                                               @else
-                                               @endif
+                                            @else
+                                            @endif
                                             @foreach ($clientes as $cliente)
-                                                <th  scope="row dark">{{ $cliente->id }}</th>
-                                                <td >{{ $cliente->nome }}</td>
+                                                <th scope="row dark">{{ $cliente->id }}</th>
+                                                <td>{{ $cliente->nome }}</td>
                                                 <td style="text-align: center">
                                                     {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
                                                 <td>{{ $cliente->cpf }}</td>
@@ -129,24 +137,25 @@
                                                 <td id="opcoes">
                                                     <button id="search"
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"
-                                                        type="button" class="btn btn-primary"><i
+                                                        type="button" class="btn btn-primary btn-sm"><i
                                                             class="fas fa-fw fa-eye"></i></button>
-                                                    <button type="button" class="btn btn-warning"
+                                                    <button type="button" class="btn btn-warning btn-sm"
                                                         onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');">
                                                         <i class="fas fa-fw fa-pen"></i> </button>
                                                     <form action="{{ route('cliente.destroy', $cliente->id) }}"
                                                         method="post">
                                                         @method('delete')
                                                         @csrf
-                                                        <button id="trash"type="submit" class="btn btn-danger"><i
+                                                        <button id="trash"type="submit"
+                                                            class="btn btn-danger btn-sm"><i
                                                                 class="fas fa-fw fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                         </tr>
                                         @endforeach
                                         <tr>
-                                            
-                                        {{-- <td colspan=7>     
+
+                                            {{-- <td colspan=7>     
                                             <div>
                                                 <ul class="pagination float-right">
                                                   <li class="page-item disabled">

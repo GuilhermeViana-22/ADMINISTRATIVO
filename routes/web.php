@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\RelatoriosController;
+use App\Http\Controllers\SistemasController;
 
 // chama a tela de login inicialmente com a classe de authetificação programada
 Route::get('/', function () {
@@ -34,6 +35,9 @@ Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cli
 
 //retorna o caminho do relatorio
 Route::get('/clientes', [RelatoriosController::class, 'clientes']);
-Route::get('/sistema', [RelatoriosController::class, 'sistema']);
 Route::get('/saldo', [RelatoriosController::class, 'saldo']);
 Route::get('/vendas', [RelatoriosController::class, 'vendas']);
+
+// rota de acesso as funionalidades de sistemas
+Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
+Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');

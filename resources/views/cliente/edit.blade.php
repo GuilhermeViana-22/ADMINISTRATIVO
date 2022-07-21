@@ -70,8 +70,8 @@
                 </div>
             </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-success"><i class="fas fa-fw fa-plus"></i>Salvar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
+                <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-fw fa-plus"></i>Salvar</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><i
                         class="fas fa-cancel"></i>Cancelar</button>
             </div>
         </form>
