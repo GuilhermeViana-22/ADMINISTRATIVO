@@ -39,14 +39,14 @@
                         <div class="form-group">
                             <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
                             <input class="form-control form-control-sm" type="email" placeholder="E-mail"
-                                id="email_cliente" name="email_cliente" required>
+                                id="email_cliente" name="email_cliente" >
 
                         </div>
                     </div>
                     <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group">
                             <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone</label>
-                            <input class="form-control form-control-sm" type="text" placeholder="Telefone"
+                            <input class="form-control form-control-sm" type="number" placeholder="Telefone"
                                 id="telefone_cliente" name="telefone_cliente">
 
                         </div>
@@ -106,8 +106,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- 4 linha -->
-                <hr>
                 <!--Se for uma empresa-->
                 <div id="isEmpresa">
                     <!--   6 linha -->
@@ -171,12 +169,11 @@
 
         <script type="text/javascript">
             $('#cpf_cliente_cadastro').mask('000.000.000-00');
-            $('#cpf_cidadao').mask('000.000.000-00');
             $('#cnpj_empresa').mask('00.000.000/0000-00', {
                 reverse: true
             });
-            $('#rg_cidadao').mask('00.000.000-0');
+            $('#rg_cliente').mask('00.000.000-0');
             $('#cep_endereco').mask('00000-000');
-            $('#telefone_cidadao').mask('(00) 0000-00000');
+            $('#telefone_cliente').mask('00 0000 00000');
             $('#telefone_empresa').mask('(00) 0000-00000');
         </script>

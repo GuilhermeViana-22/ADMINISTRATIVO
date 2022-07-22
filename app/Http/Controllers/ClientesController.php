@@ -8,6 +8,7 @@ use App\Models\Cliente;
 use App\Models\Situacao;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\ClientesSalvarRequest;
 
 
 class ClientesController extends Controller
@@ -28,13 +29,7 @@ class ClientesController extends Controller
 
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
-            # $cliente->Situacao->situacao =  utf8_decode( $cliente->Situacao->situacao);
-            #  $cliente['situacao_id'] = $cliente->situacao_id->situacao;
         }
-        // foreach ($clientes as &$cliente) {
-        //     $cliente->nome = strtoupper($cliente->nome);
-        //     $cliente->situacao  = Situacao::where('id',  $cliente->situacao_id)->get('situacao')->first();
-        // }
 
         return view('cliente.index',  compact('clientes'));
     }
@@ -53,16 +48,15 @@ class ClientesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\ClientesSalvarRequest  $request
      */
-    public function store(Request $request)
+    public function store(ClientesSalvarRequest $request)
     {
+       
         // verifica o tipo de request
         if ($request->isMethod('post')) {
 
             $data = $request->all();
-            $data['data_cadastro'] = new DateTime();
             $data['cliente_iteracao_id'] = 1;
             $data['situacao_id'] = 1;
             $data['ativo'] = 1;

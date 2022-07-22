@@ -21,6 +21,7 @@
     <!---layout padrão--->
     @include('sweetalert::alert')
     {{-- nsg --}}
+
     <section class="content">
         <div class="card">
             <div class="card-body">
