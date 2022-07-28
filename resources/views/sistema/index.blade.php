@@ -27,12 +27,17 @@
                     @csrf
                     <div class="row">
                         <div class="col col-sm-8">
+                            <label for="disabledTextInput" class="form-label">Protocolo</label>
+                            <input type="text" id="id" name="id" class="form-control form-control-sm"
+                                   placeholder="Nome Sistema" aria-label="First name">
+                        </div>
+                        <div class="col col-sm-8">
                             <label for="disabledTextInput" class="form-label">Nome Sistema</label>
-                            <input type="text" id="nnome" name="nome" class="form-control form-control-sm"
+                            <input type="text" id="nome_sistema" name="nome_sistema" class="form-control form-control-sm"
                                 placeholder="Nome Sistema" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
-                            <label for="disabledTextInput" class="form-label">Nome Sistema</label>
+                            <label for="disabledTextInput" class="form-label">Rota</label>
                             <input type="text" id="nnome" name="nome" class="form-control form-control-sm"
                                 placeholder="Nome Sistema" aria-label="First name">
                         </div>
