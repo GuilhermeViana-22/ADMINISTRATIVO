@@ -26,32 +26,27 @@
                 <form action="{{ route('cadastro.search') }}" method="GET">
                     @csrf
                     <div class="row">
-                        <div class="col col-sm-8">
+                        <div class="col col-sm-2">
                             <label for="disabledTextInput" class="form-label">Protocolo</label>
                             <input type="text" id="id" name="id" class="form-control form-control-sm"
-                                   placeholder="Nome Sistema" aria-label="First name">
+                                   placeholder="Protocolo" aria-label="First name">
                         </div>
-                        <div class="col col-sm-8">
+                        <div class="col col-sm-6">
                             <label for="disabledTextInput" class="form-label">Nome Sistema</label>
                             <input type="text" id="nome_sistema" name="nome_sistema" class="form-control form-control-sm"
                                 placeholder="Nome Sistema" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Rota</label>
-                            <input type="text" id="nnome" name="nome" class="form-control form-control-sm"
+                            <input type="text" id="rota" name="rota" class="form-control form-control-sm"
                                 placeholder="Nome Sistema" aria-label="First name">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col col-sm-2">
-                            <label for="disabledTextInput" class="form-label">Nome Sistema</label>
-                            <input type="text" id="nnome" name="nome" class="form-control form-control-sm"
-                                placeholder="Nome Sistema" aria-label="First name">
-                        </div>
-                        <div class="col col-sm-4">
-                            <label for="disabledTextInput" class="form-label">Nome Sistema</label>
-                            <input type="text" id="nnome" name="nome" class="form-control form-control-sm"
-                                placeholder="Nome Sistema" aria-label="First name">
+                            <label for="disabledTextInput" class="form-label">Data de cadastro</label>
+                            <input type="date" min="2022-01-01" id="data_cadastro" name="data_cadastro" class="form-control form-control-sm"
+                                placeholder="Data cadastro" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <div class="form-group">
@@ -69,6 +64,7 @@
                     </div>
                 </form>
             </div>
+
             <div class="card-footer">
                 <button id="save" type="button" class="btn btn-success btn-sm float-left"
                     onclick="showModal('{{ route('sistema.create') }}', 'Novo Sistema', 'Incluir Novo Sistema', 'Salvar', 'Cancelar');"><i
@@ -90,4 +86,5 @@
 @section('js')
 <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
 <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+
 @stop

@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sistema;
 use Illuminate\Http\Request;
 
 class SistemasController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * retorna todos os dados cadastrados do sistema no banco de dados.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $sistema = Sistema::all();
+        dd($sistema);
 
-        
         return view('sistema.index');
     }
 
