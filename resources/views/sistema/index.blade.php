@@ -107,8 +107,8 @@
                                         <th>Nome Sistema</th>
                                         <th>url</th>
                                         <th>rota API</th>
-                                        <th>qtd usuarios</th>
                                         <th>Datas cadastro</th>
+                                        <th>qtd usuarios</th>
                                         <th>Situação</th>
                                         <th>Ações</th>
                                     </tr>
@@ -124,7 +124,7 @@
                                                 <td scope="row info">{{ $sistema->nome_sistema }}</td>
                                                 <td scope="row info">{{ $sistema->url }}</td>
                                                 <td scope="row info">{{ $sistema->rota_api }}</td>
-                                                <td scope="row info">{{ $sistema->qtd_usuarios }}</td>
+                                                <td scope="row info">{{ date('Y/m/d', strtotime($sistema->data_cadastro))  }}</td>
                                                 <td scope="row info">{{ $sistema->situacao_id }}</td>
                                                 <td scope="row info">{{ $sistema->id }}</td>
 
