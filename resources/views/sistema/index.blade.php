@@ -85,6 +85,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
+                                Resultado da pesquisa de sistemas
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
