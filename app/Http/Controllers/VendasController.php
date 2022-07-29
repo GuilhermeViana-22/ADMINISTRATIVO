@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sistema;
 use Illuminate\Http\Request;
 
-class SistemasController extends Controller
+class VendasController extends Controller
 {
     /**
-     * retorna todos os dados cadastrados do sistema no banco de dados.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $sistemas = Sistema::all();
-
-        return view('sistema.index', compact('sistemas'));
+        //
     }
 
     /**
@@ -27,7 +24,6 @@ class SistemasController extends Controller
     public function create()
     {
         //
-        return view('sistema.create');
     }
 
     /**
@@ -76,13 +72,13 @@ class SistemasController extends Controller
     }
 
     /**
-     * Seta para inativo os dados do sistema na aplicação
+     * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        dd($id);
+        //
     }
 }

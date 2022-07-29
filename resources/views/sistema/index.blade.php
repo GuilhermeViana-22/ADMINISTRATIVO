@@ -76,6 +76,103 @@
             </div>
         </div>
     </section>
+{{--    data table section--}}
+    <!--data table sections-->
+    <section class="content">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm">
+                                        <div class="dt-buttons btn-group flex-wrap">
+                                            <button id="search" type="submit"
+                                                    class="btn btn-secondary btn-sm float-right"><i
+                                                    class="fas fa-print"></i>Imprimir</button>
+                                            <button id="search" type="submit"
+                                                    class="btn btn-secondary btn-sm float-right"><i
+                                                    class="fas fa-download"></i>Gerar Excel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover  table-sm">
+                                    <thead class="bg-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome Sistema</th>
+                                        <th>url</th>
+                                        <th>rota API</th>
+                                        <th>qtd usuarios</th>
+                                        <th>Datas cadastro</th>
+                                        <th>Situação</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        @if ($sistemas->isEmpty())
+                                            <td colspan="8"> Nenhum Resultado encontrado </td>
+                                        @else
+                                        @endif
+                                        @foreach ($sistemas as $sistema)
+                                                <td scope="row info">{{ $sistema->id }}</td>
+                                                <td scope="row info">{{ $sistema->nome_sistema }}</td>
+                                                <td scope="row info">{{ $sistema->url }}</td>
+                                                <td scope="row info">{{ $sistema->rota_api }}</td>
+                                                <td scope="row info">{{ $sistema->qtd_usuarios }}</td>
+                                                <td scope="row info">{{ $sistema->situacao_id }}</td>
+                                                <td scope="row info">{{ $sistema->id }}</td>
+
+                                            <td id="opcoes">
+
+                                                <form action="{{ route('sistema.destroy', $sistema->id) }}"
+                                                      method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button id="trash"type="submit"
+                                                            class="btn btn-danger btn-sm"><i
+                                                            class="fas fa-fw fa-trash"></i></button>
+                                                </form>
+                                            </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+
+
+                                {{-- <td colspan=7>
+                                <div>
+                                    <ul class="pagination float-right">
+                                      <li class="page-item disabled">
+                                        <a class="page-link" href="{{ $clientes->previousPageUrl() }}">&laquo;</a>
+                                      </li>
+                                      @for ($i = 1; $i <= $clientes->lastPage(); $i++)
+                                      <li class="page-item">
+                                        <a class="page-link" href="{{ $clientes->url($i) }}">{{ $i }}</a>
+                                      </li>
+                                      <li class="page-item">
+                                        <a href="{{ $clientes ->nextPageUrl() }}">
+                                      </li>
+                                      @endfor
+                                      <li class="page-item">
+                                        <a class="page-link" href="{{ $clientes ->nextPageUrl() }}">&raquo;</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                            </td> --}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
 @stop
 
 @section('css')

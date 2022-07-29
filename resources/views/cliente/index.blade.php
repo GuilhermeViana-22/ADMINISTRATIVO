@@ -84,7 +84,7 @@
             </div>
         </div>
     </section>
-    <!--data table sectin-->
+    <!--data table sections-->
     <section class="content">
         <div class="card">
             <div class="card-body">
@@ -155,9 +155,9 @@
                                             @endforeach
                                     </tbody>
                                 </table>
-                            
 
-                                    {{-- <td colspan=7>     
+
+                                    {{-- <td colspan=7>
                                     <div>
                                         <ul class="pagination float-right">
                                           <li class="page-item disabled">
@@ -177,7 +177,7 @@
                                         </ul>
                                       </div>
                                 </td> --}}
-                             
+
                             </div>
                         </div>
                     </div>

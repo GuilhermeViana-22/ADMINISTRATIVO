@@ -41,3 +41,4 @@ Route::get('/vendas', [RelatoriosController::class, 'vendas']);
 // rota de acesso as funionalidades de sistemas
 Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
 Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
+Route::get('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
