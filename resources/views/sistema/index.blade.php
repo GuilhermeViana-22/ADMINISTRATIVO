@@ -44,7 +44,7 @@
                     </div>
                     <div class="row">
                         <div class="col col-sm-2">
-                            <label for="disabledTextInput" class="form-label">Data de cadastro</label>
+                            <label for="disabledTextInput" class="form-label">Data de cadastro </label>
                             <input type="date" min="2022-01-01" id="data_cadastro" name="data_cadastro" class="form-control form-control-sm"
                                 placeholder="Data cadastro" aria-label="First name">
                         </div>
