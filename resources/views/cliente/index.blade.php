@@ -121,6 +121,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+
                                             @if ($clientes->isEmpty())
                                                 <td colspan="8"> Nenhum Resultado encontrado </td>
                                             @else
