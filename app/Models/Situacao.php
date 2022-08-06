@@ -14,4 +14,8 @@ class Situacao extends Model
     public $table = 'situacao';
 
     use HasFactory;
+
+    public function situacao(){
+        return $this->hasMany(Situacao::class);
+    }
 }

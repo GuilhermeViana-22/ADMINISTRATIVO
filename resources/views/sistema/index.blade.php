@@ -125,16 +125,15 @@
                                                 <td scope="row info">{{ $sistema->url }}</td>
                                                 <td scope="row info">{{ $sistema->rota_api }}</td>
                                                 <td scope="row info">{{ date('Y/m/d', strtotime($sistema->data_cadastro))  }}</td>
-                                                <td scope="row info">{{ $sistema->situacao_id }}</td>
-                                                <td scope="row info">{{ $sistema->id }}</td>
+                                                <td scope="row info">{{ $sistema->qtd_usuarios }}</td>
+                                                <td scope="row info">{{ $sistema->sistema->situacao }}</td>
 
                                             <td id="opcoes">
-
                                                 <form action="{{ route('sistema.destroy', $sistema->id) }}"
                                                       method="post">
                                                     @method('delete')
                                                     @csrf
-                                                    <button id="trash"type="submit"
+                                                    <button type="submit"
                                                             class="btn btn-danger btn-sm"><i
                                                             class="fas fa-fw fa-trash"></i></button>
                                                 </form>

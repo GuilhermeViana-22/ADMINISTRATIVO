@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Sistema;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SistemasController extends Controller
 {
@@ -14,7 +16,7 @@ class SistemasController extends Controller
      */
     public function index()
     {
-        $sistemas = Sistema::all();
+        $sistemas = Sistema::all()->where('ativo', '=', '1');
 
         return view('sistema.index', compact('sistemas'));
     }
@@ -83,6 +85,16 @@ class SistemasController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        //recuperando o cliente que vai ser deletado
+        $sistema_id = Sistema::find($id);
+
+        if(!empty($sistema_id)){
+            $sistema_id->ativo = '0';
+            $sistema_id->save();
+        }
+        $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
+        return redirect()
+            ->route('sistema.index',  compact('retorno'));
+
     }
 }

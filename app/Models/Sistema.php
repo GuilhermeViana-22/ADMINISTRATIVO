@@ -9,4 +9,14 @@ class Sistema extends Model
 {
     public $table = 'sistema';
     use HasFactory;
+
+    public function sistema(){
+        return $this->belongsTo(Situacao::class, 'id', 'id' );
+    }
+
+    protected $fillable = [
+        'ativo',
+        'updated_at'
+    ];
+
 }
