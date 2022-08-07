@@ -47,9 +47,9 @@
                                 maxlength="14" placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
-                            <label for="disabledTextInput" class="form-label">Nome do sistema</label>
+                            {{-- <label for="disabledTextInput" class="form-label">Nome do sistema</label>
                             <input type="text" id="nome_sistema" name="nome_sistema" class="form-control form-control-sm"
-                                placeholder="Nome do sistema" aria-label="First name">
+                                placeholder="Nome do sistema" aria-label="First name"> --}}
                         </div>
                         <div class="col col-sm-4">
                             <div class="form-group">
@@ -84,7 +84,9 @@
             </div>
         </div>
     </section>
-    <!--data table sections-->
+    <!-- /.card -->
+
+    <!--data table sectin-->
     <section class="content">
         <div class="card">
             <div class="card-body">
@@ -92,6 +94,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
+                                <h3 class="card-title">Resultado da pesquisa de clientes</h3>
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
@@ -106,35 +109,32 @@
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover  table-sm">
-                                    <thead class="bg-light">
+                                <table class="table table-hover">
+                                    <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Nome Cliente</th>
-                                            <th>Data</th>
-                                            <th>CPF</th>
+                                            <th>Data Cadastro</th>
+                                            <th>CPF / CNPJ</th>
                                             <th>Email</th>
-                                            <th>Cidade</th>
                                             <th>Situação</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-
                                             @if ($clientes->isEmpty())
-                                                <td colspan="8"> Nenhum Resultado encontrado </td>
+                                                <td colspan="7"> Nenhum Resultado encontrado </td>
                                             @else
                                             @endif
                                             @foreach ($clientes as $cliente)
-                                                <th scope="row info">{{ $cliente->id }}</th>
+                                                <th scope="row dark">{{ $cliente->id }}</th>
                                                 <td>{{ $cliente->nome_cliente }}</td>
                                                 <td style="text-align: center">
                                                     {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
                                                 <td>{{ $cliente->cpf_cliente }}</td>
                                                 <td>{{ $cliente->email_cliente }}</td>
-                                                <td>{{ $cliente->cidade_endereco }}</td>
-                                                <td >{{ $cliente->Situacao->situacao }}</td>
+                                                <td>{{ $cliente->situacao_id }}</td>
                                                 <td id="opcoes">
                                                     <button id="search"
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"
@@ -152,33 +152,33 @@
                                                                 class="fas fa-fw fa-trash"></i></button>
                                                     </form>
                                                 </td>
-                                            </tr>
-                                            @endforeach
+                                        </tr>
+                                        @endforeach
+                                        <tr>
 
+                                            {{-- <td colspan=7>     
+                                            <div>
+                                                <ul class="pagination float-right">
+                                                  <li class="page-item disabled">
+                                                    <a class="page-link" href="{{ $clientes->previousPageUrl() }}">&laquo;</a>
+                                                  </li>
+                                                  @for ($i = 1; $i <= $clientes->lastPage(); $i++)
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="{{ $clientes->url($i) }}">{{ $i }}</a>
+                                                  </li>
+                                                  <li class="page-item">
+                                                    <a href="{{ $clientes ->nextPageUrl() }}">
+                                                  </li>
+                                                  @endfor
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="{{ $clientes ->nextPageUrl() }}">&raquo;</a>
+                                                  </li>
+                                                </ul>
+                                              </div>
+                                        </td> --}}
+                                        </tr>
                                     </tbody>
                                 </table>
-
-
-                                    {{-- <td colspan=7>
-                                    <div>
-                                        <ul class="pagination float-right">
-                                          <li class="page-item disabled">
-                                            <a class="page-link" href="{{ $clientes->previousPageUrl() }}">&laquo;</a>
-                                          </li>
-                                          @for ($i = 1; $i <= $clientes->lastPage(); $i++)
-                                          <li class="page-item">
-                                            <a class="page-link" href="{{ $clientes->url($i) }}">{{ $i }}</a>
-                                          </li>
-                                          <li class="page-item">
-                                            <a href="{{ $clientes ->nextPageUrl() }}">
-                                          </li>
-                                          @endfor
-                                          <li class="page-item">
-                                            <a class="page-link" href="{{ $clientes ->nextPageUrl() }}">&raquo;</a>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                </td> --}}
 
                             </div>
                         </div>

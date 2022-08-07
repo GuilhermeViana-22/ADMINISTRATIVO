@@ -105,6 +105,10 @@
                                 id="complemento_endereco" name="complemento_endereco">
                         </div>
                     </div>
+                    <div class="form-check form-switch">
+                        <input type="checkbox" id="chkBloqueio" class="default">
+                    <label class="form-check-label" for="chkBloqueio">Não sou empresa</label>
+                    </div>
                 </div>
                 <!--Se for uma empresa-->
                 <div id="isEmpresa">
@@ -166,6 +170,19 @@
                         class="fas fa-cancel"></i>Cancelar</button>
             </div>
         </form>
+        <script>
+
+            $('#chkBloqueio').on('change', function () {
+                if ($(this).is(':checked')) {
+                    $("#isEmpresa").css('display', 'none');
+                }
+                else {
+                    $('#isEmpresa').css('display', 'block');
+                    
+                }
+            });
+
+        </script>
 
         <script type="text/javascript">
             $('#cpf_cliente_cadastro').mask('000.000.000-00');
