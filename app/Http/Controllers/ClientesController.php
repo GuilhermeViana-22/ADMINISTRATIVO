@@ -21,7 +21,7 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = Cliente::with(
-            'situacao'
+            'situacao_id'
         )->paginate(4);
         # dd($clientes);
         // metodo paginate tras o modelo de view composto
@@ -96,41 +96,43 @@ class ClientesController extends Controller
         $email = $request->email;
         $cpf = $request->cpf;
         $situacao = $request->situacao;
-        $nome_sistema = $request->nome_sistema;
+        // $nome_sistema = $request->nome_sistema;
         $ativo = $request->ativo;
 
         $filter_all = Cliente::where('id','!=', null );
 
         // verifica se veio name
         if (!empty($nome)) {
-            $filter_all->where('nome_cliente', 'LIKE', '%' . $nome . '%');
+            $filter_all->where('nome_cliente', 'LIKE', '%' . $nome . '%')->paginate(2);
         }
 
         if (!empty($email)) {
-            $filter_all->where('email_cliente', 'LIKE', '%' . $email . '%');
+            $filter_all->where('email_cliente', 'LIKE', '%' . $email . '%')->paginate(2);
         }
 
         if (!empty($cpf)) {
-            $filter_all->where('cpf_cliente', 'LIKE', '%' . $cpf . '%');
+            $filter_all->where('cpf_cliente', 'LIKE', '%' . $cpf . '%')->paginate(2);
         }
 
-        if (!empty($nome_sistema)) {
-            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%');
-        }
+        // if (!empty($nome_sistema)) {
+        //     $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%')->paginate(2);
+        // }
 
-        if (!empty($nome_sistema)) {
-            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%');
-        }
+        // if (!empty($nome_sistema)) {
+        //     $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%')->paginate(2);
+        // }
 
         if (!empty($situacao)) {
-            $filter_all->whereHas('situacao', function($query) use($situacao){
+            $filter_all->whereHas('situacao_id', function($query) use($situacao){
                 $query->where('id','=',$situacao);
+                
             });
         }
-
+        
         // verifica se há valores para utilizarmos no 'where'
-        $clientes = $filter_all->with('situacao')->get();
-
+        $clientes = $filter_all->with('situacao_id')->get();
+        
+        // dd($clientes);
         return view('cliente.index', compact('clientes'));
     }
 
@@ -199,4 +201,6 @@ class ClientesController extends Controller
         return redirect()
             ->route('cliente.index',  compact('retorno'));
     }
+    
+
 }

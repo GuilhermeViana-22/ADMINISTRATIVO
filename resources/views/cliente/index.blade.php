@@ -47,9 +47,9 @@
                                 maxlength="14" placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
-                            <label for="disabledTextInput" class="form-label">Nome do sistema</label>
+                            {{-- <label for="disabledTextInput" class="form-label">Nome do sistema</label>
                             <input type="text" id="nome_sistema" name="nome_sistema" class="form-control form-control-sm"
-                                placeholder="Nome do sistema" aria-label="First name">
+                                placeholder="Nome do sistema" aria-label="First name"> --}}
                         </div>
                         <div class="col col-sm-4">
                             <div class="form-group">
@@ -134,7 +134,7 @@
                                                     {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
                                                 <td>{{ $cliente->cpf_cliente }}</td>
                                                 <td>{{ $cliente->email_cliente }}</td>
-                                                <td>{{ $cliente->Situacao->situacao }}</td>
+                                                <td>{{ $cliente->situacao_id }}</td>
                                                 <td id="opcoes">
                                                     <button id="search"
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"

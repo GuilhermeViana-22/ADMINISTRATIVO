@@ -41,8 +41,8 @@ class Cliente extends Model
 
     use HasFactory;
 
-    public function situacao()
+    public function situacao_id()
     {
-        return $this->belongsTo(Situacao::class, 'situacao_id');
+        return $this->belongsTo(Situacao::class, 'situacao_id', 'id');
     }
 }
