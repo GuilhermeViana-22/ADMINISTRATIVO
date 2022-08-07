@@ -89,14 +89,15 @@
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
-                                            <button id="search" type="submit"
-                                                    class="btn btn-secondary btn-sm float-right"><i
-                                                    class="fas fa-print"></i>Imprimir</button>
+                                            <a id="search" type="submit"
+                                                    class="btn btn-secondary btn-sm float-right" href="{{route('mpf.gerarPdf')}}"><i
+                                                    class="fas fa-print"></i>Imprimir</a>
                                             <button id="search" type="submit"
                                                     class="btn btn-secondary btn-sm float-right"><i
                                                     class="fas fa-download"></i>Gerar Excel</button>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="card-body table-responsive p-0">
@@ -124,7 +125,7 @@
                                                 <td scope="row info">{{ $sistema->nome_sistema }}</td>
                                                 <td scope="row info">{{ $sistema->url }}</td>
                                                 <td scope="row info">{{ $sistema->rota_api }}</td>
-                                                <td scope="row info">{{ date('Y/m/d', strtotime($sistema->data_cadastro))  }}</td>
+                                                <td scope="row info">{{ date('d/m/Y', strtotime($sistema->created_at))  }}</td>
                                                 <td scope="row info">{{ $sistema->qtd_usuarios }}</td>
                                                 <td scope="row info">{{ $sistema->sistema->situacao }}</td>
 

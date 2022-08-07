@@ -22,11 +22,8 @@
                 </h3>
             </div>
         @endif
-
         {{-- Card Body --}}
        @yield('auth_body')
-
-
         {{-- Card Footer --}}
     </div>
 

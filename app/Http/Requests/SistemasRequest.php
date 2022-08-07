@@ -25,7 +25,9 @@ class SistemasRequest extends FormRequest
     {
         return [
             //
-             'updated_at' => 'nullable',
+            'nome_sistema' => 'required|string|max:250|min:3',
+            'updated_at' => 'nullable',
+            'created_at' => 'nullable'
         ];
     }
 }

@@ -30,17 +30,38 @@ class SistemasController extends Controller
     {
         //
         return view('sistema.create');
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        //verifica se o metodo é do tipo post
+        if (!$request->isMethod('post')) {
+            return  \alert('Error', 'você não tem permissão para realiar está ação');
+        }
+        //guarda os dados do request
+        $data = $request->all();
+
+        // informa a situação do sistema
+        $data['ativo'] = 1;
+        $data['situacao_id'] = 1;
+        $data['token'] = $request->_token;
+
+        try {
+            Sistema::create($data);
+            // retorna com a mensagem de save
+            $return = Alert::success('Sucesso', 'O novo sitema  foi salvo com sucesso.');
+        } catch (Exception $e) {
+            $return = Alert::error('Falha', 'Não foi possivel salvar o sistema.' . 'Exception message:' . $e->getMessage() . ' with code: ' . $e->getCode());
+        }
+        return redirect()
+            ->route('sistema.index',  compact('return'));
     }
 
     /**

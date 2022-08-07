@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
@@ -39,7 +40,12 @@ Route::get('/saldo', [RelatoriosController::class, 'saldo']);
 Route::get('/vendas', [RelatoriosController::class, 'vendas']);
 
 // rota de acesso as funionalidades de sistemas
+
 Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
 Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
+Route::post('/sistema',[SistemasController::class,'store'])->name('sistema.store');
 Route::get('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
 Route::delete('sistema/{id}',[ SistemasController::class,'destroy'])->name('sistema.destroy');
+
+// actions
+Route::get('/mpf', [EmpController::class, 'gerarPdf'])->name('mpf.gerarPdf');
