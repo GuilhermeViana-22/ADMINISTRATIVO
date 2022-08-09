@@ -64,7 +64,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="card-footer">
                 <button id="save" type="button" class="btn btn-success btn-sm float-left"
                     onclick="showModal('{{ route('sistema.create') }}', 'Novo Sistema', 'Incluir Novo Sistema', 'Salvar', 'Cancelar');"><i
@@ -81,6 +80,7 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
