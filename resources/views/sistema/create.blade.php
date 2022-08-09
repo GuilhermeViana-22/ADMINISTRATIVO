@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-12 col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <label for="disabledTextInput" class="form-label">Rota</label>
-                        <input type="text" id="rota" name="rota" class="form-control form-control-sm"
+                        <input type="text" id="rota" name="rota_api" class="form-control form-control-sm"
                                placeholder="Rota" aria-label="First name">
                     </div>
                 </div>

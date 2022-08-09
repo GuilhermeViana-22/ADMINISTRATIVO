@@ -1,0 +1,6 @@
+atualizações de clientes
+
+- Ajustar layout de clientes
+- realizar as atualizações dos nomes das variaveis na opção de detalhes , e na opção de editar ( atenção para name e values, basta mudar e já estará funionando )
+- realizar o belongsto do model de situação em cliente ( já está pronto em sistema)
+- fazer o metodo paginate funcionar quando pesquisar uma quantidade de dados

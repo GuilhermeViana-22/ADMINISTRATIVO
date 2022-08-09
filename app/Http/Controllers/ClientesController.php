@@ -92,15 +92,16 @@ class ClientesController extends Controller
     {
     
         //guarda as variaveis vindas da request
-        $nome = $request->nome;
-        $email = $request->email;
-        $cpf = $request->cpf;
+        $nome = $request->nome_cliente;
+        $email = $request->email_cliente;
+        $cpf = $request->cpf_cliente;
         $situacao = $request->situacao;
         // $nome_sistema = $request->nome_sistema;
         $ativo = $request->ativo;
-
+        
         $filter_all = Cliente::where('id','!=', null );
-
+        
+        // dd($request->all());
         // verifica se veio name
         if (!empty($nome)) {
             $filter_all->where('nome_cliente', 'LIKE', '%' . $nome . '%')->paginate(2);
@@ -128,7 +129,6 @@ class ClientesController extends Controller
                 
             });
         }
-        
         // verifica se há valores para utilizarmos no 'where'
         $clientes = $filter_all->with('situacao_id')->get();
         
