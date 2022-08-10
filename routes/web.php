@@ -44,6 +44,7 @@ Route::get('/vendas', [RelatoriosController::class, 'vendas']);
 Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
 Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
 Route::post('/sistema',[SistemasController::class,'store'])->name('sistema.store');
+Route::post('/sistema/search',[SistemasController::class,'search'])->name('sistema.search');
 Route::get('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
 Route::delete('sistema/{id}',[ SistemasController::class,'destroy'])->name('sistema.destroy');
 

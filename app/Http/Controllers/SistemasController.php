@@ -75,6 +75,42 @@ class SistemasController extends Controller
         //
     }
 
+    /***
+     * Function return a specific data
+     */
+    public function search(Request $request)
+    {
+        //verifica se o metodo é do tipo post
+        if (!$request->isMethod('post')) {
+            return  \alert('Error', 'você não tem permissão para realiar está ação');
+        }
+        $id = $request->id;
+        $nome_sistema = $request->nome_sistema;
+        $rota = $request->rota_api;
+        $created_at = $request->created_at;
+
+        $filter_all = Sistema::where('id','!=', null );
+
+        if (!empty($id)) {
+            $filter_all->where('id', $id)->paginate(2);
+        }
+        if (!empty($nome_sistema)) {
+            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%')->paginate(2);
+        }
+        if (!empty($rota)) {
+            $filter_all->where('rota_api', 'LIKE', '%' . $rota . '%')->paginate(2);
+        }
+        if (!empty($created_at)) {
+            $filter_all->where('created_at', '<=', date("Y-m-y ", strtotime($created_at)) );
+        }
+
+        $sistemas = $filter_all->get();
+
+        // dd($clientes);
+        return view('sistema.index', compact('sistemas'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
