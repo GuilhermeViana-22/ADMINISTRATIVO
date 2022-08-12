@@ -47,6 +47,8 @@ Route::post('/sistema',[SistemasController::class,'store'])->name('sistema.store
 Route::post('/sistema/search',[SistemasController::class,'search'])->name('sistema.search');
 Route::get('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
 Route::delete('sistema/{id}',[ SistemasController::class,'destroy'])->name('sistema.destroy');
+Route::get('/sistema/{id}',[ ClientesController::class,'show'])->name('sistema.show');
+Route::get('/sistema/{id}/edit',[ ClientesController::class,'edit'])->name('sistema.edit');
 
 // actions
 Route::get('/mpf', [EmpController::class, 'gerarPdf'])->name('mpf.gerarPdf');

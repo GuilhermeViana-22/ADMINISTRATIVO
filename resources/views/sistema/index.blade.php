@@ -53,7 +53,7 @@
                         <div class="col col-sm-4">
                             <div class="form-group">
                                 <label>Situação</label>
-                                <select class="form-control form-control-sm">
+                                <select name="situacao_id"      class="form-control form-control-sm">
                                     <option value="1">Sistema ativo</option>
                                     <option value="2">Sistema em manutenção</option>
                                     <option value="3">Sistema com pagamento em atraso</option>
@@ -138,6 +138,13 @@
                                             <td scope="row info">{{ $sistema->sistema->situacao }}</td>
 
                                             <td id="opcoes">
+                                                <button id="search"
+                                                        onclick="showModal('{{ route('sistema.show', $sistema->id) }}', 'Detalhes Sistema {{ $sistema->nome_sistema }}', ' Sistema', 'Salvar', 'Cancelar');"
+                                                        type="button" class="btn btn-primary btn-sm"><i
+                                                        class="fas fa-fw fa-eye"></i></button>
+                                                <button type="button" class="btn btn-warning btn-sm"
+                                                        onclick="showModal('{{ route('sistema.edit', [$sistema->id]) }}', 'Editar Sistema {{ $sistema->nome_sistema }}', ' Sistema', 'Salvar', 'Cancelar');">
+                                                    <i class="fas fa-fw fa-pen"></i> </button>
                                                 <form action="{{ route('sistema.destroy', $sistema->id) }}"
                                                       method="post">
                                                     @method('delete')
@@ -149,6 +156,7 @@
                                             </td>
                                     </tr>
                                     @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

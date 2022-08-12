@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\Sistema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SistemasController extends Controller
@@ -17,7 +18,6 @@ class SistemasController extends Controller
     public function index()
     {
         $sistemas = Sistema::all()->where('ativo', '=', '1');
-
         return view('sistema.index', compact('sistemas'));
     }
 
@@ -36,14 +36,13 @@ class SistemasController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //verifica se o metodo é do tipo post
         if (!$request->isMethod('post')) {
-            return  \alert('Error', 'você não tem permissão para realiar está ação');
+            return \alert('Error', 'você não tem permissão para realiar está ação');
         }
         //guarda os dados do request
         $data = $request->all();
@@ -61,13 +60,13 @@ class SistemasController extends Controller
             $return = Alert::error('Falha', 'Não foi possivel salvar o sistema.' . 'Exception message:' . $e->getMessage() . ' with code: ' . $e->getCode());
         }
         return redirect()
-            ->route('sistema.index',  compact('return'));
+            ->route('sistema.index', compact('return'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -82,14 +81,15 @@ class SistemasController extends Controller
     {
         //verifica se o metodo é do tipo post
         if (!$request->isMethod('post')) {
-            return  \alert('Error', 'você não tem permissão para realiar está ação');
+            return \alert('Error', 'você não tem permissão para realiar está ação');
         }
         $id = $request->id;
         $nome_sistema = $request->nome_sistema;
         $rota = $request->rota_api;
         $created_at = $request->created_at;
+        $situacao_sistema = $request->situacao_id;
 
-        $filter_all = Sistema::where('id','!=', null );
+        $filter_all = Sistema::where('id', '!=', null);
 
         if (!empty($id)) {
             $filter_all->where('id', $id)->paginate(2);
@@ -100,13 +100,17 @@ class SistemasController extends Controller
         if (!empty($rota)) {
             $filter_all->where('rota_api', 'LIKE', '%' . $rota . '%')->paginate(2);
         }
-        if (!empty($created_at)) {
-            $filter_all->where('created_at', '<=', date("Y-m-y ", strtotime($created_at)) );
-        }
 
+        if (!empty($situacao_sistema)) {
+            $filter_all->whereHas('sistema', function ($q) use ($situacao_sistema) {
+                $q->where('situacao_id', '=', $situacao_sistema);
+            })->get();
+        }
+        if (!empty($created_at)) {
+            $filter_all->where('created_at', '<=', date('Y-m-d', strtotime($created_at)) . ' 00:00:00');
+        }
         $sistemas = $filter_all->get();
 
-        // dd($clientes);
         return view('sistema.index', compact('sistemas'));
     }
 
@@ -114,7 +118,7 @@ class SistemasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -125,8 +129,8 @@ class SistemasController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -137,7 +141,7 @@ class SistemasController extends Controller
     /**
      * Seta para inativo os dados do sistema na aplicação
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -145,13 +149,13 @@ class SistemasController extends Controller
         //recuperando o cliente que vai ser deletado
         $sistema_id = Sistema::find($id);
 
-        if(!empty($sistema_id)){
+        if (!empty($sistema_id)) {
             $sistema_id->ativo = '0';
             $sistema_id->save();
         }
         $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
         return redirect()
-            ->route('sistema.index',  compact('retorno'));
+            ->route('sistema.index', compact('retorno'));
 
     }
 }
