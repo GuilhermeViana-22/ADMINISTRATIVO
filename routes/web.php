@@ -29,26 +29,32 @@ Route::get('/cadastro/search',[ ClientesController::class,'search'])->name('cada
 Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
 Route::get('/cliente/{id}',[ ClientesController::class,'show'])->name('cliente.show');
 Route::get('/cliente/{id}/edit',[ ClientesController::class,'edit'])->name('cliente.edit');
-
 Route::post('/cliente',[ ClientesController::class,'store'])->name('cliente.store');
 Route::put('/cliente/{id}',[ ClientesController::class,'update'])->name('cliente.update');
 Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cliente.destroy');
+
+
+
+// rota de acesso as funionalidades de sistemas
+
+Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
+Route::post('/sistema/search',[SistemasController::class,'search'])->name('sistema.search');
+Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
+Route::get('/sistema/{id}',[ SistemasController::class,'show'])->name('sistema.show');
+Route::get('/sistemas/{id}/edit',[ SistemasController::class,'edit'])->name('sistema.edit');
+Route::post('/sistema',[SistemasController::class,'store'])->name('sistema.store');
+Route::post('/sistema/{id}',[ SistemasController::class,'update'])->name('sistema.update');
+Route::delete('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
+
+
+
+
 
 //retorna o caminho do relatorio
 Route::get('/clientes', [RelatoriosController::class, 'clientes']);
 Route::get('/saldo', [RelatoriosController::class, 'saldo']);
 Route::get('/vendas', [RelatoriosController::class, 'vendas']);
 
-// rota de acesso as funionalidades de sistemas
-
-Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
-Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
-Route::post('/sistema',[SistemasController::class,'store'])->name('sistema.store');
-Route::post('/sistema/search',[SistemasController::class,'search'])->name('sistema.search');
-Route::get('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
-Route::delete('sistema/{id}',[ SistemasController::class,'destroy'])->name('sistema.destroy');
-Route::get('/sistema/{id}',[ ClientesController::class,'show'])->name('sistema.show');
-Route::get('/sistema/{id}/edit',[ ClientesController::class,'edit'])->name('sistema.edit');
 
 // actions
 Route::get('/mpf', [EmpController::class, 'gerarPdf'])->name('mpf.gerarPdf');

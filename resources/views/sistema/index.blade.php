@@ -139,11 +139,11 @@
 
                                             <td id="opcoes">
                                                 <button id="search"
-                                                        onclick="showModal('{{ route('sistema.show', $sistema->id) }}', 'Detalhes Sistema {{ $sistema->nome_sistema }}', ' Sistema', 'Salvar', 'Cancelar');"
+                                                        onclick="showModal('{{ route('sistema.show', $sistema->id) }}', 'Detalhes Sistema {{ $sistema->nome_sistema }}', 'Salvar', 'Cancelar');"
                                                         type="button" class="btn btn-primary btn-sm"><i
                                                         class="fas fa-fw fa-eye"></i></button>
                                                 <button type="button" class="btn btn-warning btn-sm"
-                                                        onclick="showModal('{{ route('sistema.edit', [$sistema->id]) }}', 'Editar Sistema {{ $sistema->nome_sistema }}', ' Sistema', 'Salvar', 'Cancelar');">
+                                                        onclick="showModal('{{ route('sistema.edit', [$sistema->id]) }}', 'Editar Cliente {{ $sistema->nome_sistema }}', ' Cliente', 'Salvar', 'Cancelar');">
                                                     <i class="fas fa-fw fa-pen"></i> </button>
                                                 <form action="{{ route('sistema.destroy', $sistema->id) }}"
                                                       method="post">

@@ -7,6 +7,7 @@ use App\Models\Sistema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
+use function Symfony\Component\String\s;
 
 class SistemasController extends Controller
 {
@@ -18,6 +19,7 @@ class SistemasController extends Controller
     public function index()
     {
         $sistemas = Sistema::all()->where('ativo', '=', '1');
+
         return view('sistema.index', compact('sistemas'));
     }
 
@@ -40,6 +42,7 @@ class SistemasController extends Controller
      */
     public function store(Request $request)
     {
+
         //verifica se o metodo é do tipo post
         if (!$request->isMethod('post')) {
             return \alert('Error', 'você não tem permissão para realiar está ação');
@@ -71,7 +74,11 @@ class SistemasController extends Controller
      */
     public function show($id)
     {
-        //
+        //recupera o sistema pelo id
+        if (!$sistema = Sistema::find($id))
+            return redirect()->back();
+
+        return view('sistema.show', compact('sistema'));
     }
 
     /***
@@ -123,7 +130,11 @@ class SistemasController extends Controller
      */
     public function edit($id)
     {
-        //
+        //editar sistema
+        if (!$sistema = Sistema::find($id))
+            return redirect()->back();
+
+        return view('sistema.edit', compact('sistema'));
     }
 
     /**
@@ -135,7 +146,15 @@ class SistemasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        if (!$sistema = Sistema::find($id))
+            return redirect()->back();
+
+        $sistema->update($request->all());
+
+        $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
+        return redirect()
+            ->route('sistema.index', compact('retorno'));
     }
 
     /**
