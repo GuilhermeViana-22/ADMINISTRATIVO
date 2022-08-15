@@ -7,10 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    //timestamps
-    public $timestamps = false;
+
     //informa a tabela que está sendo utilizada
     public $table = 'clientes';
+
+    public function cliente(){
+        return $this->belongsTo(SituacaoCliente::class, 'situacao_id', 'id' );
+    }
+
+
+
     //valida os dados que estão vindo do formulario que esta vindo do formulalrio
     protected $fillable = [
         '_token',
@@ -35,14 +41,10 @@ class Cliente extends Model
         'observacoes',
         'cliente_iteracao_id',
         'situacao_id',
-        'nome_sistema',
         'ativo',
     ];
 
     use HasFactory;
 
-    public function situacao_id()
-    {
-        return $this->belongsTo(Situacao::class, 'situacao_id', 'id');
-    }
+
 }

@@ -20,12 +20,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::with(
-            'situacao_id'
-        )->paginate(4);
-        # dd($clientes);
-        // metodo paginate tras o modelo de view composto
-        // simplapagnate trás apenas a navegação
+        $clientes = Cliente::all()->where('ativo', '=', '1');
 
         foreach ($clientes as $cliente) {
             $cliente->nome = strtoupper($cliente->nome);
@@ -52,7 +47,7 @@ class ClientesController extends Controller
      */
     public function store(ClientesSalvarRequest $request)
     {
-       
+
         // verifica o tipo de request
         if ($request->isMethod('post')) {
 
@@ -90,7 +85,7 @@ class ClientesController extends Controller
      */
     public function search(Request $request)
     {
-    
+
         //guarda as variaveis vindas da request
         $nome = $request->nome_cliente;
         $email = $request->email_cliente;
@@ -98,9 +93,9 @@ class ClientesController extends Controller
         $situacao = $request->situacao;
         // $nome_sistema = $request->nome_sistema;
         $ativo = $request->ativo;
-        
+
         $filter_all = Cliente::where('id','!=', null );
-        
+
         // dd($request->all());
         // verifica se veio name
         if (!empty($nome)) {
@@ -126,12 +121,12 @@ class ClientesController extends Controller
         if (!empty($situacao)) {
             $filter_all->whereHas('situacao_id', function($query) use($situacao){
                 $query->where('id','=',$situacao);
-                
+
             });
         }
         // verifica se há valores para utilizarmos no 'where'
         $clientes = $filter_all->with('situacao_id')->get();
-        
+
         // dd($clientes);
         return view('cliente.index', compact('clientes'));
     }
@@ -201,6 +196,6 @@ class ClientesController extends Controller
         return redirect()
             ->route('cliente.index',  compact('retorno'));
     }
-    
+
 
 }

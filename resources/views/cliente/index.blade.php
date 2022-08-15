@@ -30,26 +30,22 @@
                     <div class="row">
                         <div class="col col-sm-8">
                             <label for="disabledTextInput" class="form-label">Nome cliente</label>
-                            <input type="text" id="nome_cliente" name="nome_cliente" class="form-control form-control-sm"
-                                placeholder="Nome cliente" aria-label="First name">
+                            <input type="text" id="nome_cliente" name="nome_cliente"
+                                   class="form-control form-control-sm"
+                                   placeholder="Nome cliente" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">E-mail</label>
                             <input type="email" class="form-control form-control-sm" id="email_cliente"
-                                name="email_cliente" placeholder="E-mail" aria-label="Last name">
+                                   name="email_cliente" placeholder="E-mail" aria-label="Last name">
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col col-sm-2">
+                        <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
                             <input id="cpf_cliente" name="cpf_cliente" type="text" class="form-control form-control-sm"
-                                maxlength="14" placeholder="CPF / CNPJ" aria-label="First name">
-                        </div>
-                        <div class="col col-sm-4">
-                            {{-- <label for="disabledTextInput" class="form-label">Nome do sistema</label>
-                            <input type="text" id="nome_sistema" name="nome_sistema" class="form-control form-control-sm"
-                                placeholder="Nome do sistema" aria-label="First name"> --}}
+                                   maxlength="14" placeholder="CPF / CNPJ" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <div class="form-group">
@@ -64,24 +60,23 @@
                                 </select>
                             </div>
                         </div>
-                        <div id="switches" class="col col-sm-2">
-                            <div id="toggles">
-                                <input type="checkbox" name="ativo" id="checkbox3" class="ios-toggle" checked />
-                                <label for="checkbox3" class="checkbox-label" data-off="INVATIVO" data-on="ATIVO"></label>
-                            </div>
-                        </div>
                     </div>
+
             </div>
             <div class="card-footer">
                 <button id="save" type="button" class="btn btn-success btn-sm float-left"
-                    onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');"><i
-                        class="fas fa-fw fa-plus"></i> Novo Cliente</button>
+                        onclick="showModal('{{ route('cliente.create') }}', 'Novo Cliente', 'Incluir Novo Cliente', 'Salvar', 'Cancelar');">
+                    <i
+                        class="fas fa-fw fa-plus"></i> Novo Cliente
+                </button>
                 <button type="button" class="btn btn-primary btn-sm float-right" onClick="refresh(this)"><i
-                        class="fas fa-eraser"></i>Limpar</button>
+                        class="fas fa-eraser"></i>Limpar
+                </button>
                 <button id="search" type="submit" class="btn btn-dark btn-sm float-right"><i
-                        class="fas fa-search"></i>Pesquisar</button>
-                </form>
+                        class="fas fa-search"></i>Pesquisar
+                </button>
             </div>
+            </form>
         </div>
     </section>
     <!-- /.card -->
@@ -99,93 +94,70 @@
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
                                             <button id="search" type="submit"
-                                                class="btn btn-secondary btn-sm float-right"><i
-                                                    class="fas fa-print"></i>Imprimir</button>
+                                                    class="btn btn-secondary btn-sm float-right"><i
+                                                    class="fas fa-print"></i>Imprimir
+                                            </button>
                                             <button id="search" type="submit"
-                                                class="btn btn-secondary btn-sm float-right"><i
-                                                    class="fas fa-download"></i>Gerar Excel</button>
+                                                    class="btn btn-secondary btn-sm float-right"><i
+                                                    class="fas fa-download"></i>Gerar Excel
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nome Cliente</th>
-                                            <th>Data Cadastro</th>
-                                            <th>CPF / CNPJ</th>
-                                            <th>Email</th>
-                                            <th>Situação</th>
-                                            <th>Ações</th>
-                                        </tr>
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover table-sm">
+                                    <thead class="bg-secondary">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome Cliente</th>
+                                        <th>Data Cadastro</th>
+                                        <th>CPF / CNPJ</th>
+                                        <th>Email</th>
+                                        <th>Situação</th>
+                                        <th>Ações</th>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            @if ($clientes->isEmpty())
-                                                <td colspan="7"> Nenhum Resultado encontrado </td>
-                                            @else
-                                            @endif
-                                            @foreach ($clientes as $cliente)
-                                                <th scope="row dark">{{ $cliente->id }}</th>
-                                                <td>{{ $cliente->nome_cliente }}</td>
-                                                <td style="text-align: center">
-                                                    {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
-                                                <td>{{ $cliente->cpf_cliente }}</td>
+                                    <tr>
+                                        @if ($clientes->isEmpty())
+                                            <td colspan="7"> Nenhum Resultado encontrado</td>
+                                        @else
+                                        @endif
+                                        @foreach ($clientes as $cliente)
+                                            <th scope="row dark">{{ $cliente->id }}</th>
+                                            <td>{{ $cliente->nome_cliente }}</td>
+                                            <td style="text-align: center">
+                                                {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
+                                            <td>{{ $cliente->cpf_cliente }}</td>
                                                 <td>{{ $cliente->email_cliente }}</td>
-                                                <td>{{ $cliente->situacao_id }}</td>
-                                                <td id="opcoes">
-                                                    <button id="search"
+                                                <td>{{ $cliente->cliente->situacao }}</td>
+                                            <td id="opcoes">
+                                                <button id="search"
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"
                                                         type="button" class="btn btn-primary btn-sm"><i
-                                                            class="fas fa-fw fa-eye"></i></button>
-                                                    <button type="button" class="btn btn-warning btn-sm"
+                                                        class="fas fa-fw fa-eye"></i></button>
+                                                <button type="button" class="btn btn-warning btn-sm"
                                                         onclick="showModal('{{ route('cliente.edit', [$cliente->id]) }}', 'Editar Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');">
-                                                        <i class="fas fa-fw fa-pen"></i> </button>
-                                                    <form action="{{ route('cliente.destroy', $cliente->id) }}"
-                                                        method="post">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button id="trash"type="submit"
+                                                    <i class="fas fa-fw fa-pen"></i></button>
+                                                <form action="{{ route('cliente.destroy', $cliente->id) }}"
+                                                      method="post">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button id="trash" type="submit"
                                                             class="btn btn-danger btn-sm"><i
-                                                                class="fas fa-fw fa-trash"></i></button>
-                                                    </form>
-                                                </td>
-                                        </tr>
-                                        @endforeach
-                                        <tr>
-
-                                            {{-- <td colspan=7>     
-                                            <div>
-                                                <ul class="pagination float-right">
-                                                  <li class="page-item disabled">
-                                                    <a class="page-link" href="{{ $clientes->previousPageUrl() }}">&laquo;</a>
-                                                  </li>
-                                                  @for ($i = 1; $i <= $clientes->lastPage(); $i++)
-                                                  <li class="page-item">
-                                                    <a class="page-link" href="{{ $clientes->url($i) }}">{{ $i }}</a>
-                                                  </li>
-                                                  <li class="page-item">
-                                                    <a href="{{ $clientes ->nextPageUrl() }}">
-                                                  </li>
-                                                  @endfor
-                                                  <li class="page-item">
-                                                    <a class="page-link" href="{{ $clientes ->nextPageUrl() }}">&raquo;</a>
-                                                  </li>
-                                                </ul>
-                                              </div>
-                                        </td> --}}
-                                        </tr>
+                                                            class="fas fa-fw fa-trash"></i></button>
+                                                </form>
+                                            </td>
+                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @stop
@@ -199,7 +171,7 @@
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#cpf_cliente').mask('000.000.000-00');
         });
     </script>

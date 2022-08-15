@@ -20,7 +20,13 @@ class SistemasController extends Controller
     {
         $sistemas = Sistema::all()->where('ativo', '=', '1');
 
-        return view('sistema.index', compact('sistemas'));
+        $sistemas->toArray();
+
+        foreach ($sistemas as $key => $value){
+               $status[] = $value->situacao_id;
+        }
+
+        return view('sistema.index', compact('sistemas', ['status']));
     }
 
     /**
@@ -78,6 +84,7 @@ class SistemasController extends Controller
         if (!$sistema = Sistema::find($id))
             return redirect()->back();
 
+
         return view('sistema.show', compact('sistema'));
     }
 
@@ -118,7 +125,13 @@ class SistemasController extends Controller
         }
         $sistemas = $filter_all->get();
 
-        return view('sistema.index', compact('sistemas'));
+        $sistemas->toArray();
+
+        foreach ($sistemas as $key => $value){
+            $status[] = $value->situacao_id;
+        }
+
+        return view('sistema.index', compact('sistemas', ['status']));
     }
 
 

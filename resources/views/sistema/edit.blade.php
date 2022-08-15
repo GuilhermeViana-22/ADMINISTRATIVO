@@ -36,7 +36,7 @@
             <div class="col col-sm-4">
                 <div class="form-group">
                     <label>Situação</label>
-                    <select name="situacao_id"      class="form-control form-control-sm">
+                    <select name="situacao_id" class="form-control form-control-sm">
                         <option value="1">Sistema ativo</option>
                         <option value="2">Sistema em manutenção</option>
                         <option value="3">Sistema com pagamento em atraso</option>

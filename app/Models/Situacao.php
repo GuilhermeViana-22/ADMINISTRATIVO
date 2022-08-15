@@ -14,8 +14,4 @@ class Situacao extends Model
     public $table = 'situacao';
 
     use HasFactory;
-
-    public function cliente(){
-        return $this->hasMany(Cliente::class, 'situacao_id', 'id');
-    }
 }

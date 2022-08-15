@@ -19,7 +19,6 @@
 @section('content')
     <!---layout padrão--->
     @include('sweetalert::alert')
-    {{-- nsg --}}
     <section class="content">
         <div class="card">
             <div class="card-body">
@@ -53,7 +52,7 @@
                         <div class="col col-sm-4">
                             <div class="form-group">
                                 <label>Situação</label>
-                                <select name="situacao_id"      class="form-control form-control-sm">
+                                <select name="situacao_id" class="form-control form-control-sm">
                                     <option value="1">Sistema ativo</option>
                                     <option value="2">Sistema em manutenção</option>
                                     <option value="3">Sistema com pagamento em atraso</option>
@@ -81,12 +80,10 @@
             </form>
         </div>
     </section>
-    {{--    data table section--}}
     <!--data table sections-->
     <section class="content">
         <div class="card">
             <div class="card-body">
-
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -105,19 +102,15 @@
                                             </button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover  table-sm">
-                                    <thead class="bg-light">
+                            <div class="card-body table-responsive">
+                                <table class="table table-hover table-sm">
+                                    <thead class="bg-secondary">
                                     <tr>
-                                        <th>#</th>
+                                        <th>Protocolo</th>
                                         <th>Nome Sistema</th>
-                                        <th>url</th>
-                                        <th>rota API</th>
                                         <th>Datas cadastro</th>
-                                        <th>qtd usuarios</th>
                                         <th>Situação</th>
                                         <th>Ações</th>
                                     </tr>
@@ -129,14 +122,10 @@
                                         @else
                                         @endif
                                         @foreach ($sistemas as $sistema)
-                                            <td scope="row info">{{ $sistema->id }}</td>
+                                            <td class="table-secondary" scope="row info">{{ $sistema->id }}</td>
                                             <td scope="row info">{{ $sistema->nome_sistema }}</td>
-                                            <td scope="row info">{{ $sistema->url }}</td>
-                                            <td scope="row info">{{ $sistema->rota_api }}</td>
                                             <td scope="row info">{{ date('d/m/Y', strtotime($sistema->created_at))  }}</td>
-                                            <td scope="row info">{{ $sistema->qtd_usuarios }}</td>
                                             <td scope="row info">{{ $sistema->sistema->situacao }}</td>
-
                                             <td id="opcoes">
                                                 <button id="search"
                                                         onclick="showModal('{{ route('sistema.show', $sistema->id) }}', 'Detalhes Sistema {{ $sistema->nome_sistema }}', 'Salvar', 'Cancelar');"
@@ -144,7 +133,7 @@
                                                         class="fas fa-fw fa-eye"></i></button>
                                                 <button type="button" class="btn btn-warning btn-sm"
                                                         onclick="showModal('{{ route('sistema.edit', [$sistema->id]) }}', 'Editar Cliente {{ $sistema->nome_sistema }}', ' Cliente', 'Salvar', 'Cancelar');">
-                                                    <i class="fas fa-fw fa-pen"></i> </button>
+                                                    <i class="fas fa-fw fa-pen"></i></button>
                                                 <form action="{{ route('sistema.destroy', $sistema->id) }}"
                                                       method="post">
                                                     @method('delete')
@@ -156,7 +145,6 @@
                                             </td>
                                     </tr>
                                     @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -167,7 +155,6 @@
         </div>
     </section>
 @stop
-
 @section('css')
     {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">

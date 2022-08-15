@@ -8,24 +8,24 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="disabledTextInput" class="form-label">Nome cliente</label>
-                        <input name="nome" type="text" id="nnome" class="form-control"
+                        <input name="nome" type="text" id="nnome" class="form-control form-control-sm"
                             placeholder="Nome cliente" aria-label="First name" value="{{$cliente->nome_cliente}}" >
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="disabledTextInput" class="form-label">E-mail</label>
-                        <input name="email_cliente" type="email" class="form-control" placeholder="E-mail"
+                        <input name="email_cliente" type="email" class="form-control form-control-sm" placeholder="E-mail"
                             aria-label="Last name" value="{{$cliente->email_cliente}}" >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label class="form-label">CPF</label>
-                        <input name="cpf_cliente" id="cpf2" type="text" class="form-control" maxlength="14"
+                        <input name="cpf_cliente" id="cpf2" type="text" class="form-control form-control-sm" maxlength="14"
                             placeholder="CPF" value="{{$cliente->cpf_cliente}}" >
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label class="form-label">RG</label>
-                        <input name="rg_cliente" id="rg" type="text" class="form-control" maxlength="12"
+                        <input name="rg_cliente" id="rg" type="text" class="form-control form-control-sm" maxlength="12"
                             placeholder="RG" value="{{$cliente->rg_cliente}}" >
                     </div>
                 </div>
@@ -33,39 +33,31 @@
                 <div class="row">
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
                         <label for="disabledTextInput" class="form-label">CEP</label>
-                        <input name="cep_endereco" type="number" class="form-control" placeholder="CEP" maxlength="10"
+                        <input name="cep_endereco" type="number" class="form-control form-control-sm" placeholder="CEP" maxlength="10"
                             aria-label="CEP" value="{{$cliente->cep_endereco}}" >
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                         <label for="disabledTextInput" class="form-label">Cidade</label>
-                        <input name="cidade_endereco" type="text" class="form-control" id="cep" placeholder="Cidade"
+                        <input name="cidade_endereco" type="text" class="form-control form-control-sm" id="cep" placeholder="Cidade"
                          value="{{$cliente->cidade_endereco}}" >
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-6">
                         <label for="disabledTextInput" class="form-label">Bairro/logradouro</label>
-                        <input name="bairro_endereco" type="text" class="form-control" id="cep"
+                        <input name="bairro_endereco" type="text" class="form-control form-control-sm" id="cep"
                             placeholder="Bairro/logradouro" value="{{$cliente->bairro_endereco}}" >
                     </div>
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
                         <label for="disabledTextInput" class="form-label">Complemento</label>
-                        <input name="complemento_endereco" type="text" class="form-control" id="complemento"
+                        <input name="complemento_endereco" type="text" class="form-control form-control-sm" id="complemento"
                             name="complemento" placeholder="Complemento" value="{{$cliente->complemento_endereco}}" >
                     </div>
                 </div>
-
-                {{-- <div class="row">
-                    <div class="col col-sm-12">
-                        <label for="disabledTextInput" class="form-label">Nome do sistema</label>
-                        <input name="nome_sistema" type="text" id="nnome_sistema" class="form-control"
-                            placeholder="Nome do sistema" value="{{$cliente->nome_sistema}}" >
-                    </div>
-                </div> --}}
                 <div class="row">
                     <div class="form-group col col-sm-12">
                         <label for="textarea">Observações</label>
-                        <textarea name="observacoes" class="form-control" id="observações" rows="3">{{$cliente->observacoes}}</textarea>
+                        <textarea name="observacoes" class="form-control form-control-sm" id="observações" rows="3">{{$cliente->observacoes}}</textarea>
                     </div>
                 </div>
             </div>
