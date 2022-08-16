@@ -20,7 +20,7 @@
             <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
                     <label class="col-form-label col-form-label-sm-4" for="inputSmall">RG</label>
-                    <input class="form-control form-control-sm" type="text" placeholder="RG" id="rg_cliente"
+                    <input class="form-control form-control-sm" type="text" placeholder="RG" id="rg_cliente_edicao"
                            name="rg_cliente" value="{{$cliente->rg_cliente}}">
                 </div>
             </div>
@@ -37,10 +37,11 @@
             </div>
             <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone</label>
-                    <input class="form-control form-control-sm" type="number" placeholder="Telefone"
-                           id="telefone_cliente" name="telefone_cliente" value="{{$cliente->telefone_cliente}}">
-
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone
+                        Empresa</label>
+                    <input class="form-control form-control-sm" type="text"
+                           placeholder="Telefone Empresa" id="telefone_cliente_edicao" name="telefone_cliente"
+                           value="{{ $cliente->telefone_cliente }}">
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
                 <div class="form-group">
                     <label class="col-form-label col-form-label-sm-4" for="inputSmall">CEP</label>
                     <input class="form-control form-control-sm" type="text" placeholder="CEP"
-                           id="cep_endereco" name="cep_endereco" value="{{$cliente->cep_endereco}}">
+                           id="cep_endereco_edicao" name="cep_endereco" value="{{$cliente->cep_endereco}}">
                 </div>
             </div>
             <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
@@ -130,7 +131,7 @@
                     <div class="form-group">
                         <label class="col-form-label col-form-label-sm-4" for="inputSmall">CNPJ</label>
                         <input class="form-control form-control-sm" type="text" placeholder="CNPJ"
-                               id="cnpj_empresa" name="cnpj_empresa" value="{{ $cliente->cnpj_empresa }}">
+                               id="cnpj_empresa_edicao" name="cnpj_empresa" value="{{ $cliente->cnpj_empresa }}">
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
@@ -146,7 +147,7 @@
                         <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone
                             Empresa</label>
                         <input class="form-control form-control-sm" type="text"
-                               placeholder="Telefone Empresa" id="telefone_empresa" name="telefone_empresa"
+                               placeholder="Telefone Empresa" id="telefone_empresa_edicao" name="telefone_empresa"
                                value="{{ $cliente->telefone_empresa }}">
                     </div>
                 </div>
@@ -171,4 +172,9 @@
 
 <script type="text/javascript">
     $('#cpf_cliente_edicao').mask('000.000.000-00');
+    $('#rg_cliente_edicao').mask('00.000.000-9');
+    $('#telefone_cliente_edicao').mask('(00) 000000000');
+    $('#telefone_empresa_edicao').mask('(00) 000000000');
+    $('#cep_endereco_edicao').mask('00000-000');
+    $('#cnpj_empresa_edicao').mask('00.000.000/0000-21');
 </script>

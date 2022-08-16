@@ -37,10 +37,11 @@
             </div>
             <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone</label>
-                    <input class="form-control form-control-sm" type="number" placeholder="Telefone" readonly
-                           id="telefone_cliente" name="telefone_cliente" value="{{$cliente->telefone_cliente}}">
-
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone
+                        Empresa</label>
+                    <input class="form-control form-control-sm" type="text"
+                           placeholder="Telefone Empresa" id="telefone_cliente_edicao" name="telefone_cliente"
+                           value="{{ $cliente->telefone_cliente }}" readonly>
                 </div>
             </div>
         </div>
