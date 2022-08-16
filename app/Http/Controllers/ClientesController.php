@@ -85,18 +85,15 @@ class ClientesController extends Controller
      */
     public function search(Request $request)
     {
-
         //guarda as variaveis vindas da request
         $nome = $request->nome_cliente;
         $email = $request->email_cliente;
         $cpf = $request->cpf_cliente;
         $situacao = $request->situacao;
-        // $nome_sistema = $request->nome_sistema;
         $ativo = $request->ativo;
 
-        $filter_all = Cliente::where('id','!=', null );
+        $filter_all = Cliente::where('ativo','=', 1);
 
-        // dd($request->all());
         // verifica se veio name
         if (!empty($nome)) {
             $filter_all->where('nome_cliente', 'LIKE', '%' . $nome . '%')->paginate(2);
@@ -110,23 +107,13 @@ class ClientesController extends Controller
             $filter_all->where('cpf_cliente', 'LIKE', '%' . $cpf . '%')->paginate(2);
         }
 
-        // if (!empty($nome_sistema)) {
-        //     $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%')->paginate(2);
-        // }
-
-        // if (!empty($nome_sistema)) {
-        //     $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%')->paginate(2);
-        // }
-
         if (!empty($situacao)) {
-            $filter_all->whereHas('situacao_id', function($query) use($situacao){
-                $query->where('id','=',$situacao);
-
-            });
+            $filter_all->whereHas('cliente', function ($q) use ($situacao) {
+                $q->where('situacao_id', '=', $situacao);
+            })->get();
         }
-        // verifica se há valores para utilizarmos no 'where'
-        $clientes = $filter_all->with('situacao_id')->get();
 
+        $clientes = $filter_all->get();
         // dd($clientes);
         return view('cliente.index', compact('clientes'));
     }

@@ -1,81 +1,156 @@
+<form forName="Cliente" method="post" id="insert_form" action="cliente">
+    <div class="card-body">
+        @csrf
+        <div class="row">
+            <div class="col-12 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Nome completo</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Nome completo" readonly
+                           id="nome_cliente" name="nome_cliente" value="{{$cliente->nome_cliente}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">CPF</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="CPF"
+                           id="cpf_cliente_edicao" name="cpf_cliente" maxlength="15" readonly
+                           value="{{$cliente->cpf_cliente}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">RG</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="RG" id="rg_cliente"
+                           readonly
+                           name="rg_cliente" value="{{$cliente->rg_cliente}}">
+                </div>
+            </div>
+        </div>
+        <!--   2 linha -->
+        <div class="row">
+            <div class="col-12 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
+                    <input class="form-control form-control-sm" type="email" placeholder="E-mail" readonly
+                           id="email_cliente" name="email_cliente" value="{{$cliente->email_cliente}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone</label>
+                    <input class="form-control form-control-sm" type="number" placeholder="Telefone" readonly
+                           id="telefone_cliente" name="telefone_cliente" value="{{$cliente->telefone_cliente}}">
 
-
-<div class="tab-content">
-    <div id="form_cliente" class="tab-pane active">
-        <form forName="Cliente" method="post" id="insert_form" action="cliente">
-            <div class="card-body">
-                @csrf
-                <!--TAG DE SEGURANÇA DO LARAVEL -- NÃO APAGAR--->
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="disabledTextInput" class="form-label">Nome cliente</label>
-                        <input name="nome" type="text" id="nnome" class="form-control form-control-sm"
-                            placeholder="Nome cliente" aria-label="First name" value="{{$cliente->nome_cliente}}" readonly>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="disabledTextInput" class="form-label">E-mail</label>
-                        <input name="email" type="email" class="form-control form-control-sm" placeholder="E-mail"
-                            aria-label="Last name" value="{{$cliente->email_cliente}}" readonly>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">CEP</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="CEP" readonly
+                           id="cep_endereco" name="cep_endereco" value="{{$cliente->cep_endereco}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Rua</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Rua" readonly
+                           id="rua_endereco" name="rua_endereco" value="{{ $cliente->rua_endereco }}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Bairro</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Bairro" readonly
+                           id="bairro_endereco" name="bairro_endereco" value="{{$cliente->bairro_endereco}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Número</label>
+                    <input class="form-control form-control-sm" type="number" placeholder="Número" readonly
+                           id="numero_endereco" name="numero_endereco" value="{{$cliente->numero_endereco}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Cidade</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Cidade" readonly
+                           id="cidade_endereco" name="cidade_endereco" value="{{$cliente->cidade_endereco}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Estado</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Estado" readonly
+                           id="estado_endereco" name="estado_endereco" value="{{$cliente->estado_endereco}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="col-form-label col-form-label-sm-4" for="inputSmall">Complemento</label>
+                    <input class="form-control form-control-sm" type="text" placeholder="Complemento" readonly
+                           id="complemento_endereco" name="complemento_endereco"
+                           value="{{$cliente->complemento_endereco}}">
+                </div>
+            </div>
+        </div>
+        <div id="isEmpresa">
+            <hr>
+            <div class="row">
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-sm-4" for="inputSmall">Razão
+                            social</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="Razão social"
+                               readonly
+                               id="razao_social" name="razao_social" value="{{$cliente->razao_social}}">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label class="form-label">CPF</label>
-                        <input name="cpf" id="cpf2" type="text" class="form-control form-control-sm" maxlength="14"
-                            placeholder="CPF" value="{{$cliente->cpf_cliente}}" readonly>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label class="form-label">RG</label>
-                        <input name="rg_cliente" id="rg" type="text" class="form-control form-control-sm" maxlength="12"
-                            placeholder="RG" value="{{$cliente->rg_cliente}}" readonly>
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-sm-4" for="inputSmall">Nome
+                            fantasia</label>
+                        <input class="form-control form-control-sm" type="text"
+                               placeholder="Nome fantasia" id="nome_fantasia" name="nome_fantasia" readonly
+                               value="{{$cliente->nome_fantasia}}">
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">Cidade</label>
-                        <input name="cidade_endereco" type="text" class="form-control form-control-sm" id="cep" placeholder="Cidade"
-                         value="{{$cliente->cidade_endereco}}" readonly>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">CEP</label>
-                        <input name="cep_endereco"  class="form-control form-control-sm" id="cep_endereco" placeholder="CEP"
-                         value="{{$cliente->cep_endereco}}" readonly>
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-sm-4" for="inputSmall">CNPJ</label>
+                        <input class="form-control form-control-sm" type="text" placeholder="CNPJ" readonly
+                               id="cnpj_empresa" name="cnpj_empresa" value="{{ $cliente->cnpj_empresa }}">
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">Bairro/logradouro</label>
-                        <input name="bairro_logradouro" type="text" class="form-control form-control-sm" id="cep"
-                            placeholder="Bairro/logradouro" value="{{$cliente->bairro_endereco}}" readonly>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-6">
-                        <label for="disabledTextInput" class="form-label">Complemento</label>
-                        <input name="complemento" type="text" class="form-control form-control-sm" id="complemento"
-                            name="complemento" placeholder="Complemento" value="{{$cliente->complemento_endereco}}" readonly>
+                <div class="col-12 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-sm-4" for="inputSmall">E-mail</label>
+                        <input class="form-control form-control-sm" type="email" readonly
+                               placeholder="nome@dominio.com" id="email_empresa" name="email_empresa"
+                               value="{{ $cliente->email_empresa }}">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="form-group col col-sm-12">
-                        <label for="textarea">Observações</label>
-                        <textarea name="observacoes" class="form-control form-control-sm form-control form-control-sm-sm" id="observações" rows="3"readonly>{{$cliente->observacoes}}</textarea>
+                <div class="col-12 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="col-form-label col-form-label-sm-4" for="inputSmall">Telefone
+                            Empresa</label>
+                        <input class="form-control form-control-sm" type="text"
+                               placeholder="Telefone Empresa" id="telefone_empresa" name="telefone_empresa"
+                               readonly
+                               value="{{ $cliente->telefone_empresa }}">
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
+        <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group">
+                <label for="textarea">Observações</label>
+                <textarea name="observacoes" class="form-control" id="observacoes" readonly
+                          rows="3">{{ $cliente->observacoes }}</textarea>
+            </div>
+        </div>
     </div>
-</div>
-
-
-@section('js')
-    <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#cpf').mask('000.000.000-00');
-            $('#cpf2').mask('000.000.000-00');
-            $('#cep').mask('00000-000');
-            $('#rg').mask('00.000.0009');
-        })
-    </script>
-@stop
+</form>

@@ -64,7 +64,7 @@ class SistemasController extends Controller
         try {
             Sistema::create($data);
             // retorna com a mensagem de save
-            $return = Alert::success('Sucesso', 'O novo sitema  foi salvo com sucesso.');
+            $return = Alert::success('Sucesso', 'O novo sistema foi salvo com sucesso.');
         } catch (Exception $e) {
             $return = Alert::error('Falha', 'Não foi possivel salvar o sistema.' . 'Exception message:' . $e->getMessage() . ' with code: ' . $e->getCode());
         }
@@ -97,6 +97,7 @@ class SistemasController extends Controller
         if (!$request->isMethod('post')) {
             return \alert('Error', 'você não tem permissão para realiar está ação');
         }
+
         $id = $request->id;
         $nome_sistema = $request->nome_sistema;
         $rota = $request->rota_api;
@@ -106,13 +107,13 @@ class SistemasController extends Controller
         $filter_all = Sistema::where('id', '!=', null);
 
         if (!empty($id)) {
-            $filter_all->where('id', $id)->paginate(2);
+            $filter_all->where('id', $id);
         }
         if (!empty($nome_sistema)) {
-            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%')->paginate(2);
+            $filter_all->where('nome_sistema', 'LIKE', '%' . $nome_sistema . '%');
         }
         if (!empty($rota)) {
-            $filter_all->where('rota_api', 'LIKE', '%' . $rota . '%')->paginate(2);
+            $filter_all->where('rota_api', 'LIKE', '%' . $rota . '%');
         }
 
         if (!empty($situacao_sistema)) {
@@ -120,18 +121,13 @@ class SistemasController extends Controller
                 $q->where('situacao_id', '=', $situacao_sistema);
             })->get();
         }
+
         if (!empty($created_at)) {
             $filter_all->where('created_at', '<=', date('Y-m-d', strtotime($created_at)) . ' 00:00:00');
         }
         $sistemas = $filter_all->get();
 
-        $sistemas->toArray();
-
-        foreach ($sistemas as $key => $value){
-            $status[] = $value->situacao_id;
-        }
-
-        return view('sistema.index', compact('sistemas', ['status']));
+        return view('sistema.index', compact('sistemas'));
     }
 
 
@@ -165,7 +161,7 @@ class SistemasController extends Controller
 
         $sistema->update($request->all());
 
-        $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
+        $retorno = Alert::success('Sucesso', 'O sistema foi alterado com sucesso.');
         return redirect()
             ->route('sistema.index', compact('retorno'));
     }
@@ -178,14 +174,14 @@ class SistemasController extends Controller
      */
     public function destroy($id)
     {
-        //recuperando o cliente que vai ser deletado
+        //recuperando o sistema que vai ser deletado
         $sistema_id = Sistema::find($id);
 
         if (!empty($sistema_id)) {
             $sistema_id->ativo = '0';
             $sistema_id->save();
         }
-        $retorno = Alert::success('Sucesso', 'O cliente foi alterado com sucesso.');
+        $retorno = Alert::success('Sucesso', 'O sistema foi excluido com sucesso.');
         return redirect()
             ->route('sistema.index', compact('retorno'));
 

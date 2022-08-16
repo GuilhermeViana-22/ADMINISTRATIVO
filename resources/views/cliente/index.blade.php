@@ -21,31 +21,29 @@
     <!---layout padrão--->
     @include('sweetalert::alert')
     {{-- nsg --}}
-
     <section class="content">
         <div class="card">
             <div class="card-body">
                 <form action="{{ route('cadastro.search') }}" method="GET">
                     @csrf
                     <div class="row">
-                        <div class="col col-sm-8">
+                        <div class="col col-sm-6">
                             <label for="disabledTextInput" class="form-label">Nome cliente</label>
                             <input type="text" id="nome_cliente" name="nome_cliente"
                                    class="form-control form-control-sm"
                                    placeholder="Nome cliente" aria-label="First name">
                         </div>
-                        <div class="col col-sm-4">
+                        <div class="col col-sm-6">
                             <label for="disabledTextInput" class="form-label">E-mail</label>
                             <input type="email" class="form-control form-control-sm" id="email_cliente"
                                    name="email_cliente" placeholder="E-mail" aria-label="Last name">
                         </div>
                     </div>
-                    <br>
                     <div class="row">
                         <div class="col col-sm-4">
-                            <label for="disabledTextInput" class="form-label">CPF / CNPJ</label>
-                            <input id="cpf_cliente" name="cpf_cliente" type="text" class="form-control form-control-sm"
-                                   maxlength="14" placeholder="CPF / CNPJ" aria-label="First name">
+                            <label for="disabledTextInput" class="form-label">CPF</label>
+                            <input id="cpf_cliente_" name="cpf_cliente" type="text" class="form-control form-control-sm"
+                                   maxlength="14" placeholder="CPF" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
                             <div class="form-group">
@@ -61,7 +59,6 @@
                             </div>
                         </div>
                     </div>
-
             </div>
             <div class="card-footer">
                 <button id="save" type="button" class="btn btn-success btn-sm float-left"
@@ -69,7 +66,7 @@
                     <i
                         class="fas fa-fw fa-plus"></i> Novo Cliente
                 </button>
-                <button type="button" class="btn btn-primary btn-sm float-right" onClick="refresh(this)"><i
+                <button type="button" class="btn btn-primary btn-sm float-right" onclick="limpar();"><i
                         class="fas fa-eraser"></i>Limpar
                 </button>
                 <button id="search" type="submit" class="btn btn-dark btn-sm float-right"><i
@@ -89,7 +86,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Resultado da pesquisa de clientes</h3>
+                                Resultado da pesquisa de clientes
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
@@ -173,6 +170,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#cpf_cliente').mask('000.000.000-00');
+            $('#cpf_cliente_cadastro').mask('000.000.000-00');
+            $('#cep_endereco').mask('00000-000');
         });
     </script>
 @stop

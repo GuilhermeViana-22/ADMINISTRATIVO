@@ -39,7 +39,7 @@
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">Rota</label>
                             <input type="text" id="rota_api" name="rota_api" class="form-control form-control-sm"
-                                   placeholder="Nome Sistema" aria-label="First name">
+                                   placeholder="Rota" aria-label="First name">
                         </div>
                     </div>
                     <div class="row">
