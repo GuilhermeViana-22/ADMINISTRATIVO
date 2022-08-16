@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col col-sm-4">
                             <label for="disabledTextInput" class="form-label">CPF</label>
-                            <input id="cpf_cliente_" name="cpf_cliente" type="text" class="form-control form-control-sm"
+                            <input id="cpf_cliente" name="cpf_cliente" type="text" class="form-control form-control-sm"
                                    maxlength="14" placeholder="CPF" aria-label="First name">
                         </div>
                         <div class="col col-sm-4">
@@ -86,7 +86,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                Resultado da pesquisa de clientes
+                                <h3 class="card-title">Resultado da pesquisa de clientes</h3>
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm">
                                         <div class="dt-buttons btn-group flex-wrap">
@@ -122,7 +122,7 @@
                                         @else
                                         @endif
                                         @foreach ($clientes as $cliente)
-                                            <th scope="row dark">{{ $cliente->id }}</th>
+                                            <th class="table-secondary" scope="row dark">{{ $cliente->id }}</th>
                                             <td>{{ $cliente->nome_cliente }}</td>
                                             <td style="text-align: center">
                                                 {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
@@ -170,8 +170,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#cpf_cliente').mask('000.000.000-00');
-            $('#cpf_cliente_cadastro').mask('000.000.000-00');
-            $('#cep_endereco').mask('00000-000');
+            $('#cpf_cliente_edicao').mask('000.000.000-00');
         });
     </script>
 @stop
