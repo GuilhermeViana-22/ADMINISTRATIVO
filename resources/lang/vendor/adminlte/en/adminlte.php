@@ -6,12 +6,12 @@ return [
     'email'                       => 'Email',
     'password'                    => 'Password',
     'retype_password'             => 'Retype password',
-    'remember_me'                 => 'Remember Me',
+    'remember_me'                 => 'Lembrar de mim',
     'register'                    => 'Register',
     'register_a_new_membership'   => 'Register a new membership',
     'i_forgot_my_password'        => 'I forgot my password',
     'i_already_have_a_membership' => 'I already have a membership',
-    'sign_in'                     => 'Sign In',
+    'sign_in'                     => ' Entrar',
     'log_out'                     => 'Sair',
     'toggle_navigation'           => 'Toggle navigation',
     'login_message'               => 'Sign in to start your session',
@@ -26,5 +26,5 @@ return [
     'verify_request_another'      => 'click here to request another',
     'confirm_password_message'    => 'Please, confirm your password to continue.',
     'remember_me_hint'            => 'Keep me authenticated indefinitely or until I manually logout',
-    
+
 ];

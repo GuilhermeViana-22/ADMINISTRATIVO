@@ -188,9 +188,9 @@ class SistemasController extends Controller
     }
     public function pdf()
     {
-        $mpf = Sistema::all();
-
-        return \PDF::loadView('sistema\relatorios', compact('mpf'))
+        $sistemas = Sistema::all();
+        $qtd = Sistema::count();
+        return \PDF::loadView('sistema\relatorios', compact('sistemas', ['qtd']))
             // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
             ->stream('sistemas.relatorios');
     }

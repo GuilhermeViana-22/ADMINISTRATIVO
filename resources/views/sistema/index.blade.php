@@ -122,7 +122,7 @@
                                         @else
                                         @endif
                                         @foreach ($sistemas as $sistema)
-                                            <th class="table-secondary" scope="row dark">{{ $sistema->id }}</td>
+                                            <td class="table-secondary" scope="row dark">{{ $sistema->id }}</td>
                                             <td scope="row info">{{ $sistema->nome_sistema }}</td>
                                             <td scope="row info">{{ date('d/m/Y', strtotime($sistema->created_at))  }}</td>
                                             <td scope="row info">{{ $sistema->sistema->situacao }}</td>

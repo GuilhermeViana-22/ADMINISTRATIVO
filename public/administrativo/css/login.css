@@ -1,12 +1,9 @@
 html {
     height: 100%;
 }
-body {
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    font-size: 16pt;
-    background: linear-gradient(#141e30, #243b55);
+
+#logo-login{
+    width: 200px;
 }
 
 .login-box {
@@ -14,19 +11,12 @@ body {
     top: 50%;
     left: 50%;
     width: 600px;
-    padding: 40px;
+    padding: 70px;
     transform: translate(-50%, -50%);
     background: rgba(0,0,0,.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
-}
-
-.login-box h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-    text-align: center;
 }
 
 .login-box .user-box {
@@ -55,13 +45,7 @@ body {
     transition: .5s;
 }
 
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
-    font-size: 12px;
-}
+
 
 .login-box form a {
     position: relative;

@@ -13,7 +13,7 @@
 
 @section('body')
 
-    <div class="login-box ">
+    <div style="width: 700px" class="login-box ">
         {{-- Card Header --}}
         @hasSection('auth_header')
             <div class="card-header {{ config('adminlte.classes_auth_header', '') }}">
