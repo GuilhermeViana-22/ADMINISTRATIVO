@@ -36,7 +36,7 @@ Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cli
 
 
 // rota de acesso as funionalidades de sistemas
-
+Route::get('sistemas/pdf', [SistemasController::class,'pdf'])->name('sistema.pdf');
 Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
 Route::post('/sistema/search',[SistemasController::class,'search'])->name('sistema.search');
 Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
@@ -45,6 +45,7 @@ Route::get('/sistemas/{id}/edit',[ SistemasController::class,'edit'])->name('sis
 Route::post('/sistema',[SistemasController::class,'store'])->name('sistema.store');
 Route::post('/sistema/{id}',[ SistemasController::class,'update'])->name('sistema.update');
 Route::delete('/sistemas/{id}',[SistemasController::class,'destroy'])->name('sistema.destroy');
+
 
 
 

@@ -186,4 +186,12 @@ class SistemasController extends Controller
             ->route('sistema.index', compact('retorno'));
 
     }
+    public function pdf()
+    {
+        $mpf = Sistema::all();
+
+        return \PDF::loadView('sistema\relatorios', compact('mpf'))
+            // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+            ->stream('sistemas.relatorios');
+    }
 }

@@ -94,7 +94,7 @@
                                         <div class="dt-buttons btn-group flex-wrap">
                                             <a id="search" type="submit"
                                                class="btn btn-secondary btn-sm float-right"
-                                               href="{{route('mpf.gerarPdf')}}"><i
+                                               href="{{route('sistema.pdf')}}"><i
                                                     class="fas fa-print"></i>Imprimir</a>
                                             <button id="search" type="submit"
                                                     class="btn btn-secondary btn-sm float-right"><i
