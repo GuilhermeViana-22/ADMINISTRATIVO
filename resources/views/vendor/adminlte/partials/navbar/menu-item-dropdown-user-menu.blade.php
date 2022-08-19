@@ -62,13 +62,21 @@
 
         {{-- User menu footer --}}
         <li class="user-footer">
-            @if($profile_url)
-                <a href="{{ $profile_url }}" class="btn btn-default btn-flat">
-                    <i class="fa fa-fw fa-user text-lightblue"></i>
-                    {{ __('adminlte::menu.profile') }}
-                </a>
-            @endif
-            <a class="btn btn-default btn-flat float-right @if(!$profile_url) btn-block @endif"
+            <a class="btn btn-default btn-flat @if(!$profile_url) btn-block @endif"
+               href="{{ route('usuario.index') }}">
+                <i class="fas fa-user-circle"></i>
+                Editar Perfil
+            </a>
+        </li>
+
+        <li class="user-footer">
+            <a class="btn btn-default btn-flat @if(!$profile_url) btn-block @endif">
+                <i class="fas fa-cog"></i>
+                Configurações
+            </a>
+        </li>
+        <li class="user-footer">
+            <a class="btn btn-default btn-flat @if(!$profile_url) btn-block @endif"
                href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa fa-fw fa-power-off text-red"></i>
                 {{ __('adminlte::adminlte.log_out') }}

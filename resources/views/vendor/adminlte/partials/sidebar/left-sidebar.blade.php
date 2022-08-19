@@ -8,7 +8,7 @@
     @endif
 
     {{-- Sidebar menu --}}
-    <div styclass="sidebar">
+    <div class="sidebar">
         <nav class="pt-2">
             <ul class="nav nav-pills nav-sidebar flex-column {{ config('adminlte.classes_sidebar_nav', '') }}"
                 data-widget="treeview" role="menu"

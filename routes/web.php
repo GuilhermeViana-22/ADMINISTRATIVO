@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmpController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
@@ -19,6 +20,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//rota de edição de dados do usuario
+Route::get('/usuario', [UserController::class, 'index'])->name('usuario.index');
+
 
 //inicialmente chama a index para renderizar a pagina
 Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');

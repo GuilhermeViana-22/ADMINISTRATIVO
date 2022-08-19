@@ -6,6 +6,11 @@ html {
     width: 200px;
 }
 
+.user{
+    width: 200px;
+    height: 28px;
+    border-radius: 100%;
+}
 .login-box {
     position: absolute;
     top: 50%;

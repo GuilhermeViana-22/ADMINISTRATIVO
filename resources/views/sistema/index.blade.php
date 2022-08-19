@@ -43,13 +43,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col col-sm-2">
+                        <div class="col col-sm-3">
                             <label for="disabledTextInput" class="form-label">Data de cadastro </label>
                             <input type="date" min="2022-01-01" id="created_at" name="created_at"
                                    class="form-control form-control-sm"
                                    placeholder="Data cadastro" aria-label="First name">
                         </div>
-                        <div class="col col-sm-4">
+                        <div class="col col-sm-3">
                             <div class="form-group">
                                 <label>Situação</label>
                                 <select name="situacao_id" class="form-control form-control-sm">
@@ -62,6 +62,12 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col col-sm-4">
+                            <label>Ativo</label>
+                            <br>
+                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-danger" data-offstyle="outline-warning" data-size="sm">
+                        </div>
+
                     </div>
             </div>
             <div class="card-footer">
@@ -158,10 +164,12 @@
 @section('css')
     {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 @stop
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 @stop

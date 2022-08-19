@@ -85,6 +85,8 @@ class ClientesController extends Controller
      */
     public function search(Request $request)
     {
+
+
         //guarda as variaveis vindas da request
         $nome = $request->nome_cliente;
         $email = $request->email_cliente;
@@ -94,10 +96,10 @@ class ClientesController extends Controller
 
         $filter_all = Cliente::where('ativo','=', 1);
 
-        // verifica se veio name
         if (!empty($nome)) {
             $filter_all->where('nome_cliente', 'LIKE', '%' . $nome . '%')->paginate(2);
         }
+
 
         if (!empty($email)) {
             $filter_all->where('email_cliente', 'LIKE', '%' . $email . '%')->paginate(2);

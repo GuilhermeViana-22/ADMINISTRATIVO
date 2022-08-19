@@ -27,9 +27,9 @@
         </div>
 
         <div  class="col-12 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div class="user"></div>
             <form action="{{ $login_url }}" method="post">
                 @csrf
-
                 {{-- Email field --}}
                 <div class="input-group mb-3">
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"

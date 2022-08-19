@@ -58,6 +58,12 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="col col-sm-4">
+                            <label>Ativo</label>
+                            <br>
+                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-danger" data-offstyle="outline-warning" data-size="sm" name="ativo">
+                        </div>
                     </div>
             </div>
             <div class="card-footer">
@@ -162,11 +168,14 @@
 @section('css')
     {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 @stop
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#cpf_cliente').mask('000.000.000-00');
