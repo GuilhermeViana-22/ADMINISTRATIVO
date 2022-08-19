@@ -14,6 +14,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "phpoffice/phpspreadsheet": "dev-NumberFormatMask-Helpers",
         "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {

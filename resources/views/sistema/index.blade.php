@@ -94,7 +94,7 @@
                                         <div class="dt-buttons btn-group flex-wrap">
                                             <a id="search" type="submit"
                                                class="btn btn-secondary btn-sm float-right"
-                                               href="{{route('mpf.gerarPdf')}}"><i
+                                               href="{{route('sistema.pdf')}}"><i
                                                     class="fas fa-print"></i>Imprimir</a>
                                             <button id="search" type="submit"
                                                     class="btn btn-secondary btn-sm float-right"><i
@@ -122,7 +122,7 @@
                                         @else
                                         @endif
                                         @foreach ($sistemas as $sistema)
-                                            <th class="table-secondary" scope="row dark">{{ $sistema->id }}</td>
+                                            <td class="table-secondary" scope="row dark">{{ $sistema->id }}</td>
                                             <td scope="row info">{{ $sistema->nome_sistema }}</td>
                                             <td scope="row info">{{ date('d/m/Y', strtotime($sistema->created_at))  }}</td>
                                             <td scope="row info">{{ $sistema->sistema->situacao }}</td>
