@@ -12,6 +12,7 @@
                     <li class="breadcrumb-item active"><a href="/cadastro">home </a></li>
                 </ol>
             </div>
+            
         </div>
     </div>
 @stop
