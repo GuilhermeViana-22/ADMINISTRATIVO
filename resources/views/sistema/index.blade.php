@@ -12,7 +12,7 @@
                     <li class="breadcrumb-item active"><a href="/cadastro">home </a></li>
                 </ol>
             </div>
-            
+
         </div>
     </div>
 @stop
@@ -66,7 +66,8 @@
                         <div class="col col-sm-4">
                             <label>Ativo</label>
                             <br>
-                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-danger" data-offstyle="outline-warning" data-size="sm">
+                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-danger"
+                                   data-offstyle="outline-warning" data-size="sm">
                         </div>
 
                     </div>
@@ -112,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="card-body table-responsive">
-                                <table class="table table-hover table-sm">
+                                <table id="sistemas" class="table table-hover table-sm">
                                     <thead class="bg-secondary">
                                     <tr>
                                         <th>Protocolo</th>
@@ -166,11 +167,20 @@
     {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
 @stop
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('administrativo/js/dataTables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#sistemas').dataTable();
+        });
+    </script>
 
 @stop
