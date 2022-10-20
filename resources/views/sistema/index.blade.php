@@ -166,9 +166,9 @@
 @section('css')
     {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+          rel="stylesheet">
     <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-
 
 @stop
 
@@ -178,9 +178,9 @@
     <script src="{{ asset('administrativo/js/dataTables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $('#sistemas').dataTable();
-        });
+        $(document).ready( function () {
+            $('#sistemas').DataTable();
+        } );
     </script>
 
 @stop

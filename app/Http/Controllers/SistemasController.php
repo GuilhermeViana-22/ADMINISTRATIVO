@@ -93,7 +93,7 @@ class SistemasController extends Controller
      */
     public function search(Request $request)
     {
-        //verifica se o metodo é do tipo post
+//verifica se o metodo é do tipo post
         if (!$request->isMethod('post')) {
             return \alert('Error', 'você não tem permissão para realiar está ação');
         }
@@ -128,6 +128,7 @@ class SistemasController extends Controller
         $sistemas = $filter_all->get();
 
         return view('sistema.index', compact('sistemas'));
+
     }
 
 

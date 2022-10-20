@@ -106,10 +106,11 @@
                                             </button>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="card-body table-responsive">
-                                <table class="table table-hover table-sm">
+                                <table id="clientes" class="table table-hover table-sm">
                                     <thead class="bg-secondary">
                                     <tr>
                                         <th>#</th>
@@ -169,11 +170,13 @@
     {{-- é necessário importar o arquivo do css do dashboard pois algumas manutenções de divs estão lá dentro --}}
     <link rel="stylesheet" href="{{ asset('administrativo/css/dashboard.css') }}">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
 @stop
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
     <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('administrativo/js/dataTables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
     <script type="text/javascript">
@@ -181,5 +184,7 @@
             $('#cpf_cliente').mask('000.000.000-00');
             $('#cpf_cliente_edicao').mask('000.000.000-00');
         });
+
+        $('#clientes').DataTable();
     </script>
 @stop
