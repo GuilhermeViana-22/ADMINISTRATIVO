@@ -22,11 +22,7 @@ class SistemasController extends Controller
 
         $sistemas->toArray();
 
-        foreach ($sistemas as $key => $value){
-               $status[] = $value->situacao_id;
-        }
-
-        return view('sistema.index', compact('sistemas', ['status']));
+        return view('sistema.index', compact('sistemas'));
     }
 
     /**
@@ -61,13 +57,9 @@ class SistemasController extends Controller
         $data['situacao_id'] = 1;
         $data['token'] = $request->_token;
 
-        try {
-            Sistema::create($data);
-            // retorna com a mensagem de save
-            $return = Alert::success('Sucesso', 'O novo sistema foi salvo com sucesso.');
-        } catch (Exception $e) {
-            $return = Alert::error('Falha', 'Não foi possivel salvar o sistema.' . 'Exception message:' . $e->getMessage() . ' with code: ' . $e->getCode());
-        }
+        Sistema::create($data);
+        // retorna com a mensagem de save
+        $return = Alert::success('Sucesso', 'O novo sistema foi salvo com sucesso.');
         return redirect()
             ->route('sistema.index', compact('return'));
     }

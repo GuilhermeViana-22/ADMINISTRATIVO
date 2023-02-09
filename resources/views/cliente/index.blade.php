@@ -45,19 +45,6 @@
                             <input id="cpf_cliente" name="cpf_cliente" type="text" class="form-control form-control-sm"
                                    maxlength="14" placeholder="CPF" aria-label="First name">
                         </div>
-                        <div class="col col-sm-4">
-                            <div class="form-group">
-                                <label>Situação</label>
-                                <select class="form-control form-control-sm" name="situacao">
-                                    <option value="1">Sistema ativo</option>
-                                    <option value="2">Sistema em manutenção</option>
-                                    <option value="3">Sistema com pagamento em atraso</option>
-                                    <option value="4">Sistema cancelado pelo cliente</option>
-                                    <option value="5">Sistema com problema</option>
-                                    <option value="6">Sistema indisponivel</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
             </div>
             <div class="card-footer">
@@ -128,7 +115,7 @@
                                                 {{ date('Y/m/d', strtotime($cliente->data_cadastro)) }}</td>
                                             <td>{{ $cliente->cpf_cliente }}</td>
                                                 <td>{{ $cliente->email_cliente }}</td>
-                                                <td>{{ $cliente->cliente->situacao }}</td>
+                                                <td>{{ $cliente->email_cliente }}</td>
                                             <td id="opcoes">
                                                 <button id="search"
                                                         onclick="showModal('{{ route('cliente.show', $cliente->id) }}', 'Detalhes Cliente {{ $cliente->nome }}', ' Cliente', 'Salvar', 'Cancelar');"

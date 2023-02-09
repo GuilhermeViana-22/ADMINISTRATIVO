@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sistema extends Model
 {
+    public $table = 'sistema';
+
     use HasFactory;
 
     public function sistema(){

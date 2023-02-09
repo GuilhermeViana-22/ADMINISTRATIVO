@@ -125,7 +125,7 @@
                                             <th class="table-secondary" scope="row dark">{{ $sistema->id }}</td>
                                             <td scope="row info">{{ $sistema->nome_sistema }}</td>
                                             <td scope="row info">{{ date('d/m/Y', strtotime($sistema->created_at))  }}</td>
-                                            <td scope="row info">{{ $sistema->sistema->situacao }}</td>
+                                            <td scope="row info">teste</td>
                                             <td id="opcoes">
                                                 <button id="search"
                                                         onclick="showModal('{{ route('sistema.show', $sistema->id) }}', 'Detalhes Sistema {{ $sistema->nome_sistema }}', 'Salvar', 'Cancelar');"
