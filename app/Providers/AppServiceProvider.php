@@ -36,7 +36,6 @@ class AppServiceProvider extends ServiceProvider
                     'text' => 'Cadastro de clientes',
                     'url'  => '/cadastro',
                     'icon' => 'fas fa-fw fa-user',
-                    'label'       => $user = Cliente::count(),
                     'label_color' => 'success',
                 ],
 
@@ -44,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
                     'text' => 'Cadastro de Sistemas',
                     'url'  => '/sistemas',
                     'icon' => 'fas fa-network-wired',
-                ],               
+                ],
                 [
                     'text'    => 'Relatórios',
                     'icon'    => 'fas fa-fw fa-folder',

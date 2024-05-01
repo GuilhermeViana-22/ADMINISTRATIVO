@@ -1,7 +1,7 @@
 @extends('adminlte::auth.auth-page', ['auth_type' => 'login'])
 
 @section('adminlte_css_pre')
-    <link rel="stylesheet" href="{{ asset('vendor/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
 @stop
 
 @php( $login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login') )
@@ -18,11 +18,19 @@
     @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
 
-@section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
-    <div class="login-box">
-        <h2>Administrativo</h2>
+    <style>
+        .card-login{
+            width: 700px;
+            padding: 30px;
+            background-color: #141414;
+            box-shadow: 5px 10px #111111;
+        }
+    </style>
+    <div class="card-login">
+        <h6>Faça login para acessar nossa plataforma</h6>
+        <h2>Dashboard</h2>
         <form action="{{ $login_url }}" method="post">
             @csrf
 
@@ -31,11 +39,7 @@
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                        value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
 
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-envelope {{ config('adminlte.classes_auth_icon', '') }}"></span>
-                    </div>
-                </div>
+
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -49,11 +53,7 @@
                 <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror"
                        placeholder="{{ __('adminlte::adminlte.password') }}">
 
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
-                    </div>
-                </div>
+
 
                 @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="col-5">
-                    <button type=submit class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-dark') }}">
+                    <button type=submit class="btn btn-block btn-danger {{ config('adminlte.classes_auth_btn', 'btn-flat btn-danger') }}">
                         <span class="fas fa-sign-in-alt"></span>
                         {{ __('adminlte::adminlte.sign_in') }}
                     </button>
@@ -83,6 +83,21 @@
             </div>
 
         </form>
+
+        {{-- Register link --}}
+        @if($register_url)
+            <p class="my-0" style="color: white;">
+                Não tem uma conta? <a href="{{ $register_url }}" style="color: white;">Registre-se</a>
+            </p>
+        @endif
+
+
+        @if($password_reset_url)
+            <p class="my-0" style="color: white;">
+                <a href="{{ $password_reset_url }}" style="color: white;">Esqueceu a senha ?</a>
+            </p>
+        @endif
+
     </div>
 @stop
 
@@ -92,15 +107,6 @@
         <p class="my-0">
             <a href="{{ $password_reset_url }}">
                 {{ __('adminlte::adminlte.i_forgot_my_password') }}
-            </a>
-        </p>
-    @endif
-
-    {{-- Register link --}}
-    @if($register_url)
-        <p class="my-0">
-            <a href="{{ $register_url }}">
-                {{ __('adminlte::adminlte.register_a_new_membership') }}
             </a>
         </p>
     @endif

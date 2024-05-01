@@ -8,7 +8,8 @@
     @php( $dashboard_url = $dashboard_url ? url($dashboard_url) : '' )
 @endif
 
-<link rel="stylesheet" href="{{ asset('administrativo/css/login.css') }}">
+<link rel="stylesheet" href="{{ asset('administrativo/css/cadastrar.css') }}">
+
 @section('classes_body'){{ ($auth_type ?? 'login') . '-page' }}@stop
 
 @section('body')

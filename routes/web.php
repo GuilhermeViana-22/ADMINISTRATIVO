@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmpController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -8,8 +9,13 @@ use App\Http\Controllers\RelatoriosController;
 use App\Http\Controllers\SistemasController;
 
 // chama a tela de login inicialmente com a classe de authetificação programada
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
+});
+
+
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Auth::routes();
@@ -19,7 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+//rotas de registro
+Route::post('/register',[RegisterController::class,'create'])->name('register');
 //inicialmente chama a index para renderizar a pagina
 Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');
 Route::get('/cadastro/search',[ ClientesController::class,'search'])->name('cadastro.search');

@@ -11,6 +11,14 @@
 @section('auth_header', __('adminlte::adminlte.password_reset_message'))
 
 @section('auth_body')
+    <style>
+        body {
+            background-image: url('/arquivos/banner/background_login.jpg') !important;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+    </style>
     <form action="{{ $password_reset_url }}" method="post">
         @csrf
 

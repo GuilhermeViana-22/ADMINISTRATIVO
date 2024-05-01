@@ -2909,7 +2909,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn {
-  
+
     margin-right: 5px;
     display: inline-block;
     font-weight: 400;
@@ -37016,10 +37016,6 @@ a.disabled.mailbox-attachment-close {
     background-size: 100%;;
 }
 
-.login-box,
-.register-box {
-    width: 360px
-}
 
 @media (max-width:576px) {
 

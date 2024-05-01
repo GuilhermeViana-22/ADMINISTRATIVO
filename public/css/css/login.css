@@ -1,0 +1,86 @@
+body {
+    background-image: url('/arquivos/banner/background_login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 170px;
+    border: none;
+    border-radius: 10px;
+    background-color: #141414;
+}
+.form-control{
+    background-color: #38404E;
+    border: none;
+    color: #fff;
+    padding: 10px;
+}
+
+#email::placeholder {
+    color: white;
+}
+#password::placeholder {
+    color: white;
+}
+
+label{
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card-header {
+    background-color: #141414;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+.remember{
+    color: #fff;
+}
+strong{
+    color: #bb2d3b;
+}
+strong:hover{
+    color: #ff5868;
+}
+.conta{
+    color: #fff;
+}
+.conta:hover{
+    color: #ffd0d0;
+}
+
+span{
+    padding: 10px;
+}
+.card-footer {
+    border-radius: 0 0 10px 10px;
+    background-color: #141414;
+}
+
+.btn-link {
+    text-decoration: none;
+}
+.form-control{
+    background-color: #38404E;
+    border: none;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    background-color: #38404E;
+    color: #fff;
+}
+
+.form-control:focus {
+    background-color: #38404E;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: white;
+}

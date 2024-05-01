@@ -1,0 +1,156 @@
+body {
+    background-color: #1b1b1b;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 170px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(0,0,0);
+    background: linear-gradient(185deg, rgba(0,0,0,1) 0%, rgba(5,5,5,1) 8%, rgba(8,8,8,1) 12%, rgba(28,28,28,1) 41%, rgba(48,48,48,1) 100%);
+}
+
+h1, h2, h3,h4, h6 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    color: #fff;
+}
+h5{
+    text-align: left;
+    color: #fff;
+}
+.card-title{
+    color: #fff;
+}
+.container{
+    display: block;
+    max-width: 80%;
+
+}
+.form-control{
+    background-color: #38404E;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    font-size: 17px;
+}
+
+.form-control::placeholder {
+    background-color: #38404E;
+    color: #fff;
+
+}
+
+.form-control:focus {
+    background-color: #38404E;
+    color: #fff;
+
+}
+
+.form-control::placeholder {
+    color: white;
+}
+.invalid-feedback{
+    display: none;
+}
+
+option{
+    color: #ffffff !important;
+}
+
+label{
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px; /* Tamanho da fonte enquanto escreve */
+}
+hr {
+    margin-top: 5%;
+    background-color: #ffffff;
+    color: #fff;
+
+    text-align: center;
+}
+.remember{
+    color: #fff;
+}
+strong{
+    color: #bb2d3b;
+}
+strong:hover{
+    color: #ff5868;
+}
+.conta{
+    color: #fff;
+}
+.conta:hover{
+    color: #ffd0d0;
+}
+
+span{
+    padding: 10px;
+}
+.card-body{
+    padding: 60px;
+}
+.card-footer {
+    border-radius: 0 0 10px 10px;
+    background-color: #141414;
+}
+
+.btn-link {
+    text-decoration: none;
+}
+
+/* Estilizando o calendário do datepicker do Bootstrap */
+.datepicker-dropdown {
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.datepicker-dropdown table {
+    color: black; /* Cor do texto */
+}
+
+.datepicker-dropdown table thead tr:first-child th {
+    background-color: #38404E; /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto do cabeçalho */
+}
+
+.datepicker-dropdown table tbody tr td {
+    background-color: white; /* Cor de fundo das células */
+}
+
+.datepicker-dropdown table tbody tr td:hover,
+.datepicker-dropdown table tbody tr td.selected,
+.datepicker-dropdown table tbody tr td.active {
+    background-color: #38404E; /* Cor de fundo ao passar o mouse ou selecionar */
+    color: white; /* Cor do texto ao passar o mouse ou selecionar */
+}
+
+/* Personalizando o ícone do calendário */
+.datepicker-dropdown .datepicker-switch {
+    color: #38404E; /* Cor do ícone */
+}
+
+.datepicker-dropdown .prev,
+.datepicker-dropdown .next {
+    color: #38404E; /* Cor das setas de navegação */
+}
+/* Estilizando o botão */
+.custom-button {
+    display: block;
+    margin: 0 auto;       /* Centraliza horizontalmente */
+    max-width: 20%;       /* Largura máxima de 50% */
+    width: 100%;          /* Faz o botão ocupar toda a largura disponível */
+    padding: 18px;
+}
+
+.continuar{
+    max-width: 900px;
+}

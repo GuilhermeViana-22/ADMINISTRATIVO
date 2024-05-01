@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClientesTable extends Migration
+class CreateUsuarioPermissoesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('usuario_permissoes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->integer('permissao_id')->unsigned();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('usuario_permissoes');
     }
 }
