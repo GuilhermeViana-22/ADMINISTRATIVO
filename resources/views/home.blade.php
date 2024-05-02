@@ -83,12 +83,8 @@
     <!-- /.card -->
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/.css">
-@stop
-
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
-    <script src="{{ asset('administrativo/js/query.mask.min.js') }}"></script>
-    <script src="{{ asset('administrativo/js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('administrativo/js/jquery.mask.min.js') }}"></script>
+
 @stop

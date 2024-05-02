@@ -1,7 +1,8 @@
 body {
     background-image: url('/arquivos/banner/background_login.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
+    background-color: #141414;
 }
 
 .card {

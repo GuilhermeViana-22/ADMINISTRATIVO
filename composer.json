@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ext-http": "*",
         "barryvdh/laravel-dompdf": "^2.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -14,8 +15,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
-        "realrashid/sweet-alert": "^5.1",
-        "ext-http": "*"
+        "realrashid/sweet-alert": "^7.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

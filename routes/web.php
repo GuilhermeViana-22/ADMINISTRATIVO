@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmpController;
 use Illuminate\Support\Facades\Auth;
@@ -25,8 +26,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
 //rotas de registro
 Route::post('/register',[RegisterController::class,'create'])->name('register');
+Route::post('/logar',[RegisterController::class,'logar'])->name('logar');
 //inicialmente chama a index para renderizar a pagina
 Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');
 Route::get('/cadastro/search',[ ClientesController::class,'search'])->name('cadastro.search');

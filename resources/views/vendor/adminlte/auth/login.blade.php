@@ -18,16 +18,18 @@
     @php( $password_reset_url = $password_reset_url ? url($password_reset_url) : '' )
 @endif
 
-
 @section('auth_body')
     <style>
         .card-login{
             width: 700px;
             padding: 30px;
             background-color: #141414;
-            box-shadow: 5px 10px #111111;
+            box-shadow: 10px 10px 10px 10px #111111;
+            border-radius: 10%;
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('administrativo/css/sweetAlerts2.css') }}">
+
     <div class="card-login">
         <h6>Faça login para acessar nossa plataforma</h6>
         <h2>Dashboard</h2>
@@ -38,8 +40,6 @@
             <div class="input-group mb-3">
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                        value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
-
-
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -53,8 +53,6 @@
                 <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror"
                        placeholder="{{ __('adminlte::adminlte.password') }}">
 
-
-
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -64,7 +62,7 @@
 
             {{-- Login field --}}
             <div class="row">
-                <div class="col-7">
+                <div class="col-9">
                     <div class="icheck-dark" title="{{ __('adminlte::adminlte.remember_me_hint') }}">
                         <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -74,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="col-5">
+                <div class="col-3">
                     <button type=submit class="btn btn-block btn-danger {{ config('adminlte.classes_auth_btn', 'btn-flat btn-danger') }}">
                         <span class="fas fa-sign-in-alt"></span>
                         {{ __('adminlte::adminlte.sign_in') }}
@@ -87,14 +85,14 @@
         {{-- Register link --}}
         @if($register_url)
             <p class="my-0" style="color: white;">
-                Não tem uma conta? <a href="{{ $register_url }}" style="color: white;">Registre-se</a>
+                Não tem uma conta? <a href="{{ $register_url }}" style="color: #ff5757;">Registre-se</a>
             </p>
         @endif
 
-
+        {{-- Password reset link --}}
         @if($password_reset_url)
-            <p class="my-0" style="color: white;">
-                <a href="{{ $password_reset_url }}" style="color: white;">Esqueceu a senha ?</a>
+            <p class="my-0">
+                <a href="{{ $password_reset_url }}" style="color: #ff5757;">Esqueceu a senha ?</a>
             </p>
         @endif
 
@@ -102,12 +100,6 @@
 @stop
 
 @section('auth_footer')
-    {{-- Password reset link --}}
-    @if($password_reset_url)
-        <p class="my-0">
-            <a href="{{ $password_reset_url }}">
-                {{ __('adminlte::adminlte.i_forgot_my_password') }}
-            </a>
-        </p>
-    @endif
+
+
 @stop
