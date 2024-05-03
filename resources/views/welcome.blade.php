@@ -13,7 +13,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
+
 <body class="antialiased">
+<style>
+    @keyframes bounce {
+        0% {
+            background-image: url('./arquivos/banner/banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        50% {
+            background-image: url('./arquivos/banner/banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        100% {
+            background-image: url('./arquivos/banner/banner.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+</style>
+<div class="banner">
+
+</div>
 <header>
 
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -46,19 +74,16 @@
 
                 </ul>
             </div>
-            <button id="btnEntrar" type="submit" class="btn btn-danger mr-4 ml-4" onclick="irPara('{{route('login')}}')"> <i class="fas fa-sign-in-alt"></i> <span> Entrar</span></button>
+{{--            <button id="btnEntrar" type="submit" class="btn btn-danger" style="max-width: 10% !important;" onclick="irPara('{{route('login')}}')">  <span> Entrar</span></button>--}}
 
         </div>
 
     </nav>
 
-    <div class="logoBanner">
-        <img class="banner animate__animated animate__bounceInRight"
-             src="{{ asset('arquivos/banner/note3.png') }}" alt="cxm">
-    </div>
 </header>
-<span><a href="https://api.whatsapp.com/send?phone=5511980439535" id="whatsapp-button"><i id="whatsapp"
-                                                                                          class="fab fa-whatsapp"></i></a></span>
+
+<span><a href="https://api.whatsapp.com/send?phone=5511980439535" id="whatsapp-button"><i id="whatsapp" class="fab fa-whatsapp"></i></a></span>
+
 <main>
     {{-- explicação dos tipos de intro  --}}
     <section class="intro missao" data-anime="left">
@@ -75,6 +100,61 @@
             inglês está ao seu alcance, e a CXM está aqui para guiá-lo em cada passo do caminho. Vamos começar essa
             jornada incrível juntos! Acesse agora mesmo a plataforma CXM e comece a sua jornada rumo à fluência!</p>
     </section>
+
+    {{-- somente no mobile  --}}
+    <article class="mobile-servicos" data-anime="right">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card1 mb-4">
+                        <h2 class="card-title"><b>Acompanhamento Personalizado</b></h2>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-4">
+                                <li><i class="fas fa-check"></i> Feedback Preciso e Contínuo</li>
+                                <li><i class="fas fa-check"></i> Personalização do Plano de Estudos</li>
+                                <li><i class="fas fa-check"></i> Acompanhamento do Progresso em Tempo Real</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class=" card2">
+                        <img class="card-img-top img-fluid" src="{{ asset('arquivos/imagens/online.jpg') }}" alt="Imagem de exemplo">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class=" card3 mb-4">
+                        <div class="card-body">
+                            <figure class="imagem1">
+                                <img class="img-fluid" src="{{ asset('arquivos/imagens/logo.png') }}" alt="cxm">
+                            </figure>
+                            <div class="card-body">
+                                <ul class="list-unstyled mb-4">
+                                    <li><i class="fas fa-check"></i> Feedback Preciso e Contínuo</li>
+                                    <li><i class="fas fa-check"></i> Personalização do Plano de Estudos</li>
+                                    <li><i class="fas fa-check"></i> Acompanhamento do Progresso em Tempo Real</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class=" card4">
+                        <img class="card-img-top img-fluid" src="{{ asset('arquivos/imagens/banner.jpeg') }}" alt="clever">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    {{-- somente no mobile  --}}
+<br>
+    <br>
+
     {{-- explicação dos tipos de serviço  --}}
     <article class="servicos missao" data-anime="right">
         <div class="container">
@@ -83,50 +163,57 @@
                     <img src="{{ asset('arquivos/imagens/online.jpg') }}" class="img-fluid animate__bounce" alt="Imagem de exemplo">
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <h2><b>Acompanhamento Personalizado </b></h2>
-                    <div class="d-flex text-center">
-                        <ul class="list-unstyled">
+                    <div class=" p-4">
+                        <h2 class="mb-4"><b>Acompanhamento Personalizado</b></h2>
+                        <div class="d-flex text-center">
+                            <ul class="list-unstyled mb-4">
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <span>Feedback Preciso e Contínuo</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <span>Personalização do Plano de Estudos</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    <span>Acompanhamento do Progresso em Tempo Real</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-2 clev animate__animated animate__fadeIn" style="background-color: #fff; opacity: 0.5">
+            <div class="row">
+                <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="p-4" style="margin-bottom: 30px; margin-top: 30px;">
+                        <figure class="imagem1">
+                            <img class="img-fluid" src="{{ asset('arquivos/imagens/logo.png') }}" alt="cxm">
+                        </figure>
+                        <ul class="list-unstyled cx-list">
                             <li>
                                 <i class="fas fa-check"></i>
-                                <span>Feedback Preciso e Contínuo</span>
+                                <span class="phrases mb-4">Feedback Preciso e Contínuo</span>
                             </li>
                             <li>
                                 <i class="fas fa-check"></i>
-                                <span>Personalização do Plano de Estudos</span>
+                                <span class="phrases mb-4">Personalização do Plano de Estudos</span>
                             </li>
                             <li>
                                 <i class="fas fa-check"></i>
-                                <span>Acompanhamento do Progresso em Tempo Real</span>
+                                <span class="phrases mb-4">Acompanhamento do Progresso em Tempo Real</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="container-2 clev animate__animated animate__fadeIn">
-            <div class="row">
                 <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <figure class="imagem1">
-                        <img class="img-fluid" src="{{ asset('arquivos/imagens/logo.png') }}" alt="cxm">
-                    </figure>
-                    <ul class="list-unstyled cx-list">
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span class="phrases">Feedback Preciso e Contínuo</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span class="phrases">Personalização do Plano de Estudos</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span class="phrases">Acompanhamento do Progresso em Tempo Real</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <img class="img-fluid imagem2" src="{{ asset('arquivos/imagens/banner.jpeg') }}" alt="clever">
+                    <div class="p-4" style="margin-bottom: 30px; margin-top: 30px;">
+                        <img class="img-fluid imagem2" src="{{ asset('arquivos/imagens/banner.jpeg') }}" alt="clever">
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,8 +221,6 @@
 
 
 
-
-    {{-- vantagens  --}}
     <article class="vantagens missao" data-anime="right">
         <h1><strong>Vantagens e <b>serviços</b> que<br> oferecemos </strong></h1>
         <div class="container mt-5">
@@ -217,15 +302,27 @@
             <button type="button" class=" learn-more-button btn btn-light">Saber mais</button>
         </div>
     </article>
+
+
+
+
     {{-- depoimentos  --}}
     <div class="svg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000000" fill-opacity="1" d="M0,256L288,32L576,64L864,288L1152,32L1440,0L1440,320L1152,320L864,320L576,320L288,320L0,320Z"></path></svg>
-
     </div>
+
+
+
+
+
+
     <article class="depoimentos">
         <h1 class="titulo-depoimentos"><strong>Depoimentos</strong></h1>
         <h3 class="titulo-depoimentos">Veja como nossos serviços revolucionaram a jornada de aprendizado de inglês
             dos nossos alunos!</h3>
+        <br>
+        <br>
+        <br>
         <div class="row">
             <div class="card-depoimentos active">
                 <h5 class="card-subtitle mb-2 text-white">“ Quero expressar minha profunda gratidão à plataforma
@@ -347,8 +444,8 @@
                 </figure>
             </div>
             <div class="col-md-6 text-center">
-                <div class="card mb-4 card-professor">
-                    <p class="card-subtitle text-white apresentacao">“ Olá a todos, sou Leonardo Albuquerque, professor de inglês na plataforma CXM. Com uma vasta experiência no ensino de inglês como segunda língua, estou comprometido em proporcionar uma experiência de aprendizado dinâmica e personalizada para cada aluno. Na plataforma CXM, estou disponível para oferecer suporte, feedback e orientação em todas as etapas do seu caminho de aprendizado. Estou ansioso para compartilhar meus conhecimentos, explorar novas habilidades linguísticas e, juntos, alcançarmos sucesso no mundo do inglês. Sejam bem-vindos à nossa comunidade de aprendizado! “
+                <div class="mb-4 card-professor">
+                    <p class="card-subtitle text-white apresentacao">“Olá a todos, sou Leonardo Albuquerque, professor de inglês na plataforma CXM. Com uma vasta experiência no ensino de inglês como segunda língua, estou comprometido em proporcionar uma experiência de aprendizado dinâmica e personalizada para cada aluno. Na plataforma CXM, estou disponível para oferecer suporte, feedback e orientação em todas as etapas do seu caminho de aprendizado. Estou ansioso para compartilhar meus conhecimentos, explorar novas habilidades linguísticas e, juntos, alcançarmos sucesso no mundo do inglês. Sejam bem-vindos à nossa comunidade de aprendizado!
                     </p>
                 </div>
             </div>

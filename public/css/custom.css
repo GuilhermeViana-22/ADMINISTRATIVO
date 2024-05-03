@@ -4,6 +4,9 @@
     content: "";
 }
 
+.mobile-servicos{
+    display: none !important;
+}
 * {
     padding: 0;
     margin: 0 auto;
@@ -22,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 100px;
 }
 nav {
-    margin-right: 40px;
+    font-size: 14pt;
     background-color: #000000 !important;
 }
 b{
@@ -38,17 +41,32 @@ span{
     padding: 10px;
 }
 header {
-    background-color: #000000;
     max-width: 100%;
-    /* opacity: 0.91; */
     height: 97vh;
 }
 .logoBanner{
     display: block;
 }
+.banner {
+    width: 100%;
+    height: 97vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: bounce 20s cubic-bezier(0.28, 0.84, 0.42, 1) infinite;
+}
 
 #btnEntrar{
-
     display: block;
 }
 
@@ -86,6 +104,7 @@ header {
 }
 
 
+
 section{
     margin-top: 150px;
     margin-bottom: 150px;
@@ -118,6 +137,8 @@ section{
 }
 .imagem3{
     max-width: 100%;
+    border-radius: 10%;
+    padding: 20px;
 }
 .list-unstyled {
     list-style: none;
@@ -185,7 +206,7 @@ section{
     border: none;
 }
 .start-button:hover {
-    background-color: #eeeeee;
+    background-color: #8c1414;
     color: white;
 }
 
@@ -193,6 +214,10 @@ section{
     color: black;
     border: solid 20px solid;
 }
+.learn-more-button:hover {
+     background-color: #e3e3e3;
+     color: white;
+ }
 
 /*end vantagens*/
 
@@ -228,11 +253,13 @@ section{
     margin-left: auto; /* Alinha a seção de depoimentos à esquerda */
     margin-right: auto; /* Alinha a seção de depoimentos à direita */
     margin-top: -15px;
+    padding: 60px;
 }
 .card-depoimentos{
     background-color: #222629;
-    padding: 40px;
-    max-width: 700px;
+
+
+    margin-top: 20px;
 }
 .user-profile {
     display: flex;
@@ -245,6 +272,7 @@ section{
     border-radius: 50%;
     margin-right: 50px; /* Aumenta a margem entre a foto do perfil e o nome */
 }
+
 
 .user-name {
     margin-left: 50px; /* Aumenta a margem entre o nome e a foto do perfil */
@@ -278,6 +306,10 @@ section{
 }
 .card-professor{
     background-color: #222629;
+    display: block;
+    margin-left: auto;
+    padding: 20px;
+    font-size: 20pt;
 
 }
 
@@ -290,9 +322,7 @@ section{
 .subtitulo-professor{
     color: #ffffff;
 }
-.apresentacao{
-    font-family: 50pt;
-}
+
 
 
 .card-vantagens-icons{
@@ -497,6 +527,10 @@ section{
         border-radius: 50%;
         margin-right: 73px;
     }
+    .mobile-servicos{
+        display: block !important;
+        padding: 20px;
+    }
 }
 
 @media (max-width: 860px) {
@@ -567,6 +601,11 @@ section{
         height: 100px;
         border-radius: 50%;
         margin-right: 73px;
+    }
+
+    .mobile-servicos{
+        display: block !important;
+        padding: 20px;
     }
 }
 
@@ -641,6 +680,10 @@ section{
         border-radius: 50%;
         margin-right: 73px;
     }
+    .mobile-servicos{
+        display: block !important;
+        padding: 20px;
+    }
 }
 
 /* tables */
@@ -712,6 +755,10 @@ section{
         height: 100px;
         border-radius: 50%;
         margin-right: 73px;
+    }
+    .mobile-servicos{
+        display: block !important;
+        padding: 20px;
     }
 }
 
@@ -786,6 +833,10 @@ section{
         border-radius: 50%;
         margin-right: 73px;
     }
+    .mobile-servicos{
+        display: block !important;
+        padding: 20px;
+    }
 
 }
 
@@ -859,6 +910,10 @@ section{
         height: 100px;
         border-radius: 50%;
         margin-right: 73px;
+    }
+    .mobile-servicos{
+        display: block !important;
+        padding: 20px;
     }
 
 }
