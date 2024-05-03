@@ -7,16 +7,17 @@
 .mobile-servicos{
     display: none !important;
 }
+
 * {
     padding: 0;
     margin: 0 auto;
 }
+
 body {
     font-family: 'DM Sans', sans-serif;
     text-align: justify;
     overflow-x: hidden;
     font-size: 14pt;
-
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 10px;
     margin-bottom: 100px;
 }
+
 nav {
     font-size: 14pt;
     background-color: #000000 !important;
@@ -103,13 +105,10 @@ header {
     padding: 2px;
 }
 
-
-
 section{
     margin-top: 150px;
     margin-bottom: 150px;
     max-width: 1096px;
-
 }
 /* logo inicial */
 
@@ -157,8 +156,6 @@ section{
     margin-right: 10px;
 }
 
-
-
 /*vantagens*/
 .card-vantagens {
     background-color: rgba(245, 245, 245, 0.62);
@@ -168,15 +165,15 @@ section{
     border: none;
     height: 350px; /* Altura fixa para todos os cards */
 }
+
 .card-title{
     text-align: left;
     font-weight: bold;
 }
+
 .card-subtitle{
     padding: 20px;
     text-align: left;
-
-
 }
 .card-vantagens:hover{
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.643);
@@ -214,13 +211,13 @@ section{
     color: black;
     border: solid 20px solid;
 }
+
 .learn-more-button:hover {
      background-color: #e3e3e3;
      color: white;
  }
 
 /*end vantagens*/
-
 .section-image{
     width: 50%;
     display: block;
@@ -230,15 +227,10 @@ section{
     padding: 20px;
 }
 
-
-
-
 /*servicos*/
 .servicos{
     display: block;
 }
-
-
 
 /*depoimentos*/
 .titulo-depoimentos{
@@ -286,7 +278,6 @@ section{
     color: gold;
     font-size: 24px;
 }
-
 
 .card-depoimentos {
     display: none;

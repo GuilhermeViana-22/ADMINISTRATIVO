@@ -24,7 +24,15 @@
             <div class="form-group">
                 <label for="email"></label><input style="max-width: 60%; display: block; margin-left: auto; margin-right: auto" type="email" class="form-control" id="email" name="email"  placeholder="Digite seu e-mail" required >
             </div>
+            <br>
+            <br>
+            <div class="row d-flex justify-content-center">
+                <div class="g-recaptcha" data-sitekey="6LejI1cjAAAAAEWl38lS7zQNnEt6NGp0gIpULFSy"></div>
+            </div>
+            <br>
+            <br>
             <button  class="btn btn-danger enviar"  onclick="formAjax('#form_newsletter')"> <i class="fas fa-paper-plane"></i> Enviar</button>
         </form>
+
     </div>
 </section>
