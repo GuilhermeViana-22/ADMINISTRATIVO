@@ -75,6 +75,7 @@ class RegisterController extends Controller
         $user->email_verified_at = now();
         $user->remember_token = Str::random(10);
 
+
         try {
             $user->save();
         }catch (Exception $e) {

@@ -67,12 +67,10 @@ class ClientesController extends Controller
                 Cliente::create($data);
                 // retorna com a mensagem de save
                 $retorno = Alert::success('Sucesso', 'O cliente foi salvo com sucesso.');
-                return redirect()
-                    ->route('cliente.index',  compact('retorno'));
+                return redirect()->route('cliente.index',  compact('retorno'));
             } catch (Exception $e) {
                 $retorno = Alert::error('Falha', 'Não foi possivel salvar cliente.' . 'Exception message:' . $e->getMessage() . ' with code: ' . $e->getCode());
-                return redirect()
-                    ->route('cliente.index',  compact('retorno'));
+                return redirect()->route('cliente.index',  compact('retorno'));
             }
         }
     }

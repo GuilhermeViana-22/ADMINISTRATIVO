@@ -1,3 +1,17 @@
+<style>
+    .online-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    .online-text {
+        margin-left: 5px;
+    }
+
+</style>
 <li class="nav-item dropdown" id="dropdownMenu">
     <a class="nav-link" href="#" id="navbarDropdown">
         <i class="fas fa-cog"></i>
@@ -16,10 +30,12 @@
     </ul>
 </li>
 <li class="nav-item">
-    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-        {{ Auth::user()->nome }}
+    <a class="nav-link" href="#" role="button">
+        <span class="online-dot" style="background-color: green;"></span>
+        <span class="online-text">  {{ Auth::user()->nome }}</span>
     </a>
 </li>
+
 <li class="nav-item">
     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
         <i class="fas fa-expand-arrows-alt"></i>

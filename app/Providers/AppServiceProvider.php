@@ -35,37 +35,41 @@ class AppServiceProvider extends ServiceProvider
                 [
                     'text' => 'Cadastro de clientes',
                     'url'  => '/cadastro',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-users',
                     'label_color' => 'success',
                 ],
 
                 [
-                    'text' => 'Cadastro de Sistemas',
-                    'url'  => '/sistemas',
+                    'text' => 'Cadastro de cursos',
+                    'url'  => '/cursos',
                     'icon' => 'fas fa-network-wired',
+                ],
+                [
+                    'text' => 'Material',
+                    'url'  => '/material',
+                    'icon' => 'fas fa-network-wired',
+                ],
+                [
+                    'text' => 'Livros',
+                    'url'  => '/livros',
+                    'icon' => 'fas fa-network-wired',
+                ],
+                [
+                    'text' => 'Meu progresso',
+                    'url'  => '/progresso',
+                    'icon' => 'fas fa-network-wired',
+                ],
+                [
+                    'text' => 'Usuários',
+                    'url'  => '/usuarios',
+                    'icon' => 'fas fa-fw fa-user',
+                    'label_color' => 'success',
                 ],
                 [
                     'text'    => 'Relatórios',
                     'icon'    => 'fas fa-fw fa-folder',
                     'submenu' => [
-                        [
-                            'text' => 'Clientes',
-                            'url'  => '/clientes',
-                        ],
-                        [
-                            'text'    => 'Sistemas ',
-                            'submenu' => [
-                                [
-                                    'text' => 'Sistemas cadastrados',
-                                    'url'  => '/sistema',
-                                ],
-                                [
-                                    'text' => 'Saldo em atraso',
-                                    'url'  => '/saldo',
-                                ],
-                            ],
 
-                        ],
                         [
                             'text' => 'Vendas',
                             'url'  => '/vendas',
@@ -74,5 +78,5 @@ class AppServiceProvider extends ServiceProvider
                 ],
             );
         });
-    }// fechamento do metodo
-}// fechamento da classe
+    }
+}

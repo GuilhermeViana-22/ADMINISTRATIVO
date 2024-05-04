@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CursosController;
 use App\Http\Controllers\EmpController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,12 +33,22 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 //rotas de registro
 Route::post('/register',[RegisterController::class,'create'])->name('register');
 Route::post('/logar',[RegisterController::class,'logar'])->name('logar');
-//inicialmente chama a index para renderizar a pagina
-Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');
-Route::get('/cadastro/search',[ ClientesController::class,'search'])->name('cadastro.search');
+
+//rotas de cursos
+Route::prefix('cursos')->group(function () {
+    Route::get('/', [CursosController::class, 'index'])->name('cursos.index');
+    Route::get('/incluir', [CursosController::class, 'incluir'])->name('cursos.incluir');
+    Route::post('/salvar', [CursosController::class, 'salvar'])->name('cursos.salvar');
+
+    Route::post('/editar', [CursosController::class, 'editar'])->name('cursos.editar');
+    Route::post('/remover', [CursosController::class, 'remover'])->name('cursos.remover');
+    Route::post('/visualizar', [CursosController::class, 'visualizar'])->name('cursos.visualizar');
+});
 
 
 // rota para inclusão do formulario modal
+Route::get('/cadastro', [ClientesController::class, 'index'])->name('cliente.index');
+Route::get('/cadastro/search',[ ClientesController::class,'search'])->name('cadastro.search');
 Route::get('/cliente',[ClientesController::class,'create'])->name('cliente.create');
 Route::get('/cliente/{id}',[ ClientesController::class,'show'])->name('cliente.show');
 Route::get('/cliente/{id}/edit',[ ClientesController::class,'edit'])->name('cliente.edit');
@@ -48,7 +59,6 @@ Route::delete('/cliente/{id}',[ ClientesController::class,'destroy'])->name('cli
 
 
 // rota de acesso as funionalidades de sistemas
-
 Route::get('/sistemas', [SistemasController::class, 'index'])->name('sistema.index');
 Route::post('/sistema/search',[SistemasController::class,'search'])->name('sistema.search');
 Route::get('/sistema',[SistemasController::class,'create'])->name('sistema.create');
