@@ -60,16 +60,16 @@
                         <a class="nav-link" href="#intro">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Objetivo">Preço</a>
+                        <a class="nav-link" href="#valores">Sobre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Segmentos">Blog</a>
+                        <a class="nav-link" href="#vantagens">Vantagens</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Contato">Contato</a>
+                        <a class="nav-link" href="https://api.whatsapp.com/send?phone=5511980439535">Contato</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Novidades">Novidades</a>
+                        <a class="nav-link" href="#novidades">Novidades</a>
                     </li>
 
                 </ul>
@@ -86,7 +86,7 @@
 
 <main>
     {{-- explicação dos tipos de intro  --}}
-    <section class="intro missao" data-anime="left">
+    <section class="intro missao" data-anime="left" id="intro">
         <img class="section-image animate__animated animate__jello" src="{{ asset('arquivos/imagens/logo.png') }}" alt="clevarxm">
         <h1><strong><b>Tudo</b> que você precisa em um só lugar</strong></h1>
         <p>Você está pronto para uma jornada de aprendizado de inglês como nunca antes? Prepare-se para explorar um
@@ -101,6 +101,79 @@
             jornada incrível juntos! Acesse agora mesmo a plataforma CXM e comece a sua jornada rumo à fluência!</p>
     </section>
 
+{{--    missao visao e valores--}}
+    <div class="container mt-5" id="valores">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 card-valores" >
+                    <i class="fas fa-bullseye card-vantagens-icons"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Missão</h5>
+                        <p class="card-subtitle-valores mb-2 ">Nossa missão na CXM é capacitar alunos de todo o mundo a alcançar fluência no inglês de forma conveniente e acessível, enquanto os preparamos para o vestibular e o ENEM. Buscamos fornecer um ambiente de aprendizado dinâmico e interativo, equipado com recursos de alta qualidade e suporte personalizado, para que cada aluno possa atingir seus objetivos linguísticos e alcançar seu pleno potencial acadêmico e profissional.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 card-valores">
+                    <i class="fas fa-binoculars card-vantagens-icons"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Visão</h5>
+                        <p class="card-subtitle-valores mb-2 ">Nosso objetivo na CXM é ser reconhecidos como a principal referência mundial em educação de inglês online. Enxergamos um futuro onde qualquer pessoa, em qualquer lugar do mundo, possa acessar oportunidades de aprendizado de alta qualidade e transformar suas vidas por meio do domínio do inglês.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 card-valores">
+                    <i class="fas fa-hands-helping card-vantagens-icons"></i>
+                    <div class="card-body">
+                        <h5 class="card-title">Valores</h5>
+                        <div class="card-subtitle-valores mb-2">
+
+                            <div class="form-check">
+                                <i class="fas fa-check form-check-input-red"></i>
+                                <label class="form-check-label" for="checkboxExcelencia">
+                                    Excelência
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <i class="fas fa-check form-check-input-red"></i>
+                                <label class="form-check-label" for="checkboxAcessibilidade">
+                                    Acessibilidade
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <i class="fas fa-check form-check-input-red"></i>
+                                <label class="form-check-label" for="checkboxInovacao">
+                                    Inovação
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <i class="fas fa-check form-check-input-red"></i>
+                                <label class="form-check-label" for="checkboxEmpatia">
+                                    Empatia
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <i class="fas fa-check form-check-input-red"></i>
+                                <label class="form-check-label" for="checkboxCompromisso">
+                                    Compromisso com o aluno
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <i class="fas fa-check form-check-input-red"></i>
+                                <label class="form-check-label" for="checkboxIntegridade">
+                                    Integridade
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- somente no mobile  --}}
     <article class="mobile-servicos" data-anime="right">
         <div class="container">
@@ -219,7 +292,7 @@
         </div>
     </article>
     {{-- vantagens  --}}
-    <article class="vantagens missao" data-anime="right">
+    <article class="vantagens missao" data-anime="right" id="vantagens">
         <h1><strong>Vantagens e <b>serviços</b> que<br> oferecemos </strong></h1>
         <div class="container mt-5">
             <div class="row">
@@ -295,10 +368,10 @@
             </div>
         </div>
         <br>
-        <div class="button-container">
-            <button id="start" class="start-button" onclick="irPara('{{route('login')}}')">Começar</button>
-            <button type="button" class=" learn-more-button btn btn-light">Saber mais</button>
-        </div>
+{{--        <div class="button-container">--}}
+{{--            <button id="start" class="start-button" onclick="irPara('{{route('login')}}')">Começar</button>--}}
+{{--            <button type="button" class=" learn-more-button btn btn-light">Saber mais</button>--}}
+{{--        </div>--}}
     </article>
     {{-- depoimentos  --}}
     <div class="svg">
@@ -446,7 +519,10 @@
         </div>
     </article>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#222629" fill-opacity="1" d="M0,128L480,192L960,224L1440,224L1440,0L960,0L480,0L0,0Z"></path></svg>
-    @include('Elements.emails.newsletter')
+
+    <div id="novidades">
+        @include('Elements.emails.newsletter')
+    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">

@@ -156,6 +156,27 @@ section{
     margin-right: 10px;
 }
 
+/*valores*/
+.card-valores{
+    background-color: rgba(245, 245, 245, 0.62);
+    border-radius: 15px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    border: none;
+    height: 450px; /* Altura fixa para todos os cards */
+}
+
+.card-valores:hover{
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.643);
+}
+.card-subtitle-valores{
+    padding: 20px;
+    text-align: left;
+
+}
+
+
+
 /*vantagens*/
 .card-vantagens {
     background-color: rgba(245, 245, 245, 0.62);
@@ -371,7 +392,14 @@ section{
     font-size: 1.2rem; /* Tamanho da fonte do título */
     margin-bottom: 20px; /* Espaçamento inferior */
 }
-
+/* Estilo para ícones vermelhos */
+.form-check-input-red {
+    color: red;
+    margin-right: 5px; /* Ajuste opcional para espaçamento entre o ícone e o texto */
+}
+.form-check{
+    margin-right: 20px;
+}
 .footer ul {
     list-style: none; /* Remove as bolinhas da lista */
     padding: 0; /* Remove o espaçamento interno */
