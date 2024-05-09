@@ -196,16 +196,16 @@
                         </figure>
                         <ul class="list-unstyled cx-list">
                             <li>
-                                <i class="fas fa-check"></i>
-                                <span class="phrases mb-4">Feedback Preciso e Contínuo</span>
+                                <i class="fas fa-check"  style="margin-bottom: 10px"></i>
+                                <span class="phrases mb-4">Monitore seu progresso em tempo real e ajuste sua abordagem de aprendizado conforme necessário.</span>
                             </li>
                             <li>
-                                <i class="fas fa-check"></i>
-                                <span class="phrases mb-4">Personalização do Plano de Estudos</span>
+                                <i class="fas fa-check"  style="margin-bottom: 10px"></i>
+                                <span class="phrases mb-4">Adapte seu plano de estudos de acordo com suas necessidades com nossa personalização avançada.</span>
                             </li>
                             <li>
-                                <i class="fas fa-check"></i>
-                                <span class="phrases mb-4">Acompanhamento do Progresso em Tempo Real</span>
+                                <i class="fas fa-check"  style="margin-bottom: 10px"></i>
+                                <span class="phrases mb-4">Garantimos um fluxo contínuo de feedback para impulsionar seu crescimento.</span>
                             </li>
                         </ul>
                     </div>
@@ -218,9 +218,7 @@
             </div>
         </div>
     </article>
-
-
-
+    {{-- vantagens  --}}
     <article class="vantagens missao" data-anime="right">
         <h1><strong>Vantagens e <b>serviços</b> que<br> oferecemos </strong></h1>
         <div class="container mt-5">
@@ -302,10 +300,6 @@
             <button type="button" class=" learn-more-button btn btn-light">Saber mais</button>
         </div>
     </article>
-
-
-
-
     {{-- depoimentos  --}}
     <div class="svg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000000" fill-opacity="1" d="M0,256L288,32L576,64L864,288L1152,32L1440,0L1440,320L1152,320L864,320L576,320L288,320L0,320Z"></path></svg>

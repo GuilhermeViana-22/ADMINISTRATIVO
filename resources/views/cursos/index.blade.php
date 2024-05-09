@@ -50,6 +50,16 @@
             </div>
         @endif
     </div>
+    @if(Session::has('alert'))
+        <script>
+            Swal.fire({
+                title: '{{ Session::get('alert') }}',
+                icon: '{{ Session::get('alert-type', 'info') }}',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
+    @endif
 @stop
 
 @section('content')
@@ -58,4 +68,5 @@
 
 @section('js')
     <script src="{{ asset('administrativo/js/dashboard.js') }}" defer></script>
+    <script src="{{ asset('administrativo/js/sweetalert2.all.js') }}" defer></script>
 @stop

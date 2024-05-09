@@ -61,7 +61,9 @@ class CursosController extends Controller
             $curso->save();
 
             DB::commit();
-            Alert::success('Sucesso', 'O curso foi cadastrado com sucesso')->persistent(true);
+            // Seu código aqui
+            Session::flash('alert', 'Curso cadastrado com sucesso!');
+            Session::flash('alert-type', 'success'); // ou 'error', 'warning', 'info', etc.
             return redirect()->back();
         } catch (Exception $e) {
             DB::rollBack();
